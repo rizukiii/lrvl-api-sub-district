@@ -1,0 +1,13 @@
+td.d-flex.flex-wrap {
+    justify-content: space-between; /* Mengatur jarak antar tombol */
+}
+
+td.d-flex.flex-wrap .btn {
+    flex: 0 0 calc(50% - 8px); /* Lebar tombol 50% dikurangi gap */
+    margin-bottom: 8px;        /* Jarak antar tombol vertikal */
+}
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membuat dua kolom dengan lebar sama */
+    gap: 8px; /* Jarak antar tombol */
+}
