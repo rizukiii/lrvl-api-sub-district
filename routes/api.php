@@ -14,3 +14,6 @@ Route::get('news/{id}', action: [NewsController::class, 'getDetailNews']);
 
 Route::get('gallery', action: [GalleryController::class, 'getAllGallery']);
 Route::get('gallery/{id}', action: [GalleryController::class, 'getDetailGallery']);
+
+Route::get('announcement', action: [NewsController::class, 'getAllNews']);
+Route::get('announcement/{id}', action: [NewsController::class, 'getDetailNews']);

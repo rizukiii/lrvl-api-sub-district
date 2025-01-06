@@ -1,13 +1,13 @@
 @extends('layouts.admin')
-@section('title', 'News')
+@section('title', 'Announcement')
 @section('content')
 
 <div class="container-fluid">
     <div class="card">
         <div class="card-header d-flex">
-            <h5 class="card-title fw-semibold mb-2">News Page</h5>
+            <h5 class="card-title fw-semibold mb-2">Announcement Page</h5>
             <button class="btn btn-dark ms-auto" data-bs-toggle="modal" data-bs-target="#createModal">
-                <span><i class="ti ti-plus"></i> Tambah News</span>
+                <span><i class="ti ti-plus"></i> Tambah Announcement</span>
             </button>
         </div>
         <div class="card-body">
@@ -15,15 +15,15 @@
 
             <!-- Search Form -->
             <div class="d-flex mb-3">
-                <form action="{{ route('news.index') }}" method="GET" class="d-flex w-100">
-                    <input type="text" name="search" class="form-control me-2" placeholder="Search news..." value="{{ request('search') }}">
+                <form action="{{ route('announcement.index') }}" method="GET" class="d-flex w-100">
+                    <input type="text" name="search" class="form-control me-2" placeholder="Search announcement..." value="{{ request('search') }}">
                     <button type="submit" class="btn btn-success">
                         <i class="ti ti-search"></i> Cari
                     </button>
                 </form>
             </div>
 
-            <!-- News Table -->
+            <!-- Announcement Table -->
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead class="text-center bg-light">
@@ -37,11 +37,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($news as $item)
+                        @forelse ($announcement as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    <img src="{{ Storage::url($item->image) }}" alt="news image" class="rounded img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
+                                    <img src="{{ Storage::url($item->image) }}" alt="announcement image" class="rounded img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
                                 </td>
                                 <td class="w-25">{{ Str::limit($item->title, 30, '...') }}</td>
                                 <td class="w-25">{{ Str::limit($item->description, 30, '...') }}</td>
@@ -56,7 +56,7 @@
                                     <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
                                         <i class="ti ti-trash"></i>
                                     </button>
-                                    <form id="delete-form-{{ $item->id }}" action="{{ route('news.destroy', $item->id) }}" method="POST" style="display: none;">
+                                    <form id="delete-form-{{ $item->id }}" action="{{ route('announcement.destroy', $item->id) }}" method="POST" style="display: none;">
                                         @csrf
                                         @method('DELETE')
                                     </form>
@@ -68,11 +68,11 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="infoModalLabel{{ $item->id }}">News Detail</h5>
+                                            <h5 class="modal-title" id="infoModalLabel{{ $item->id }}">Announcement Detail</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ Storage::url($item->image) }}" alt="news image" class="img-fluid rounded mb-3">
+                                            <img src="{{ Storage::url($item->image) }}" alt="announcement image" class="img-fluid rounded mb-3">
                                             <h5>{{ $item->title }}</h5>
                                             <p>{{ $item->description }}</p>
                                             <p><strong>Date:</strong> {{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</p>
@@ -86,15 +86,15 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editModalLabel{{ $item->id }}">Edit News</h5>
+                                            <h5 class="modal-title" id="editModalLabel{{ $item->id }}">Edit Announcement</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('news.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('announcement.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3 d-flex align-items-center justify-content-center">
                                                     <div class="me-2">
-                                                        <img src="{{ Storage::url($item->image) }}" alt="news image" class="img-thumbnail rounded" style="width: 100px;">
+                                                        <img src="{{ Storage::url($item->image) }}" alt="announcement image" class="img-thumbnail rounded" style="width: 100px;">
                                                     </div>
                                                     <div>
                                                         <img id="preview{{ $item->id }}" src="#" alt="Preview Image" class="img-thumbnail rounded" style="display: none; width: 102px;">
@@ -133,7 +133,7 @@
 
             <!-- Pagination -->
             <div class="mt-3 d-flex justify-content-center">
-                {{ $news->withQueryString()->links('pagination::bootstrap-5') }}
+                {{ $announcement->withQueryString()->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>
@@ -144,11 +144,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createModalLabel">Add New News</h5>
+                <h5 class="modal-title" id="createModalLabel">Add New Announcement</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('announcement.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <img id="previewCreate" src="#" alt="Preview Image" class="img-fluid rounded mt-2 mb-3" style="display: none; width: 100px">
@@ -160,11 +160,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Enter news title">
+                        <input type="text" class="form-control" name="title" placeholder="Enter announcement title">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" rows="4" placeholder="Enter news description"></textarea>
+                        <textarea class="form-control" name="description" rows="4" placeholder="Enter announcement description"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>

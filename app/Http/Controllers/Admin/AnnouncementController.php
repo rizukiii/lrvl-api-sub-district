@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\News;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +14,7 @@ class AnnouncementController extends Controller
      */
     public function index(Request $request)
     {
-        $query = News::query();
+        $query = Announcement::query();
 
         // Handle searching
         if ($request->has('search') && $request->search != '') {
@@ -24,10 +24,10 @@ class AnnouncementController extends Controller
         }
 
         // Pagination
-        $news = $query->orderBy('date', 'desc')
+        $announcement = $query->orderBy('date', 'desc')
         ->paginate(5); // 5 items per page
 
-        return view('admin.news.index', compact('news'));
+        return view('admin.announcement.index', compact('announcement'));
     }
 
     /**
@@ -45,20 +45,20 @@ class AnnouncementController extends Controller
 
         // Proses file gambar
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('images/news', 'public');
+            $data['image'] = $request->file('image')->store('images/announcement', 'public');
         }
 
-        if (News::create($data)) {
-            return redirect()->route('news.index')->withSuccess('News Berhasil Ditambahkan');
+        if (Announcement::create($data)) {
+            return redirect()->route('announcement.index')->withSuccess('Announcement Berhasil Ditambahkan');
         }
 
-        return back()->withInput()->withErrors('News Gagal Ditambahkan');
+        return back()->withInput()->withErrors('Announcement Gagal Ditambahkan');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, News $id)
+    public function update(Request $request, Announcement $id)
     {
         $request->validate([
             'title' => 'nullable|string',
@@ -74,30 +74,30 @@ class AnnouncementController extends Controller
             if ($id->image && Storage::exists($id->image)) {
                 Storage::delete($id->image);
             }
-            $data['image'] = $request->file('image')->store('images/news', 'public');
+            $data['image'] = $request->file('image')->store('images/announcement', 'public');
         }
 
         if ($id->update($data)) {
-            return redirect()->route('news.index')->withSuccess('News Berhasil Diubah');
+            return redirect()->route('announcement.index')->withSuccess('Announcement Berhasil Diubah');
         }
 
-        return back()->withInput()->withErrors('News Gagal Diubah');
+        return back()->withInput()->withErrors('Announcement Gagal Diubah');
     }
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(News $id)
+    public function destroy(Announcement $id)
     {
         if ($id->image && Storage::exists($id->image)) {
             Storage::delete($id->image);
         }
 
         if ($id->delete()) {
-            return back()->withSuccess('News Berhasil Di Hapus!');
+            return back()->withSuccess('Announcement Berhasil Di Hapus!');
         } else {
-            return back()->withErrors('News Gagal Di Hapus!');
+            return back()->withErrors('Announcement Gagal Di Hapus!');
         }
     }
 
