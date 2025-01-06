@@ -15,20 +15,27 @@
                 <form action="{{ route('hamlets_number.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Enter hamlets_number title">
+                        <label for="street" class="form-label">Street</label>
+                        <textarea class="form-control" name="street" rows="4" placeholder="Enter Hamlets Number Street"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" rows="4" placeholder="Enter hamlets_number description"></textarea>
+                        <label for="number" class="form-label">Number</label>
+                        <input type="number" class="form-control" name="number" placeholder="Enter Hamlets Number">
                     </div>
                     <div class="mb-3">
-                        <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" name="date">
+                        <label for="rt" class="form-label">RT</label>
+                        <input type="number" class="form-control" name="rt">
                     </div>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <div class="mb-3">
+                        <label for="rw" class="form-label">RW</label>
+                        <input type="number" class="form-control" name="rw">
+                    </div>
+                    <div class="mb-3">
+                        <label for="village" class="form-label">Village</label>
+                        <input type="text" class="form-control" name="village">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>
-
             </div>
         </div>
     </div>

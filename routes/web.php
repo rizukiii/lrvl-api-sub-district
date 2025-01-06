@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\GalleryDetailController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\HamletNumberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,8 @@ Route::get('dashboard', function () {
     Route::post('announcement', [AnnouncementController::class, 'store'])->name('announcement.store');
     Route::post('announcement/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
     Route::delete('announcement/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
+
+    Route::get('hamlets_number',[HamletNumberController::class, 'index'])->name('announcement.index');
 
 
     // });
