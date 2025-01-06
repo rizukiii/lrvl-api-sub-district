@@ -18,97 +18,97 @@
 
         <div class="card-body">
             @include('admin.partials.alert')
-            <!-- Deskripsi atau Penjelasan Singkat -->
-            <div class="mb-4">
-                <p>Kelola gambar dalam album ini. Anda dapat menambahkan, mengedit, atau menghapus gambar album sesuai kebutuhan.</p>
-            </div>
 
             <!-- Tabel Daftar Gambar -->
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th class="text-center">#</th>
-                        <th class="text-center">Gambar</th>
-                        <th class="text-center">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($album as $item)
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="text-center bg-light">
                         <tr>
-                            <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center w-50">
-                                <img src="{{ Storage::url($item->image) }}" alt="album album" style="width: 100px; height: 100px; object-fit: cover" class="rounded img-thumbnail">
-                            </td>
-                            <td class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
-                                    <i class="ti ti-info-circle"></i>
-                                </button>
-                                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
-                                    <i class="ti ti-edit"></i>
-                                </button>
-                                <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
-                                    <i class="ti ti-trash"></i>
-                                </button>
-                                <form id="delete-form-{{ $item->id }}" action="{{ route('album.destroy', $item->id) }}" method="POST" style="display: none;">
-                                    @csrf
-                                    @method('DELETE')
-                                </form>
-                            </td>
+                            <th>No</th>
+                            <th>Gambar</th>
+                            <th>Aksi</th>
                         </tr>
-
-                        <!-- Info Modal -->
-                        <div class="modal fade" id="infoModal{{ $item->id }}" tabindex="-1" aria-labelledby="infoModalLabel{{ $item->id }}" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="infoModalLabel{{ $item->id }}">Detail Gambar</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </thead>
+                    <tbody>
+                        @forelse ($album as $item)
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center w-50">
+                                    <img src="{{ Storage::url($item->image) }}" alt="album image" class="img-thumbnail rounded" style="width: 100px; height: 100px; object-fit: cover;">
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
+                                            <i class="ti ti-info-circle"></i>
+                                        </button>
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                            <i class="ti ti-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
+                                            <i class="ti ti-trash"></i>
+                                        </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <img src="{{ Storage::url($item->image) }}" alt="album album" class="img-fluid rounded mb-3">
-                                        <h5>{{ $item->gallery_id }}</h5>
+                                    <form id="delete-form-{{ $item->id }}" action="{{ route('album.destroy', $item->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </td>
+                            </tr>
+
+                            <!-- Info Modal -->
+                            <div class="modal fade" id="infoModal{{ $item->id }}" tabindex="-1" aria-labelledby="infoModalLabel{{ $item->id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="infoModalLabel{{ $item->id }}">Detail Gambar</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ Storage::url($item->image) }}" alt="album image" class="img-fluid rounded mb-3">
+                                            <h5>ID Gallery: {{ $item->gallery_id }}</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Edit Modal -->
-                        <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="editModalLabel{{ $item->id }}">Edit Gambar</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="{{ route('album.update', $item->id) }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            @method('PUT')
-                                            <div class="mb-3 d-flex align-items-center justify-content-center">
-                                                <div class="me-2">
-                                                    <img src="{{ Storage::url($item->image) }}" alt="album album" class="img-thumbnail rounded" style="width: 100px;">
+                            <!-- Edit Modal -->
+                            <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModalLabel{{ $item->id }}">Edit Gambar</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('album.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="mb-3 d-flex align-items-center justify-content-center">
+                                                    <div class="me-2">
+                                                        <img src="{{ Storage::url($item->image) }}" alt="album image" class="img-thumbnail rounded" style="width: 100px;">
+                                                    </div>
+                                                    <div>
+                                                        <img id="preview{{ $item->id }}" src="#" alt="Preview Gambar" class="img-thumbnail rounded" style="display: none; width: 102px;">
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <img id="preview{{ $item->id }}" src="#" alt="Preview Gambar" class="img-thumbnail rounded" style="display: none; width: 102px;">
+                                                <div class="mb-3">
+                                                    <label for="image" class="form-label">Gambar</label>
+                                                    <input type="file" class="form-control" name="image" id="image{{ $item->id }}" onchange="previewImage(event, 'preview{{ $item->id }}')">
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="image" class="form-label">Gambar</label>
-                                                <input type="file" class="form-control" name="image" id="image{{ $item->id }}" onchange="previewImage(event, 'preview{{ $item->id }}')">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
-                                        </form>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @empty
-                        <tr>
-                            <td colspan="3" class="text-center text-danger">Tidak ada gambar dalam album ini.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                        @empty
+                            <tr>
+                                <td colspan="3" class="text-center text-danger">Tidak ada gambar dalam album ini.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
 
             <!-- Pagination -->
             <div class="mt-3 d-flex justify-content-center">

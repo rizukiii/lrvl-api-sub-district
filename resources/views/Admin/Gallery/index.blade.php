@@ -8,7 +8,7 @@
             <h5 class="card-title fw-semibold mb-0">Gallery Page</h5>
             <button class="btn btn-dark ms-auto" data-bs-toggle="modal" data-bs-target="#createModal">
                 <span>
-                    <i class="ti ti-plus"></i> Add Gallery
+                    <i class="ti ti-plus"></i> Tambah Gallery
                 </span>
             </button>
         </div>
@@ -28,12 +28,12 @@
 
             <!-- Gallery Table -->
             <table class="table table-bordered table-striped">
-                <thead>
+                <thead class="text-center bg-light">
                     <tr>
                         <th>No</th>
                         <th>Gambar</th>
                         <th>Judul</th>
-                        <th class="text-center">Aksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,8 +43,8 @@
                             <td>
                                 <img src="{{ Storage::url($item->image) }}" alt="gambar gallery" style="width: 100px; height: 100px; object-fit: cover" class="rounded img-thumbnail">
                             </td>
-                            <td>{{ Str::limit($item->title, 30, '...') }}</td>
-                            <td class="text-center">
+                            <td>{{ Str::limit($item->title, 50, '...') }}</td>
+                            <td>
                                 <a href="{{ route('album.index', $item->id) }}" class="btn btn-primary">
                                     <i class="ti ti-camera text-light"></i>
                                 </a>
