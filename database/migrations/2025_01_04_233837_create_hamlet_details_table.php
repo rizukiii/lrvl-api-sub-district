@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('hamlet_details', function (Blueprint $table) {
             $table->id();
+            $table->numeric();
             $table->timestamps();
         });
     }
