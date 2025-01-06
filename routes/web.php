@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\GalleryDetailController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ProfileController;
@@ -33,6 +34,13 @@ Route::get('dashboard', function () {
     Route::post('album/{id}', [GalleryDetailController::class, 'store'])->name('album.store');
     Route::put('album/{id}', [GalleryDetailController::class, 'update'])->name('album.update');
     Route::delete('album/{id}', [GalleryDetailController::class, 'destroy'])->name('album.destroy');
+
+    Route::get('announcement', [AnnouncementController::class, 'index'])->name('announcement.index');
+    Route::post('announcement', [AnnouncementController::class, 'store'])->name('announcement.store');
+    Route::post('announcement/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
+    Route::delete('announcement/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
+
+
     // });
 
 require __DIR__ . '/auth.php';

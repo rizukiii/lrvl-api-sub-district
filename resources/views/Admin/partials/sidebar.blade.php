@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="3" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('announcement.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-news"></i>
                         </span>
