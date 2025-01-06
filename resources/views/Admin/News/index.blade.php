@@ -90,6 +90,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
+                                            @include('Admin.partials.alert')
                                             <form action="{{ route('news.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3 d-flex align-items-center justify-content-center">
