@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('hamlet_numbers_id');
             $table->text('description');
             $table->timestamps();
+
+            $table->foreign('hamlet_numbers_id')->references('id')->on('hamlet_numbers')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

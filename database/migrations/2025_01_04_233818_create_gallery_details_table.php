@@ -22,7 +22,7 @@ return new class extends Migration
             ->references('id')
             ->on('galleries')
             ->onUpdate('cascade')
-            ->onDelete('restrict');
+            ->onDelete('cascade');
         });
     }
 

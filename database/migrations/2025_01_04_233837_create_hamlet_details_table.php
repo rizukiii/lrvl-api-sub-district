@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('hamlet_details', function (Blueprint $table) {
             $table->id();
-            $table->numeric();
+            $table->unsignedBigInteger('hamlets_id');
+            $table->text('maps');
             $table->timestamps();
+
+            $table->foreign('hamlets_id')->references('id')->on('hamlets')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
