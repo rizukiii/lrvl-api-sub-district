@@ -308,6 +308,20 @@
             <li>Perempuan: 197 Jiwa</li>
         </ul>
     </ul>
+    <li><strong>Mati</strong></li>
+    <ul class="indent">
+        <li>Laki-laki: 124 Jiwa</li>
+        <li>Perempuan: 134 Jiwa</li>
+    </ul>
+    </ul>
+
+    <h3>Pertumbuhan Penduduk pada Tahun 2020:</h3>
+    <ul>
+        <ul class="indent">
+            <li>Laki-laki: 180 Jiwa</li>
+            <li>Perempuan: 170 Jiwa</li>
+        </ul>
+    </ul>
 
 
 
