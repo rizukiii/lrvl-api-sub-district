@@ -61,14 +61,14 @@
 </head>
 
 <body>
-    <h1>PROFIL</h1>
-
-    <h2>GAMBARAN UMUM KONDISI DESA</h2>
-
     <!-- Gambar -->
     <img src="condongcatur.jpg" alt="Gambar Desa">
+    <p>GAMBARAN UMUM KONDISI DESA</p>
 
-    <h2>Sejarah Kalurahan Condongcatur</h2>
+    <p></p>
+    <p></p>
+
+    <strong>Sejarah Kalurahan Condongcatur</strong>
 
     <p>
         Pemerintah Kalurahan Condongcatur berdiri pada tanggal 26 Desember 1946 berdasarkan Maklumat Pemerintah Daerah
