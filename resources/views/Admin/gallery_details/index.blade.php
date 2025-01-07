@@ -129,9 +129,12 @@
             <div class="modal-body">
                 <form action="{{ route('album.store', $gallery->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <div>
+                        <img id="previewCreate" src="#" alt="Preview Gambar" class="img-fluid rounded mt-2 mb-3" style="display: none; width: 100px">
+                    </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Gambar</label>
-                        <input type="file" class="form-control" name="image" id="image" required>
+                        <input type="file" class="form-control" name="image" id="imageCreate" onchange="previewImage(event, 'previewCreate')">
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah Gambar</button>
                 </form>

@@ -11,6 +11,7 @@
                 </a>
             </div>
             <div class="card-body">
+                @include('admin.partials.alert')
                 <form action="{{ route('hamlet_number.update', $hamlet_number->id) }}" method="post">
                     @csrf
                     @method('PUT') <!-- Specify the HTTP method -->

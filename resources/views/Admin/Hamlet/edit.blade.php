@@ -1,39 +1,43 @@
 @extends('layouts.admin')
-@section('title', 'Hamlets Street')
+@section('title', 'Hamlet')
 @section('content')
 
     <div class="container-fluid">
         <div class="card">
             <div class="card-header d-flex">
-                <h5 class="card-title fw-semibold mb-2">Hamlets Street Page</h5>
-                <a href="{{ route('hamlet_number.index') }}" class="btn btn-primary ms-auto">
+                <h5 class="card-title fw-semibold mb-2">Hamlet Page</h5>
+                <a href="{{ route('hamlet.index') }}" class="btn btn-primary ms-auto">
                     <i class="ti ti-arrow-left"></i> Kembali
                 </a>
             </div>
             <div class="card-body">
-                <form action="{{ route('hamlet_number.update', $hamlet_number->id) }}" method="post">
+                @include('admin.partials.alert')
+                <form action="{{ route('hamlet.update', $hamlet->id) }}" method="post">
                     @csrf
                     @method('PUT') <!-- Specify the HTTP method -->
-
-                    <div class="mb-3">
-                        <label for="street" class="form-label">Street</label>
-                        <textarea class="form-control" name="street" rows="4">{{ old('street', $hamlet_number->street) }}</textarea>
+                    <div class="mb-3 d-flex align-items-center justify-content-center">
+                        <div class="me-2">
+                            <img src="{{ Storage::url($hamlet->image) }}" alt="album image" class="img-thumbnail rounded" style="width: 100px;">
+                        </div>
+                        <div>
+                            <img id="preview{{ $hamlet->id }}" src="#" alt="Preview Gambar" class="img-thumbnail rounded" style="display: none; width: 102px;">
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="number" class="form-label">Number</label>
-                        <input type="number" class="form-control" name="number" value="{{ old('number', $hamlet_number->number) }}">
+                        <label for="image" class="form-label">Gambar</label>
+                        <input type="file" class="form-control" name="image" id="image{{ $hamlet->id }}" onchange="previewImage(event, 'preview{{ $hamlet->id }}')">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" value="{{ old('name', $hamlet->name) }}">
                     </div>
                     <div class="mb-3">
                         <label for="rt" class="form-label">RT</label>
-                        <input type="number" class="form-control" name="rt" value="{{ old('rt', $hamlet_number->rt) }}">
+                        <input type="number" class="form-control" name="rt" value="{{ old('rt', $hamlet->rt) }}">
                     </div>
                     <div class="mb-3">
-                        <label for="rw" class="form-label">RW</label>
-                        <input type="number" class="form-control" name="rw" value="{{ old('rw', $hamlet_number->rw) }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="village" class="form-label">Village</label>
-                        <input type="text" class="form-control" name="village" value="{{ old('village', $hamlet_number->village) }}">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" name="title" value="{{ old('title', $hamlet->title) }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

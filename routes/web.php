@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\GalleryDetailController;
 use App\Http\Controllers\Admin\HamletNumberController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\HamletController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,9 @@ Route::get('dashboard', function () {
 
     // Hamlet Numbers
     Route::resource('hamlet_number', HamletNumberController::class);
+
+    Route::resource('hamlet', HamletController::class);
+
 // });
 
 // Authentication routes

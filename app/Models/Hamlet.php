@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hamlet extends Model
 {
-    protected $table = 'hamlet';
+    protected $table = 'hamlets';
     protected $primarykey = 'id';
     protected $fillable = [
         'name',
