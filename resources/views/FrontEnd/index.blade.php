@@ -71,6 +71,29 @@
             list-style-type: decimal;
             margin-left: 20px;
         }
+
+        .geografis {
+            font-optical-sizing: 18px;
+        }
+
+        .alam {
+            font-size: 18px;
+        }
+
+
+        .subGeografis {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+
+        .orbitase {
+            font-size: 18px;
+        }
+
+        .jarak {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
     </style>
 </head>
 
@@ -218,6 +241,34 @@
     <p>
         Kalurahan Condongcatur merupakan salah satu dari 3 (tiga) Kalurahan yang berada di Kapanewon Depok yang
         terdiri dari 18 Padukuhan, 64 RW dan 211 RT.
+    </p>
+
+    <h3 class="geografis">3. Keadaan Geografis</h3>
+
+    <h3 class="alam">4. Keadaan Alam</h3>
+    <ul class="subGeografis">
+        <li>Ketinggian dari permukaan laut: ± 250 M</li>
+        <li>Curah hujan rata-rata tiap tahun: 2.500–3.000 mm</li>
+        <li>Topografi: Dataran rendah</li>
+        <li>Suhu udara rata-rata: 26°C s/d 32°C</li>
+    </ul>
+
+    <h3 class="orbitase">2. Orbitase (Jarak dari Pusat Pemerintahan Desa)</h3>
+    <ul class="jarak">
+        <li>Jarak dari Pusat Pemerintahan Kecamatan: 0,4 km</li>
+        <li>Jarak dari Ibukota Kabupaten: 8,5 km</li>
+        <li>Jarak dari Ibukota Provinsi: 7,1 km</li>
+        <li>Jarak dari Ibukota Negara: 536 km</li>
+    </ul>
+
+    <h3>3. Kondisi Demografis</h3>
+    <p>
+        Jumlah penduduk Desa Condongcatur Tahun 2020 menurut hasil administrasi pelayanan dengan sistem SIAK adalah
+        48.841 jiwa dengan perkembangan penduduk stabil. Penduduk Kalurahan Condongcatur pada umumnya menggunakan bahasa
+        Indonesia karena merupakan pusat pendidikan dari daerah-daerah di seluruh Indonesia, sedangkan mayoritas
+        penduduk
+        adalah beragama Islam kurang lebih 89% dan lainnya adalah agama Kristen, Katolik, Budha, Hindu, Konghucu, dan
+        aliran kepercayaan.
     </p>
 
 
