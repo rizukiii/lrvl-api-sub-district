@@ -45,6 +45,11 @@ Route::get('dashboard', function () {
 
     Route::resource('hamlet', HamletController::class);
 
+    // route index.html
+    Route::get('index', function(){
+        return view('FrontEnd.index');
+    });
+
 // });
 
 // Authentication routes
