@@ -19,7 +19,7 @@ class GalleryDetailController extends Controller
         $gallery = Gallery::findOrFail($id);
         $galleries = Gallery::all(); // Add this line to fetch all galleries
 
-        return view('admin.gallerydetails.index', compact('album', 'gallery', 'galleries'));
+        return view('admin.gallery_details.index', compact('album', 'gallery', 'galleries'));
     }
 
 

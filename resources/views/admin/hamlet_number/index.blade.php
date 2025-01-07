@@ -90,7 +90,7 @@
                                 </div>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="text-center text-danger fw-bold">No data available.</td>
+                                    <td colspan="9" class="text-center text-danger fw-bold">No data available.</td>
                                 </tr>
                             @endforelse
                         </tbody>

@@ -11,7 +11,7 @@
             </button>
         </div>
         <div class="card-body">
-            @include('Admin.partials.alert')
+            @include('admin.partials.alert')
 
             <!-- Search Form -->
             <div class="d-flex mb-3">
