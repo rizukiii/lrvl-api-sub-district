@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\HamletNumber;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,10 @@ class HamletNumberController extends Controller
      */
     public function index()
     {
-        return view('admin.hamlets_number.index');
+        $query = HamletNumber::query();
+        $hamlet_number = $query->orderBy('street', 'desc')->paginate(5);
+
+        return view('admin.hamlet_number.index',compact('hamlet_number'));
     }
 
     /**
@@ -20,7 +24,7 @@ class HamletNumberController extends Controller
      */
     public function create()
     {
-        return view('admin.hamlets_number.create');
+        return view('admin.hamlet_number.create');
     }
 
     /**
@@ -28,38 +32,70 @@ class HamletNumberController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'street' => 'required|string',
+            'number' => 'required|numeric',
+            'rt' => 'required|numeric',
+            'rw' => 'required|numeric',
+            'village' => 'required|string',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(HamletNumber $hamletNumber)
-    {
-        //
+        $data = $request->only('street', 'number', 'rt', 'rw', 'village');
+
+        if (HamletNumber::create($data)) {
+            return redirect()->route('hamlet_number.index')->withSuccess('Hamlet Number Berhasil Ditambahkan');
+        }
+
+        return back()->withInput()->withErrors('Hamlet Gagal Ditambahkan');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HamletNumber $hamletNumber)
+    public function edit($id)
     {
-        //
+        $hamlet_number = HamletNumber::findOrFail($id);
+
+        return view('admin.hamlet_number.edit',compact('hamlet_number'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, HamletNumber $hamletNumber)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'street' => 'required|string',
+            'number' => 'required|numeric',
+            'rt' => 'required|numeric',
+            'rw' => 'required|numeric',
+            'village' => 'required|string',
+        ]);
+
+        $data = $request->only('street', 'number', 'rt', 'rw', 'village');
+
+
+        $hamletNumber = HamletNumber::findOrFail($id);
+
+        if ($hamletNumber->update($data)) {
+            return redirect()->route('hamlet_number.index')->withSuccess('Hamlet Number Berhasil Diubah');
+        }
+
+        return back()->withInput()->withErrors('Hamlet Number Gagal Diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HamletNumber $hamletNumber)
+    public function destroy($id)
     {
-        //
+
+        $hamlets_number = HamletNumber::findOrFail($id);
+
+        if ($hamlets_number->delete()) {
+            return back()->withSuccess('Hamlet Number Berhasil Di Hapus!');
+        } else {
+            return back()->withErrors('Hamlet Number Gagal Di Hapus!');
+        }
     }
 }
