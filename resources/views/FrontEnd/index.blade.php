@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PKK (Pemberdayaan dan Kesejahteraan)</title>
+  <title>Profil Desa Pendowoharjo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,19 +11,25 @@
       line-height: 1.6;
     }
 
-    h1 {
-      font-size: 18px;
+    h1, h2 {
       text-align: center;
+      margin: 16px 0;
     }
 
-    h2 {
-      font-size: 16px;
-      text-align: center;
-      margin-top: 20px;
+    img {
+      display: block;
+      margin: 16px auto;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
     }
 
-    p {
+    p, ul {
       text-align: justify;
+    }
+
+    ul {
+      margin-top: 16px;
     }
 
     table {
@@ -67,84 +73,79 @@
   </style>
 </head>
 <body>
-  <h1>PKK (Pemberdayaan dan Kesejahteraan)</h1>
+  <h1>PROFIL</h1>
+
+  <h2>GAMBARAN UMUM KONDISI DESA</h2>
+
+  <!-- Gambar -->
+  <img src="condongcatur.jpg" alt="Gambar Desa">
+
+  <h2>1. Sejarah Desa Pendowoharjo</h2>
+
   <p>
-    Selanjutnya di singkat PKK, adalah gerakan nasional dalam pembangunan masyarakat yang tumbuh dari bawah
-    yang pengelolaannya DARI, OLEH dan UNTUK masyarakat menuju terwujudnya keluarga yang beriman dan bertaqwa
-    kepada Tuhan Yang Maha Esa, berakhlak mulia dan berbudi luhur, sehat sejahtera, maju dan mandiri,
-    kesetaraan dan keadilan gender serta kesadaran hukum dan lingkungan.
-  </p>
-  <p>
-    Tim Penggerak Pemberdayaan dan Kesejahteraan Keluarga (TP.PKK) adalah mitra kerja pemerintah dan organisasi
-    kemasyarakatan, yang berfungsi sebagai fasilitator, perencana, pelaksana, pengendali dan penggerak pada
-    masing-masing jenjang untuk terlaksananya program PKK.
+    Desa Pendowoharjo lahir tepat pada tanggal 26 Desember 1946 (setelah digabung) yang asal mulanya berasal dari 5 (lima) kalurahan lama antara lain:
   </p>
 
-  <h2>Susunan Keanggotaan<br>Tim Penggerak PKK Desa Pendowoharjo</h2>
+  <ul>
+    <li>
+      <strong>Karangede</strong> (dengan sebutan Kring) terdiri dari Pedukuhan Dagen dan Pedukuhan Cepit.
+    </li>
+    <li>
+      <strong>Ngroket</strong> (Kring Ngroket) terdiri dari Pedukuhan Sawahan, Pedukuhan Krandonan, Pedukuhan Ngimbangan dan Pedukuhan Miri.
+    </li>
+    <li>
+      <strong>Bandung</strong> (Kring Bandung) terdiri dari Pedukuhan Bandung, Pedukuhan Ngglik, Pedukuhan Monggang dan Pedukuhan Kaliputih.
+    </li>
+    <li>
+      <strong>Krantil</strong> (Kring Krantil) terdiri dari Pedukuhan Blunyahan, Pedukuhan Pucung dan Pedukuhan Diro.
+    </li>
+    <li>
+      <strong>Pendowo</strong> (Kring Pendowo) terdiri dari Pedukuhan Rogotirto, Pedukuhan Banyur, dan Pedukuhan Pedurenan.
+    </li>
+  </ul>
 
+  <h2>Pejabat Lurah dari Sejak Lahirnya Desa Pendowoharjo Sampai Sekarang:</h2>
+
+  <!-- Tabel -->
   <table>
     <thead>
       <tr>
-        <th>NO</th>
-        <th>JABATAN</th>
-        <th>NAMA</th>
+        <th>No</th>
+        <th>Periode</th>
+        <th>Nama</th>
+        <th>Alamat</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
-        <td>Ketua Pembina</td>
-        <td>H. Hilmi Hakimudin, S.Pd.I</td>
+        <td>Tahun 1946</td>
+        <td>Hargo Winastanto</td>
+        <td>Pirihan</td>
       </tr>
       <tr>
         <td>2</td>
-        <td>Ketua</td>
-        <td>Ny. Faiqoh</td>
+        <td>Tahun 1950</td>
+        <td>Wiryo Taruno</td>
+        <td>Ngroket</td>
       </tr>
       <tr>
         <td>3</td>
-        <td>Wakil Ketua I</td>
-        <td>Ny. Endarti</td>
+        <td>Tahun 1965</td>
+        <td>Sumarno</td>
+        <td>Bandung</td>
       </tr>
       <tr>
         <td>4</td>
-        <td>Wakil Ketua II</td>
-        <td>Ny. Trihawati</td>
+        <td>Tahun 1980</td>
+        <td>Sugiyono</td>
+        <td>Krantil</td>
       </tr>
       <tr>
         <td>5</td>
-        <td>Wakil Ketua III</td>
-        <td>Ny. Sumaryati</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Sekretaris I</td>
-        <td>Dyah Munarsdiani</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Sekretaris II</td>
-        <td>Iswanti</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Bendahara</td>
-        <td>Ny. Yuli Purnowati</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>Ketua Pokja I</td>
-        <td>Sri Purwatiningsih</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>Sekretaris Pokja I</td>
-        <td>Jazimah</td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>Anggota</td>
-        <td>Dewi Samisati</td>
+        <td>Tahun 2000</td>
+        <td>Subagyo</td>
+        <td>Pendowo</td>
       </tr>
     </tbody>
   </table>
