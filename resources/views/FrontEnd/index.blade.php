@@ -80,24 +80,27 @@
   <!-- Gambar -->
   <img src="condongcatur.jpg" alt="Gambar Desa">
 
-  <h2>1. Sejarah Desa Pendowoharjo</h2>
+  <h2>Sejarah Kalurahan Condongcatur</h2>
 
   <p>
-    Desa Pendowoharjo lahir tepat pada tanggal 26 Desember 1946 (setelah digabung) yang asal mulanya berasal dari 5 (lima) kalurahan lama antara lain:
+    Pemerintah Kalurahan Condongcatur berdiri pada tanggal 26 Desember 1946 berdasarkan Maklumat Pemerintah Daerah Istimewa Yogyakarta Nomor 5 Tahun 1948.
+  </p>
+  <p>
+    Sebelum tahun 1946 Wilayah Desa Condongcatur terbagi menjadi 4 (empat) Kalurahan, yang terdiri dari :
   </p>
 
   <ul>
     <li>
-      <strong>Karangede</strong> (dengan sebutan Kring) terdiri dari Pedukuhan Dagen dan Pedukuhan Cepit.
+      <strong>Kalurahan Manukan</strong> (dengan sebutan Kring) terdiri dari Pedukuhan Dagen dan Pedukuhan Cepit.
     </li>
     <li>
-      <strong>Ngroket</strong> (Kring Ngroket) terdiri dari Pedukuhan Sawahan, Pedukuhan Krandonan, Pedukuhan Ngimbangan dan Pedukuhan Miri.
+      <strong>Kalurahan Gorongan</strong> (Kring Ngroket) terdiri dari Pedukuhan Sawahan, Pedukuhan Krandonan, Pedukuhan Ngimbangan dan Pedukuhan Miri.
     </li>
     <li>
-      <strong>Bandung</strong> (Kring Bandung) terdiri dari Pedukuhan Bandung, Pedukuhan Ngglik, Pedukuhan Monggang dan Pedukuhan Kaliputih.
+      <strong>Kalurahan Gejayan</strong> (Kring Bandung) terdiri dari Pedukuhan Bandung, Pedukuhan Ngglik, Pedukuhan Monggang dan Pedukuhan Kaliputih.
     </li>
     <li>
-      <strong>Krantil</strong> (Kring Krantil) terdiri dari Pedukuhan Blunyahan, Pedukuhan Pucung dan Pedukuhan Diro.
+      <strong>Kalurahan Kentungan</strong> (Kring Krantil) terdiri dari Pedukuhan Blunyahan, Pedukuhan Pucung dan Pedukuhan Diro.
     </li>
     <li>
       <strong>Pendowo</strong> (Kring Pendowo) terdiri dari Pedukuhan Rogotirto, Pedukuhan Banyur, dan Pedukuhan Pedurenan.
