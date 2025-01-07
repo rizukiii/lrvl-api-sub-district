@@ -61,6 +61,16 @@
         h6 {
             text-align: center;
         }
+
+        h5 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .sublist {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
     </style>
 </head>
 
@@ -183,67 +193,32 @@
 
     <strong>1.2. Kondisi Umum Desa</strong>
 
-    <h5>Adapun secara ringkas data Kalurahan Condongcatur adalah sebagai berikut :</h5>
+    <h5>Adapun secara ringkas data Kalurahan Condongcatur adalah sebagai berikut:</h5>
 
-    <table>
-        <caption>Ringkasan Data Kalurahan Condongcatur</caption>
-        <thead>
-            <tr>
-                <th>Keterangan</th>
-                <th>Detail</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Luas Wilayah Kalurahan Condongcatur</td>
-                <td>± 950.000 Ha</td>
-            </tr>
-            <tr>
-                <td>Sawah</td>
-                <td>246.4305 Ha</td>
-            </tr>
-            <tr>
-                <td>Pekarangan</td>
-                <td>593.6339 Ha</td>
-            </tr>
-            <tr>
-                <td>Tegal/Ladang</td>
-                <td>3165 Ha</td>
-            </tr>
-            <tr>
-                <td>Embung/Kolam</td>
-                <td>6565 Ha</td>
-            </tr>
-            <tr>
-                <td>Lain-lain</td>
-                <td>9626 Ha</td>
-            </tr>
-            <tr>
-                <td><strong>Batas Wilayah</strong></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Sebelah Utara</td>
-                <td>Kalurahan Minomartani, Kapanewon</td>
-            </tr>
-            <tr>
-                <td>Sebelah Timur</td>
-                <td>Kalurahan Maguwoharjo, Kapanewon</td>
-            </tr>
-            <tr>
-                <td>Sebelah Selatan</td>
-                <td>Kalurahan Caturtunggal, Kapanewon</td>
-            </tr>
-            <tr>
-                <td>Sebelah Barat</td>
-                <td>Kalurahan Sinduhadi, Kecamatan Mlati</td>
-            </tr>
-            <tr>
-                <td>Keadaan Wilayah</td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <ul>
+        <li>1. Luas Wilayah Kalurahan Condongcatur</li>
+        <li>2. Luas Kalurahan Condongcatur: ± 950.000 Ha. Terdiri dari:</li>
+        <ul class="sublist">
+            <li>3. Sawah: 246.4305 Ha</li>
+            <li>4. Pekarangan: 593.6339 Ha</li>
+            <li>5. Tegal/Ladang: 3165 Ha</li>
+            <li>6. Embung/Kolam: 6565 Ha</li>
+            <li>7. Lain-lain: 9626 Ha</li>
+        </ul>
+        <li>8. Batas Wilayah:</li>
+        <ul class="sublist">
+            <li>9. Sebelah Utara: Kalurahan Minomartani Kapanewon</li>
+            <li>10. Sebelah Timur: Kalurahan Maguwoharjo Kapanewon</li>
+            <li>11. Sebelah Selatan: Kalurahan Caturtunggal Kapanewon</li>
+            <li>12. Sebelah Barat: Kalurahan Sinduhadi Kecamatan Mlati</li>
+        </ul>
+        <li>13. Keadaan Wilayah</li>
+    </ul>
+
+    <p>
+        Kalurahan Condongcatur merupakan salah satu dari 3 (tiga) Kalurahan yang berada di Kapanewon Depok yang
+        terdiri dari 18 Padukuhan, 64 RW dan 211 RT.
+    </p>
 
 
 
