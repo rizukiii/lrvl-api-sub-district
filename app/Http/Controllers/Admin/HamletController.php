@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hamlet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HamletController extends Controller
 {
@@ -35,13 +36,18 @@ class HamletController extends Controller
             'name' => 'required|string',
             'title' => 'required|string',
             'image' => 'required|image',
-
+            'rt' => 'required|numeric',
         ]);
 
-        $data = $request->only('name', 'number', 'rt', 'rw', 'village');
+        $data = $request->only('name', 'title', 'rt');
 
-        if (HamletNumber::create($data)) {
-            return redirect()->route('hamlet.index')->withSuccess('Hamlet Number Berhasil Ditambahkan');
+        // Proses file gambar
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('images/hamlet', 'public');
+        }
+
+        if (Hamlet::create($data)) {
+            return redirect()->route('hamlet.index')->withSuccess('Hamlet Berhasil Ditambahkan');
         }
 
         return back()->withInput()->withErrors('Hamlet Gagal Ditambahkan');
@@ -52,7 +58,7 @@ class HamletController extends Controller
      */
     public function edit($id)
     {
-        $hamlet = HamletNumber::findOrFail($id);
+        $hamlet = Hamlet::findOrFail($id);
 
         return view('admin.hamlet.edit',compact('hamlet'));
     }
@@ -62,24 +68,33 @@ class HamletController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $hamlet = Hamlet::findOrFail($id);
+
+
         $request->validate([
             'name' => 'required|string',
-            'number' => 'required|numeric',
+            'title' => 'required|string',
+            'image' => 'required|image',
             'rt' => 'required|numeric',
-            'rw' => 'required|numeric',
-            'village' => 'required|string',
         ]);
 
-        $data = $request->only('name', 'number', 'rt', 'rw', 'village');
+        $data = $request->only('name', 'title', 'rt');
 
-
-        $hamletNumber = HamletNumber::findOrFail($id);
-
-        if ($hamletNumber->update($data)) {
-            return redirect()->route('hamlet.index')->withSuccess('Hamlet Number Berhasil Diubah');
+        // Proses file gambar
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($id->image && Storage::exists($id->image)) {
+                Storage::delete($id->image);
+            }
+            $data['image'] = $request->file('image')->store('images/hamlet', 'public');
         }
 
-        return back()->withInput()->withErrors('Hamlet Number Gagal Diubah');
+
+        if ($hamlet->update($data)) {
+            return redirect()->route('hamlet.index')->withSuccess('Hamlet Berhasil Diubah');
+        }
+
+        return back()->withInput()->withErrors('Hamlet Gagal Diubah');
     }
 
     /**
@@ -88,12 +103,16 @@ class HamletController extends Controller
     public function destroy($id)
     {
 
-        $hamlets_number = HamletNumber::findOrFail($id);
+        $hamlet = Hamlet::findOrFail($id);
 
-        if ($hamlets_number->delete()) {
-            return back()->withSuccess('Hamlet Number Berhasil Di Hapus!');
+        if ($id->image && Storage::exists($id->image)) {
+            Storage::delete($id->image);
+        }
+
+        if ($hamlet->delete()) {
+            return back()->withSuccess('Hamlet Berhasil Di Hapus!');
         } else {
-            return back()->withErrors('Hamlet Number Gagal Di Hapus!');
+            return back()->withErrors('Hamlet Gagal Di Hapus!');
         }
     }
 }
