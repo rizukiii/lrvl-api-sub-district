@@ -180,6 +180,73 @@
             </tr>
         </tbody>
     </table>
+
+    <strong>1.2. Kondisi Umum Desa</strong>
+
+    <h5>Adapun secara ringkas data Kalurahan Condongcatur adalah sebagai berikut :</h5>
+
+    <table>
+        <caption>Ringkasan Data Kalurahan Condongcatur</caption>
+        <thead>
+            <tr>
+                <th>Keterangan</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Luas Wilayah Kalurahan Condongcatur</td>
+                <td>± 950.000 Ha</td>
+            </tr>
+            <tr>
+                <td>Sawah</td>
+                <td>246.4305 Ha</td>
+            </tr>
+            <tr>
+                <td>Pekarangan</td>
+                <td>593.6339 Ha</td>
+            </tr>
+            <tr>
+                <td>Tegal/Ladang</td>
+                <td>3165 Ha</td>
+            </tr>
+            <tr>
+                <td>Embung/Kolam</td>
+                <td>6565 Ha</td>
+            </tr>
+            <tr>
+                <td>Lain-lain</td>
+                <td>9626 Ha</td>
+            </tr>
+            <tr>
+                <td><strong>Batas Wilayah</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sebelah Utara</td>
+                <td>Kalurahan Minomartani, Kapanewon</td>
+            </tr>
+            <tr>
+                <td>Sebelah Timur</td>
+                <td>Kalurahan Maguwoharjo, Kapanewon</td>
+            </tr>
+            <tr>
+                <td>Sebelah Selatan</td>
+                <td>Kalurahan Caturtunggal, Kapanewon</td>
+            </tr>
+            <tr>
+                <td>Sebelah Barat</td>
+                <td>Kalurahan Sinduhadi, Kecamatan Mlati</td>
+            </tr>
+            <tr>
+                <td>Keadaan Wilayah</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
 </body>
 
 </html>
