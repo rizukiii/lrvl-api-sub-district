@@ -33,8 +33,8 @@ class HamletController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'hamlet_number_id' => 'required|numeric',
-            'description' => 'required|numeric',
+            'title' => 'required|string',
+            'image' => 'required|image',
 
         ]);
 
