@@ -119,32 +119,32 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td>Tahun 1946</td>
-        <td>Hargo Winastanto</td>
+        <td>Tahun 1946 - 1979</td>
+        <td>KROMOREDJO</td>
         <td>Pirihan</td>
       </tr>
       <tr>
         <td>2</td>
-        <td>Tahun 1950</td>
-        <td>Wiryo Taruno</td>
+        <td>Tahun 1985 - 1995</td>
+        <td>H. KUWAT HADI CHUSNANTO</td>
         <td>Ngroket</td>
       </tr>
       <tr>
         <td>3</td>
-        <td>Tahun 1965</td>
-        <td>Sumarno</td>
+        <td>Tahun 1996 - 2004 dan Tahun 2004 - 2009</td>
+        <td>H. SUKRIS</td>
         <td>Bandung</td>
       </tr>
       <tr>
         <td>4</td>
-        <td>Tahun 1980</td>
-        <td>Sugiyono</td>
+        <td>Tahun 2009 - 2015</td>
+        <td>MARSUDI, SH</td>
         <td>Krantil</td>
       </tr>
       <tr>
         <td>5</td>
-        <td>Tahun 2000</td>
-        <td>Subagyo</td>
+        <td>Tahun 2015 - Sekarang</td>
+        <td>RENO CANDRA SANGAJI, S.IP M.IP</td>
         <td>Pendowo</td>
       </tr>
     </tbody>
