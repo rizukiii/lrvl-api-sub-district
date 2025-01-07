@@ -104,13 +104,16 @@
 
     <h2>DHAWUH DHUMATENG :</h2>
     <p>1.Raden Ngabehi Hadi Prasadja, Saking Kalurahan GORONGAN</p>
-
     <p>2.Raden Mas Jayeng Sumarto, Saking Kalurahan MANUKAN</p>
     <p>3.Mas Lurah Sastrodihardjo, Saking Kalurahan GEJAYAN</p>
     <p>4.Mas Lurah Kromoredjo, Saking Kalurahan KENTUNGAN</p>
+    <p>KINEN ANYAWIJI SAKING SEKAWAN KALURAHAN
+        KASEBAT DADOS SETUNGGAL
+        KANTHI TENGER
+        CONDONGCATUR</p>
 
 
-    <h2>Pejabat Lurah dari Sejak Lahirnya Desa Pendowoharjo Sampai Sekarang:</h2>
+    <h2>Kepala Desa / Lurah Condongcatur Difinitif :</h2>
 
     <!-- Tabel -->
     <table>
