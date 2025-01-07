@@ -72,7 +72,7 @@
     <p></p>
     <p></p>
 
-    <strong>Sejarah Kalurahan Condongcatur</strong>
+    <strong>1. Sejarah Kalurahan Condongcatur</strong>
 
     <p>
         Pemerintah Kalurahan Condongcatur berdiri pada tanggal 26 Desember 1946 berdasarkan Maklumat Pemerintah Daerah
