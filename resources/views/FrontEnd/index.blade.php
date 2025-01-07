@@ -57,6 +57,10 @@
             background-color: #007BFF;
             color: white;
         }
+
+        h6 {
+            text-align: center;
+        }
     </style>
 </head>
 
