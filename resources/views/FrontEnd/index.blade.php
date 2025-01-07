@@ -102,11 +102,29 @@
 
     </ul>
 
-    <h2>DHAWUH DHUMATENG :</h2>
-    <p>1.Raden Ngabehi Hadi Prasadja, Saking Kalurahan GORONGAN</p>
-    <p>2.Raden Mas Jayeng Sumarto, Saking Kalurahan MANUKAN</p>
-    <p>3.Mas Lurah Sastrodihardjo, Saking Kalurahan GEJAYAN</p>
-    <p>4.Mas Lurah Kromoredjo, Saking Kalurahan KENTUNGAN</p>
+    <strong>DHAWUH DHUMATENG :</strong>
+
+    <ul>
+        <li>
+            <strong>Raden Ngabehi Hadi Prasadja, Saking Kalurahan GORONGAN</strong>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <strong>Raden Mas Jayeng Sumarto, Saking Kalurahan MANUKAN</strong>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <strong>Mas Lurah Sastrodihardjo, Saking Kalurahan GEJAYAN</strong>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <strong>Mas Lurah Kromoredjo, Saking Kalurahan KENTUNGAN</strong>
+        </li>
+    </ul>
+
     <p>KINEN ANYAWIJI SAKING SEKAWAN KALURAHAN
         KASEBAT DADOS SETUNGGAL
         KANTHI TENGER
