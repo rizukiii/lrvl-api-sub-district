@@ -91,16 +91,24 @@
 
   <ul>
     <li>
-      <strong>Kalurahan Manukan</strong> (dengan sebutan Kring) terdiri dari Pedukuhan Dagen dan Pedukuhan Cepit.
+      <strong>Kalurahan Manukan</strong>
+      <p>Lurah Desanya di Jabat oleh : Jayeng Sumanto</p>
+      <p>Beliau wafat dan di makamkan di Pemakaman Umum Padukuhan Manukan</p>
     </li>
     <li>
-      <strong>Kalurahan Gorongan</strong> (Kring Ngroket) terdiri dari Pedukuhan Sawahan, Pedukuhan Krandonan, Pedukuhan Ngimbangan dan Pedukuhan Miri.
+      <strong>Kalurahan Gorongan</strong>
+      <p>Lurah Desanya dijabat oleh : R.Ng. (Raden Ngabehi) Hadi Prasodjo</p>
+      <p>Beliau wafat dan dimakamkan di Pemakaman Umum Padukuhan Ngropoh</p>
     </li>
     <li>
-      <strong>Kalurahan Gejayan</strong> (Kring Bandung) terdiri dari Pedukuhan Bandung, Pedukuhan Ngglik, Pedukuhan Monggang dan Pedukuhan Kaliputih.
+      <strong>Kalurahan Gejayan</strong>
+      <p>Lurah Desanya dijabat oleh : Sastro Diharjo</p>
+      <p>Beliau wafat dan dimakamkan di Pemakaman Umum Padukuhan Gejayan</p>
     </li>
     <li>
-      <strong>Kalurahan Kentungan</strong> (Kring Krantil) terdiri dari Pedukuhan Blunyahan, Pedukuhan Pucung dan Pedukuhan Diro.
+      <strong>Kalurahan Kentungan</strong>
+      <p>Lurah Desanya dijabat oleh : Kromoredjo</p>
+      <p>Beliau wafat dan dimakamkan di Pemakaman Umum Komplek Kolombo Padukuhan Joho</p>
     </li>
     <li>
       <strong>Pendowo</strong> (Kring Pendowo) terdiri dari Pedukuhan Rogotirto, Pedukuhan Banyur, dan Pedukuhan Pedurenan.
