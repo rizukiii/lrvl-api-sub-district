@@ -63,7 +63,7 @@
 <body>
     <!-- Gambar -->
     <img src="condongcatur.jpg" alt="Gambar Desa">
-    <p>GAMBARAN UMUM KONDISI DESA</p>
+    <h6>GAMBARAN UMUM KONDISI DESA</h6>
 
     <p></p>
     <p></p>
