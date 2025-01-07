@@ -80,7 +80,7 @@
                                             <div class="modal-body">
                                                 <h5>{{ $item->name }}</h5>
                                                 <p>
-                                                    <img src="{{ Storage::url($item->image) }}" alt="gambar biasa">
+                                                    <img src="{{ Storage::url($item->image) }}" alt="gambar biasa" class="img-fluid">
                                                 </p>
                                                 <p>{{ $item->title }}</p>
                                                 <p>{{ $item->rt }}</p>

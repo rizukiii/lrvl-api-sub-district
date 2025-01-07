@@ -69,18 +69,18 @@ class HamletController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $hamlet = Hamlet::findOrFail($id);
 
+        $hamlet = Hamlet::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string',
             'title' => 'required|string',
-            'image' => 'required|image',
+            'image' => 'nullable|image',
             'rt' => 'required|numeric',
         ]);
 
         $data = $request->only('name', 'title', 'rt');
-
+        dd($data['title']);
         // Proses file gambar
         if ($request->hasFile('image')) {
             // Hapus gambar lama jika ada
@@ -89,7 +89,6 @@ class HamletController extends Controller
             }
             $data['image'] = $request->file('image')->store('images/hamlet', 'public');
         }
-
 
         if ($hamlet->update($data)) {
             return redirect()->route('hamlet.index')->withSuccess('Hamlet Berhasil Diubah');

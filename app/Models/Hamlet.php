@@ -10,8 +10,8 @@ class Hamlet extends Model
     protected $primarykey = 'id';
     protected $fillable = [
         'name',
-        'title',
         'image',
+        'title',
         'rt',
 
     ];

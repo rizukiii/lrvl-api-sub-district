@@ -64,6 +64,8 @@ class HamletNumberController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $hamletNumber = HamletNumber::findOrFail($id);
+
         $request->validate([
             'street' => 'required|string',
             'number' => 'required|numeric',
@@ -73,9 +75,6 @@ class HamletNumberController extends Controller
         ]);
 
         $data = $request->only('street', 'number', 'rt', 'rw', 'village');
-
-
-        $hamletNumber = HamletNumber::findOrFail($id);
 
         if ($hamletNumber->update($data)) {
             return redirect()->route('hamlet_number.index')->withSuccess('Hamlet Number Berhasil Diubah');
