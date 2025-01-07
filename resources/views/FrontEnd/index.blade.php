@@ -94,6 +94,10 @@
             list-style-type: decimal;
             margin-left: 20px;
         }
+
+        .indent {
+            margin-left: 20px;
+        }
     </style>
 </head>
 
@@ -270,6 +274,40 @@
         adalah beragama Islam kurang lebih 89% dan lainnya adalah agama Kristen, Katolik, Budha, Hindu, Konghucu, dan
         aliran kepercayaan.
     </p>
+
+
+    <h3>1. Jumlah Penduduk Sampai dengan Akhir Bulan Desember 2020:</h3>
+    <ul>
+        <li><strong>2. Kepala Keluarga</strong></li>
+        <ul class="indent">
+            <li>Laki-laki: 371 KK</li>
+            <li>Perempuan: 413 KK</li>
+        </ul>
+        <li><strong>1. Jumlah Jiwa</strong></li>
+        <ul class="indent">
+            <li>Laki-laki: 097 Jiwa</li>
+            <li>Perempuan: 744 Jiwa</li>
+        </ul>
+    </ul>
+
+    <h3>2. Mutasi Penduduk pada Tahun 2020:</h3>
+    <ul>
+        <li><strong>3. Pindah</strong></li>
+        <ul class="indent">
+            <li>Laki-laki: 355 Jiwa</li>
+            <li>Perempuan: 566 Jiwa</li>
+        </ul>
+        <li><strong>1. Datang</strong></li>
+        <ul class="indent">
+            <li>Laki-laki: 413 Jiwa</li>
+            <li>Perempuan: 468 Jiwa</li>
+        </ul>
+        <li><strong>1. Lahir</strong></li>
+        <ul class="indent">
+            <li>Laki-laki: 176 Jiwa</li>
+            <li>Perempuan: 197 Jiwa</li>
+        </ul>
+    </ul>
 
 
 
