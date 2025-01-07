@@ -19,4 +19,8 @@ class HamletNumber extends Model
         'created_at' => 'datetime',
         'upload_at' => 'datetime'
     ];
+
+    public function hamlet(){
+        return $this->hasMany(Hamlet::class);
+    }
 }

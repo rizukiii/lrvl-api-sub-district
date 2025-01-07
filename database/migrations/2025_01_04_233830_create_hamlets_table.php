@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('hamlet_numbers_id');
-            $table->text('description');
+            $table->text('image');
+            $table->text('title');
             $table->timestamps();
 
             $table->foreign('hamlet_numbers_id')->references('id')->on('hamlet_numbers')->onUpdate('cascade')->onDelete('cascade');
