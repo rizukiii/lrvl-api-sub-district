@@ -196,23 +196,23 @@
     <h5>Adapun secara ringkas data Kalurahan Condongcatur adalah sebagai berikut:</h5>
 
     <ul>
-        <li>1. Luas Wilayah Kalurahan Condongcatur</li>
-        <li>2. Luas Kalurahan Condongcatur: ± 950.000 Ha. Terdiri dari:</li>
+        <li>Luas Wilayah Kalurahan Condongcatur</li>
+        <li>Luas Kalurahan Condongcatur: ± 950.000 Ha. Terdiri dari:</li>
         <ul class="sublist">
-            <li>3. Sawah: 246.4305 Ha</li>
-            <li>4. Pekarangan: 593.6339 Ha</li>
-            <li>5. Tegal/Ladang: 3165 Ha</li>
-            <li>6. Embung/Kolam: 6565 Ha</li>
-            <li>7. Lain-lain: 9626 Ha</li>
+            <li>Sawah: 246.4305 Ha</li>
+            <li>Pekarangan: 593.6339 Ha</li>
+            <li>Tegal/Ladang: 3165 Ha</li>
+            <li>Embung/Kolam: 6565 Ha</li>
+            <li>Lain-lain: 9626 Ha</li>
         </ul>
-        <li>8. Batas Wilayah:</li>
+        <li>Batas Wilayah:</li>
         <ul class="sublist">
-            <li>9. Sebelah Utara: Kalurahan Minomartani Kapanewon</li>
-            <li>10. Sebelah Timur: Kalurahan Maguwoharjo Kapanewon</li>
-            <li>11. Sebelah Selatan: Kalurahan Caturtunggal Kapanewon</li>
-            <li>12. Sebelah Barat: Kalurahan Sinduhadi Kecamatan Mlati</li>
+            <li>Sebelah Utara: Kalurahan Minomartani Kapanewon</li>
+            <li>Sebelah Timur: Kalurahan Maguwoharjo Kapanewon</li>
+            <li>Sebelah Selatan: Kalurahan Caturtunggal Kapanewon</li>
+            <li>Sebelah Barat: Kalurahan Sinduhadi Kecamatan Mlati</li>
         </ul>
-        <li>13. Keadaan Wilayah</li>
+        <li>Keadaan Wilayah</li>
     </ul>
 
     <p>
