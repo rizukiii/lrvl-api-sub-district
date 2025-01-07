@@ -186,76 +186,59 @@
     <h5>Adapun secara ringkas data Kalurahan Condongcatur adalah sebagai berikut :</h5>
 
     <table>
+        <caption>Ringkasan Data Kalurahan Condongcatur</caption>
         <thead>
             <tr>
-                <th>No</th>
                 <th>Keterangan</th>
                 <th>Detail</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>1</td>
                 <td>Luas Wilayah Kalurahan Condongcatur</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Luas Kalurahan Condongcatur</td>
                 <td>± 950.000 Ha</td>
             </tr>
             <tr>
-                <td>3</td>
                 <td>Sawah</td>
                 <td>246.4305 Ha</td>
             </tr>
             <tr>
-                <td>4</td>
                 <td>Pekarangan</td>
                 <td>593.6339 Ha</td>
             </tr>
             <tr>
-                <td>5</td>
                 <td>Tegal/Ladang</td>
                 <td>3165 Ha</td>
             </tr>
             <tr>
-                <td>6</td>
                 <td>Embung/Kolam</td>
                 <td>6565 Ha</td>
             </tr>
             <tr>
-                <td>7</td>
                 <td>Lain-lain</td>
                 <td>9626 Ha</td>
             </tr>
             <tr>
-                <td>8</td>
-                <td>Batas Wilayah</td>
+                <td><strong>Batas Wilayah</strong></td>
                 <td></td>
             </tr>
             <tr>
-                <td>9</td>
                 <td>Sebelah Utara</td>
-                <td>Kalurahan Minomartani Kapanewon</td>
+                <td>Kalurahan Minomartani, Kapanewon</td>
             </tr>
             <tr>
-                <td>10</td>
                 <td>Sebelah Timur</td>
-                <td>Kalurahan Maguwoharjo Kapanewon</td>
+                <td>Kalurahan Maguwoharjo, Kapanewon</td>
             </tr>
             <tr>
-                <td>11</td>
                 <td>Sebelah Selatan</td>
-                <td>Kalurahan Caturtunggal Kapanewon</td>
+                <td>Kalurahan Caturtunggal, Kapanewon</td>
             </tr>
             <tr>
-                <td>12</td>
                 <td>Sebelah Barat</td>
-                <td>Kalurahan Sinduhadi Kecamatan Mlati</td>
+                <td>Kalurahan Sinduhadi, Kecamatan Mlati</td>
             </tr>
             <tr>
-                <td>13</td>
                 <td>Keadaan Wilayah</td>
                 <td></td>
             </tr>
