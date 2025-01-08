@@ -269,26 +269,25 @@
 
     <h3>3. Kondisi Demografis</h3>
     <p>
-        Jumlah penduduk Desa Condongcatur Tahun 2020 menurut hasil administrasi pelayanan dengan sistem SIAK adalah
-        48.841 jiwa dengan perkembangan penduduk stabil. Penduduk Kalurahan Condongcatur pada umumnya menggunakan bahasa
-        Indonesia karena merupakan pusat pendidikan dari daerah-daerah di seluruh Indonesia, sedangkan mayoritas
-        penduduk
-        adalah beragama Islam kurang lebih 89% dan lainnya adalah agama Kristen, Katolik, Budha, Hindu, Konghucu, dan
+        Jumlah penduduk Kalurahan Condongcatur Tahun 2023 menurut hasil adminitrasi pelayan dengan sistem siak adalah
+        49.094 jiwa dengan perkembangan penduduk stabil, penduduk Kalurahan Condongcatur pada umumnya menggunakan bahasa
+        indonesia karena merupakan pusat pendidikan dari daerah-daerah diseluruh indonesia, sedangkan mayoritas penduduk
+        adalah beragama islam kurang lebih 81.11 % dan lainya adalah agama kristen, katolik, buda, hindu, konghucu dan
         aliran kepercayaan.
     </p>
 
 
-    <h3>Jumlah Penduduk Sampai dengan Akhir Bulan Desember 2020:</h3>
+    <h3>Jumlah Penduduk Sampai dengan Akhir Bulan Desember 2023:</h3>
     <ul>
         <li><strong>Kepala Keluarga</strong></li>
         <ul class="indent">
-            <li>Laki-laki: 371 KK</li>
-            <li>Perempuan: 413 KK</li>
+            <li>Laki-laki: 854 KK</li>
+            <li>Perempuan: 182 KK</li>
         </ul>
         <li><strong>Jumlah Jiwa</strong></li>
         <ul class="indent">
-            <li>Laki-laki: 097 Jiwa</li>
-            <li>Perempuan: 744 Jiwa</li>
+            <li>Laki-laki: 207 Jiwa</li>
+            <li>Perempuan: 887 Jiwa</li>
         </ul>
     </ul>
 
@@ -296,23 +295,23 @@
     <ul>
         <li><strong>Pindah</strong></li>
         <ul class="indent">
-            <li>Laki-laki: 355 Jiwa</li>
-            <li>Perempuan: 566 Jiwa</li>
+            <li>Laki-laki: 111 Jiwa</li>
+            <li>Perempuan: 109 Jiwa</li>
         </ul>
         <li><strong>Datang</strong></li>
         <ul class="indent">
-            <li>Laki-laki: 413 Jiwa</li>
-            <li>Perempuan: 468 Jiwa</li>
+            <li>Laki-laki: 160 Jiwa</li>
+            <li>Perempuan: 116 Jiwa</li>
         </ul>
         <li><strong>Lahir</strong></li>
         <ul class="indent">
-            <li>Laki-laki: 176 Jiwa</li>
-            <li>Perempuan: 197 Jiwa</li>
+            <li>Laki-laki: 62 Jiwa</li>
+            <li>Perempuan: 36 Jiwa</li>
         </ul>
         <li><strong>Mati</strong></li>
         <ul class="indent">
-            <li>Laki-laki: 124 Jiwa</li>
-            <li>Perempuan: 134 Jiwa</li>
+            <li>Laki-laki: 179 Jiwa</li>
+            <li>Perempuan: 142 Jiwa</li>
         </ul>
     </ul>
 
@@ -323,9 +322,620 @@
             <li>Perempuan: 170 Jiwa</li>
         </ul>
     </ul>
+    <h3>4. Kondisi Ekonomi</h3>
+    <p>
+        Berdasarkan data yang diperoleh dari investigasi Aspek Ekonomi dan mata pencaharian,
+        sebagian besar warga Kalurahan Condongcatur didominasi oleh pedagang atau penjual jasa.
+    </p>
 
+    <table>
+        <caption>Data Mata Pencaharian Penduduk</caption>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Mata Pencaharian</th>
+                <th>Jumlah Orang</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Pegawai Negeri Sipil</td>
+                <td>1.953</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>TNI</td>
+                <td>985</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Polri</td>
+                <td>213</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Pedagang</td>
+                <td>2.690</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Petani/Perkebun</td>
+                <td>238</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Peternak</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Industri</td>
+                <td>69</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Konstruksi</td>
+                <td>103</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Transportasi</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Karyawan Swasta</td>
+                <td>7.459</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Karyawan BUMN</td>
+                <td>318</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Karyawan BUMD</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Karyawan Honorer</td>
+                <td>116</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Buruh Harian Lepas</td>
+                <td>1.504</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Buruh Tani/Perkebunan</td>
+                <td>206</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Buruh Nelayan/Perikanan</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Buruh Peternakan</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Pembantu Rumah Tangga</td>
+                <td>47</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Tukang Cukur</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Tukang Listrik</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Tukang Las</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Tukang Jahit</td>
+                <td>61</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Pegawai Negeri Sipil</td>
+                <td>1.953</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>TNI</td>
+                <td>985</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Polri</td>
+                <td>213</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Pedagang</td>
+                <td>2.690</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Petani/Perkebun</td>
+                <td>238</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Peternak</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Industri</td>
+                <td>69</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Konstruksi</td>
+                <td>103</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Transportasi</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Karyawan Swasta</td>
+                <td>7.459</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Karyawan BUMN</td>
+                <td>318</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Karyawan BUMD</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Karyawan Honorer</td>
+                <td>116</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Buruh Harian Lepas</td>
+                <td>1.504</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Buruh Tani/Perkebunan</td>
+                <td>206</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Buruh Nelayan/Perikanan</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Buruh Peternakan</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Pembantu Rumah Tangga</td>
+                <td>47</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Tukang Cukur</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Tukang Listrik</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Tukang Las</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Tukang Jahit</td>
+                <td>61</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Penata Rias</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Penata Busana</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Penata Rambut</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Mekanik</td>
+                <td>48</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Seniman</td>
+                <td>41</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Tabib</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Perancang Busana</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Peterjemah</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Pendeta</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>Pastor</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>Ustad/Mubaliq</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>Wartawan</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Juru Masak</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>Dosen</td>
+                <td>495</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>Guru</td>
+                <td>465</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>Pengacara</td>
+                <td>29</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>Notaris</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>Arsitek</td>
+                <td>37</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>Akuntan</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>Konsultan</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>Dokter</td>
+                <td>234</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>Bidan</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>Perawat</td>
+                <td>71</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>Wiraswasta</td>
+                <td>751</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>Lain-lain</td>
+                <td>365</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Fasilitas yang Ada di Kelurahan Condongcatur</h3>
 
+    <h4>1. Fasilitas Pendidikan dan Sosial</h4>
+    <table>
+        <caption>Data Fasilitas Pendidikan</caption>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Fasilitas</th>
+                <th>Jumlah</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Kelompok Bermain</td>
+                <td>20 buah</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Taman Kanak-kanak</td>
+                <td>18 buah</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sekolah Dasar</td>
+                <td>15 buah</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>SMP</td>
+                <td>5 buah</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>SMA</td>
+                <td>3 buah</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Perguruan Tinggi</td>
+                <td>5 buah</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>SLB C</td>
+                <td>1 buah</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Pondok Pesantren</td>
+                <td>5 buah</td>
+            </tr>
+        </tbody>
+    </table>
 
+    <h4>2. Fasilitas Peribadatan</h4>
+    <table>
+        <caption>Data Fasilitas Peribadatan</caption>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Fasilitas</th>
+                <th>Jumlah</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Masjid</td>
+                <td>83 buah</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Mushola</td>
+                <td>20 buah</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Gereja Kristen</td>
+                <td>2 buah</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Gereja Katolik</td>
+                <td>4 buah</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kapel Katolik</td>
+                <td>1 buah</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Vihara</td>
+                <td>1 buah</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Pura</td>
+                <td>1 buah</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>3. Fasilitas Kesehatan</h4>
+    <table>
+        <caption>Data Fasilitas Kesehatan</caption>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Fasilitas</th>
+                <th>Jumlah</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Rumah Sakit</td>
+                <td>2 buah</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Rumah Bersalin/BKIA</td>
+                <td>12 buah</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>PUSKESMAS</td>
+                <td>1 buah</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>PUSKESMAS Pembantu</td>
+                <td>1 buah</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Apotek/Depo Obat</td>
+                <td>16 buah</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Dokter Praktik</td>
+                <td>32 buah</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Bidan</td>
+                <td>19 buah</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>4. Fasilitas Umum</h4>
+    <table>
+        <caption>Data Fasilitas Umum</caption>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Fasilitas</th>
+                <th>Jumlah</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Pemandian/Kolam Renang</td>
+                <td>6 buah</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Hutan Kota</td>
+                <td>0 buah</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Tempat Pertunjukan Kesenian</td>
+                <td>1 buah</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Tempat Rekreasi Sejarah/Alam</td>
+                <td>2 buah</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Penginapan</td>
+                <td>20 buah</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Hotel</td>
+                <td>6 buah</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Restoran</td>
+                <td>12 buah</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>5. Fasilitas Perekonomian</h4>
+    <table>
+        <caption>Data Fasilitas Perekonomian</caption>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Fasilitas</th>
+                <th>Jumlah</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Pasar Umum</td>
+                <td>2 buah</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Koperasi Simpan Pinjam</td>
+                <td>11 buah</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>KUD</td>
+                <td>1 buah</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Toko</td>
+                <td>260 buah</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Warung</td>
+                <td>557 buah</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Bank</td>
+                <td>5 buah</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Badan-badan Kredit</td>
+                <td>9 buah</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>
