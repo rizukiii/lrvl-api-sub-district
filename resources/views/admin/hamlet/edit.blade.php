@@ -15,6 +15,7 @@
                 <form action="{{ route('hamlet.update', $hamlet->id) }}" method="post">
                     @csrf
                     @method('PUT') <!-- Specify the HTTP method -->
+
                     <div class="mb-3 d-flex align-items-center justify-content-center">
                         <div class="me-2">
                             <img src="{{ Storage::url($hamlet->image) }}" alt="album image" class="img-thumbnail rounded" style="width: 100px;">

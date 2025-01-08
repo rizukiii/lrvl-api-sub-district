@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class HamletController extends Controller
 {
-   /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -17,7 +17,7 @@ class HamletController extends Controller
         $query = Hamlet::query();
         $hamlet = $query->orderBy('name', 'desc')->paginate(5);
 
-        return view('admin.hamlet.index',compact('hamlet'));
+        return view('admin.hamlet.index', compact('hamlet'));
     }
 
     /**
@@ -61,7 +61,7 @@ class HamletController extends Controller
     {
         $hamlet = Hamlet::findOrFail($id);
 
-        return view('admin.hamlet.edit',compact('hamlet'));
+        return view('admin.hamlet.edit', compact('hamlet'));
     }
 
     /**
@@ -81,14 +81,16 @@ class HamletController extends Controller
 
         $data = $request->only('name', 'title', 'rt');
         dd($data['title']);
+
         // Proses file gambar
         if ($request->hasFile('image')) {
             // Hapus gambar lama jika ada
-            if ($id->image && Storage::exists($id->image)) {
-                Storage::delete($id->image);
+            if ($hamlet->image && Storage::exists($hamlet->image)) {
+                Storage::delete($hamlet->image);
             }
             $data['image'] = $request->file('image')->store('images/hamlet', 'public');
         }
+
 
         if ($hamlet->update($data)) {
             return redirect()->route('hamlet.index')->withSuccess('Hamlet Berhasil Diubah');
@@ -102,13 +104,15 @@ class HamletController extends Controller
      */
     public function destroy($id)
     {
-
+        // Mendapatkan objek hamlet berdasarkan id
         $hamlet = Hamlet::findOrFail($id);
 
-        if ($id->image && Storage::exists($id->image)) {
-            Storage::delete($id->image);
+        // Hapus gambar jika ada
+        if ($hamlet->image && Storage::exists($hamlet->image)) {
+            Storage::delete($hamlet->image);
         }
 
+        // Hapus data hamlet
         if ($hamlet->delete()) {
             return back()->withSuccess('Hamlet Berhasil Di Hapus!');
         } else {

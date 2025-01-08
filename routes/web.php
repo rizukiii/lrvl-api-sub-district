@@ -38,12 +38,13 @@ Route::get('dashboard', function () {
     });
 
     // Announcements
-    Route::resource('announcement', AnnouncementController::class);
+    Route::resource('announcement', AnnouncementController::class)->except('show');
 
     // Hamlet Numbers
-    Route::resource('hamlet_number', HamletNumberController::class);
+    Route::resource('hamlet_number', HamletNumberController::class)->except('show');
 
-    Route::resource('hamlet', HamletController::class);
+    Route::resource('hamlet', HamletController::class)->except('show');
+
 
     // route index.html
     Route::get('index', function(){

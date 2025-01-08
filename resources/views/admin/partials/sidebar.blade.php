@@ -58,7 +58,15 @@
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Hamlet</span>
+                    <span class="hide-menu">Daerah</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('hamlet.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-photo"></i>
+                        </span>
+                        <span class="hide-menu">Hamlet</span>
+                    </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('hamlet_number.index') }}" aria-expanded="false">
@@ -66,6 +74,14 @@
                             <i class="ti ti-photo"></i>
                         </span>
                         <span class="hide-menu">Hamlet Number</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-photo"></i>
+                        </span>
+                        <span class="hide-menu">Hamlet Detail</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
