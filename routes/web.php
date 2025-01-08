@@ -49,7 +49,7 @@ Route::get('dashboard', function () {
     // route index.html
     Route::get('index', function(){
         return view('FrontEnd.index');
-    });
+    })->name('FrontEnd.index');
 
 // });
 

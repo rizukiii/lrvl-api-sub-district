@@ -20,3 +20,6 @@ Route::get('gallery/{id}', action: [GalleryController::class, 'getDetailGallery'
 
 Route::get('announcement', action: [AnnouncementController::class, 'getAllAnnouncement']);
 Route::get('announcement/{id}', action: [AnnouncementController::class, 'getDetailAnnouncement']);
+
+// HTML
+
