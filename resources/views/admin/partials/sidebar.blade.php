@@ -15,19 +15,6 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Home</span>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ asset('template_admin') }}/src/html/index.html"
-                        aria-expanded="false">
-                        <span>
-                            <i class="ti ti-layout-dashboard"></i>
-                        </span>
-                        <span class="hide-menu">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-small-cap">
-                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">IMPORTANT</span>
                 </li>
                 <li class="sidebar-item">
@@ -48,7 +35,7 @@
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">ABOUT</span>
+                    <span class="hide-menu">GALLERY</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('gallery.index') }}" aria-expanded="false">
@@ -60,7 +47,7 @@
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Daerah</span>
+                    <span class="hide-menu">HAMLET</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('hamlet.index') }}" aria-expanded="false">

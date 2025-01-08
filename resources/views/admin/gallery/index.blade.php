@@ -57,6 +57,10 @@
                                 <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
                                     <i class="ti ti-trash"></i>
                                 </button>
+                                <form id="delete-form-{{ $item->id }}" action="{{ route('gallery.destroy', $item->id) }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </td>
                         </tr>
 

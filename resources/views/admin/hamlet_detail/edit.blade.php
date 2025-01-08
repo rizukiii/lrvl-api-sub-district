@@ -31,7 +31,7 @@
                     <div class="mb-3">
                         <label for="hamlets_id" class="form-label">Name</label>
                         <select
-                            class="form-select form-select"
+                            class="form-select"
                             name="hamlets_id"
                             id="hamlets_id"
                         >

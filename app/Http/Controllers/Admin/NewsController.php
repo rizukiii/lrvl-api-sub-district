@@ -90,16 +90,19 @@ class NewsController extends Controller
      */
     public function destroy(News $id)
     {
+        // Cek apakah gambar ada dan hapus jika ada
         if ($id->image && Storage::exists($id->image)) {
             Storage::delete($id->image);
         }
 
+        // Coba hapus data dari database
         if ($id->delete()) {
             return back()->withSuccess('News Berhasil Di Hapus!');
         } else {
             return back()->withErrors('News Gagal Di Hapus!');
         }
     }
+
 
 
 

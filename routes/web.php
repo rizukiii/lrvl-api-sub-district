@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\Hamlet\GalleryController as GalleryHamlet;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\GalleryDetailController;
 use App\Http\Controllers\Admin\HamletDetailController;
@@ -49,6 +50,9 @@ Route::resource('hamlet_number', HamletNumberController::class)->except('show');
 
 // Hamlet Detail
 Route::resource('hamlet_detail', HamletDetailController::class)->except('show');
+
+// Hamlet Gallery
+Route::resource('hamlet_gallery', GalleryHamlet::class)->except('show');
 
 
 // route index.html

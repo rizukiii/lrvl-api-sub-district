@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Hamlet\Gallery;
 use Illuminate\Database\Eloquent\Model;
 
 class Hamlet extends Model
@@ -19,5 +20,7 @@ class Hamlet extends Model
         'created_at' => 'datetime',
         'upload_at' => 'datetime'
     ];
-
+    public function hamlet_galleries(){
+        return $this->hasOne(Gallery::class);
+    }
 }
