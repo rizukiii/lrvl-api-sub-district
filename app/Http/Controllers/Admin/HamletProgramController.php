@@ -13,7 +13,10 @@ class HamletProgramController extends Controller
      */
     public function index()
     {
-        //
+        $query = HamletProgram::query();
+        $hamlet_program = $query->orderBy('work', 'desc')->paginate(5);
+
+        return view('admin.hamlet.program.index',compact('hamlet_program'));
     }
 
     /**
@@ -21,7 +24,7 @@ class HamletProgramController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.hamlet.program.create');
     }
 
     /**
@@ -29,38 +32,68 @@ class HamletProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'work' => 'required|string',
+            'annotation' => 'required|string',
+            'hamlet_id' => 'required|numeric',
+            'hamlet_number_id' => 'required|numeric',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(HamletProgram $hamletProgram)
-    {
-        //
+        $data = $request->only('work', 'annotation', 'hamlet_id', 'hamlet_number_id');
+
+        if (HamletProgram::create($data)) {
+            return redirect()->route('hamlet.program.index')->withSuccess('Hamlet Program Berhasil Ditambahkan');
+        }
+
+        return back()->withInput()->withErrors('Hamlet Gagal Ditambahkan');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HamletProgram $hamletProgram)
+    public function edit($id)
     {
-        //
+        $hamlet_program = HamletProgram::findOrFail($id);
+
+        return view('admin.hamlet.program.edit',compact('hamlet_program'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, HamletProgram $hamletProgram)
+    public function update(Request $request, $id)
     {
-        //
+        $hamlet_program = HamletProgram::findOrFail($id);
+
+        $request->validate([
+            'street' => 'required|string',
+            'number' => 'required|numeric',
+            'rt' => 'required|numeric',
+            'rw' => 'required|numeric',
+            'village' => 'required|string',
+        ]);
+
+        $data = $request->only('street', 'number', 'rt', 'rw', 'village');
+
+        if ($hamlet_program->update($data)) {
+            return redirect()->route('hamlet.program.index')->withSuccess('Hamlet Program Berhasil Diubah');
+        }
+
+        return back()->withInput()->withErrors('Hamlet Program Gagal Diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HamletProgram $hamletProgram)
+    public function destroy($id)
     {
-        //
+
+        $hamlets_program = HamletProgram::findOrFail($id);
+
+        if ($hamlets_program->delete()) {
+            return back()->withSuccess('Hamlet Program Berhasil Di Hapus!');
+        } else {
+            return back()->withErrors('Hamlet Program Gagal Di Hapus!');
+        }
     }
 }

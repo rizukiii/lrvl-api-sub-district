@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('rt');
             $table->integer('rw');
             $table->string('village');
+            // $table->string('hamlet_id');
             $table->timestamps();
         });
     }

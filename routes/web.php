@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HamletDetailController;
 use App\Http\Controllers\Admin\HamletNumberController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\HamletController;
+use App\Http\Controllers\Admin\HamletProgramController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -62,8 +63,16 @@ Route::resource('hamlet_number', HamletNumberController::class)->except('show');
 // Hamlet Detail
 Route::resource('hamlet_detail', HamletDetailController::class)->except('show');
 
+// Hamlet Program
+Route::resource('hamlet_program', HamletProgramController::class)->except('show');
+
 // Hamlet Gallery
-Route::resource('hamlet_gallery', GalleryHamlet::class)->except('show');
+Route::prefix('hamlet_gallery/{id}')->group(function () {
+    Route::get('/', [GalleryHamlet::class, 'index'])->name('hamlet.gallery.index');
+    Route::post('/', [GalleryHamlet::class, 'store'])->name('hamlet.gallery.store');
+    Route::put('/', [GalleryHamlet::class, 'update'])->name('hamlet.gallery.update');
+    Route::delete('/', [GalleryHamlet::class, 'destroy'])->name('hamlet.gallery.destroy');
+});
 
 
 // route index.html
