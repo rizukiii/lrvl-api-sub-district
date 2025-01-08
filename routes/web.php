@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\GalleryDetailController;
+use App\Http\Controllers\Admin\HamletDetailController;
 use App\Http\Controllers\Admin\HamletNumberController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\HamletController;
@@ -40,11 +41,15 @@ Route::get('dashboard', function () {
     // Announcements
     Route::resource('announcement', AnnouncementController::class)->except('show');
 
+    // Hamlet
+    Route::resource('hamlet', HamletController::class)->except('show');
+
     // Hamlet Numbers
     Route::resource('hamlet_number', HamletNumberController::class)->except('show');
 
-    Route::resource('hamlet', HamletController::class)->except('show');
 
+    // Hamlet Detail
+    Route::resource('hamlet_detail', HamletDetailController::class)->except('show');
 
     // route index.html
     Route::get('index', function(){
