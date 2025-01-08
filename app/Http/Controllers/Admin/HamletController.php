@@ -80,7 +80,6 @@ class HamletController extends Controller
         ]);
 
         $data = $request->only('name', 'title', 'rt');
-        dd($data['title']);
 
         // Proses file gambar
         if ($request->hasFile('image')) {

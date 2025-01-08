@@ -27,7 +27,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead class="text-center bg-light">
-                        <tr>
+                        <tr class="text-center">
                             <th>No</th>
                             <th>Gambar</th>
                             <th>Judul</th>
@@ -38,7 +38,7 @@
                     </thead>
                     <tbody>
                         @forelse ($news as $item)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
                                     <img src="{{ Storage::url($item->image) }}" alt="news image" class="rounded img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
@@ -80,7 +80,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Edit Modal -->
                             <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -93,6 +92,7 @@
                                             @include('admin.partials.alert')
                                             <form action="{{ route('news.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
+                                                @method('PUT') <!-- This is important, it tells Laravel to use PUT -->
                                                 <div class="mb-3 d-flex align-items-center justify-content-center">
                                                     <div class="me-2">
                                                         <img src="{{ Storage::url($item->image) }}" alt="news image" class="img-thumbnail rounded" style="width: 100px;">

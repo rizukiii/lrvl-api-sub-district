@@ -29,7 +29,7 @@
             <!-- Gallery Table -->
             <table class="table table-bordered table-striped">
                 <thead class="text-center bg-light">
-                    <tr>
+                    <tr  class="text-center">
                         <th>No</th>
                         <th>Gambar</th>
                         <th>Judul</th>
@@ -38,7 +38,7 @@
                 </thead>
                 <tbody>
                     @forelse ($gallery as $item)
-                        <tr>
+                        <tr  class="text-center">
                             <td>{{ $loop->iteration }}</td>
                             <td>
                                 <img src="{{ Storage::url($item->image) }}" alt="gambar gallery" style="width: 100px; height: 100px; object-fit: cover" class="rounded img-thumbnail">

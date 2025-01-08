@@ -27,18 +27,18 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead class="text-center bg-light">
-                        <tr>
+                        <tr class="text-center">
                             <th>No</th>
                             <th>Gambar</th>
                             <th>Judul</th>
                             <th>Deskripsi</th>
                             <th>Tanggal</th>
-                            <th class="text-center">Aksi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($announcement as $item)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
                                     <img src="{{ Storage::url($item->image) }}" alt="announcement image" class="rounded img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">

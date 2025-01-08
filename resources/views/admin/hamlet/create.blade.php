@@ -9,7 +9,7 @@
                 <a href="{{ route('hamlet.index') }}" class="btn btn-primary ms-auto">
                     <i class="ti ti-arrow-left"></i> Kembali
                 </a>
-            </div>hehehehe
+            </div>
             <div class="card-body">
                 @include('admin.partials.alert')
                 <form action="{{ route('hamlet.store') }}" method="POST" enctype="multipart/form-data">

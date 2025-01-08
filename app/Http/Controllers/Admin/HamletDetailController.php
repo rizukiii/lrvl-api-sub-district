@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hamlet;
 use App\Models\HamletDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,14 +16,18 @@ class HamletDetailController extends Controller
     public function index()
     {
         $query = HamletDetail::query();
-        $hamlet_detail = $query->orderBy('name', 'desc')->paginate(5);
+        $hamlet_detail = $query->orderBy('hamlets_id', 'desc')->paginate(5);
 
         return view('admin.hamlet_detail.index', compact('hamlet_detail'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('admin.hamlet_detail.create');
+        $hamlet = Hamlet::all(); // Ambil semua data hamlet
+        return view('admin.hamlet_detail.create', compact('hamlet')); // Pass data hamlet ke view
     }
 
     /**
@@ -30,25 +35,28 @@ class HamletDetailController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi data yang dikirim dari form
         $request->validate([
-            'name' => 'required|string',
-            'title' => 'required|string',
-            'image' => 'required|image',
-            'rt' => 'required|numeric',
+            'hamlets_id' => 'required|exists:hamlets,id|numeric', // Validasi bahwa hamlets_id ada di tabel hamlets
+            'maps' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:9048', // Validasi file gambar
         ]);
 
-        $data = $request->only('name', 'title', 'rt');
+        // Ambil data yang dikirim dari form
+        $data = $request->only('hamlets_id');
 
-        // Proses file gambar
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('images/hamlet_detail', 'public');
+        // Proses upload gambar
+        if ($request->hasFile('maps')) {
+            // Simpan gambar ke direktori public/images/hamlet_detail
+            $data['maps'] = $request->file('maps')->store('images/hamlet_detail', 'public');
         }
 
+        // Simpan data ke tabel hamlet_details
         if (HamletDetail::create($data)) {
-            return redirect()->route('hamlet_detail.index')->withSuccess('HamletDetail Berhasil Ditambahkan');
+            return redirect()->route('hamlet_detail.index')->withSuccess('Hamlet Detail Berhasil Ditambahkan');
         }
 
-        return back()->withInput()->withErrors('HamletDetail Gagal Ditambahkan');
+        // Jika terjadi kesalahan, kembali dengan pesan error
+        return back()->withInput()->withErrors('Hamlet Detail Gagal Ditambahkan');
     }
 
     /**
@@ -56,9 +64,10 @@ class HamletDetailController extends Controller
      */
     public function edit($id)
     {
+        // Ambil data hamlet_detail yang akan diedit berdasarkan ID
         $hamlet_detail = HamletDetail::findOrFail($id);
-
-        return view('admin.hamlet_detail.edit', compact('hamlet_detail'));
+        $hamlet = Hamlet::all(); // Ambil semua data hamlet untuk dropdown
+        return view('admin.hamlet_detail.edit', compact('hamlet_detail', 'hamlet'));
     }
 
     /**
@@ -66,34 +75,35 @@ class HamletDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $hamlet_detail = HamletDetail::findOrFail($id);
-
+        // Validasi data yang dikirim dari form
         $request->validate([
-            'name' => 'required|string',
-            'title' => 'required|string',
-            'image' => 'nullable|image',
-            'rt' => 'required|numeric',
+            'hamlets_id' => 'required|exists:hamlets,id|numeric', // Validasi hamlets_id
+            'maps' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:9048', // Validasi file gambar, boleh kosong
         ]);
 
-        $data = $request->only('name', 'title', 'rt');
-        dd($data['title']);
+        // Ambil data hamlet_detail yang akan diupdate
+        $hamlet_detail = HamletDetail::findOrFail($id);
 
-        // Proses file gambar
-        if ($request->hasFile('image')) {
+        // Ambil data yang dikirim dari form
+        $data = $request->only('hamlets_id');
+
+        // Proses upload gambar jika ada
+        if ($request->hasFile('maps')) {
             // Hapus gambar lama jika ada
-            if ($hamlet_detail->image && Storage::exists($hamlet_detail->image)) {
-                Storage::delete($hamlet_detail->image);
+            if ($hamlet_detail->maps && Storage::exists($hamlet_detail->maps)) {
+                Storage::delete($hamlet_detail->maps);
             }
-            $data['image'] = $request->file('image')->store('images/hamlet_detail', 'public');
+            // Simpan gambar baru
+            $data['maps'] = $request->file('maps')->store('images/hamlet_detail', 'public');
         }
 
-
+        // Update data ke tabel hamlet_details
         if ($hamlet_detail->update($data)) {
-            return redirect()->route('hamlet_detail.index')->withSuccess('HamletDetail Berhasil Diubah');
+            return redirect()->route('hamlet_detail.index')->withSuccess('Hamlet Detail Berhasil Diubah');
         }
 
-        return back()->withInput()->withErrors('HamletDetail Gagal Diubah');
+        // Jika terjadi kesalahan, kembali dengan pesan error
+        return back()->withInput()->withErrors('Hamlet Detail Gagal Diubah');
     }
 
     /**
@@ -101,19 +111,20 @@ class HamletDetailController extends Controller
      */
     public function destroy($id)
     {
-        // Mendapatkan objek hamlet_detail berdasarkan id
+        // Ambil data hamlet_detail yang akan dihapus berdasarkan ID
         $hamlet_detail = HamletDetail::findOrFail($id);
 
         // Hapus gambar jika ada
-        if ($hamlet_detail->image && Storage::exists($hamlet_detail->image)) {
-            Storage::delete($hamlet_detail->image);
+        if ($hamlet_detail->maps && Storage::exists($hamlet_detail->maps)) {
+            Storage::delete($hamlet_detail->maps);
         }
 
         // Hapus data hamlet_detail
         if ($hamlet_detail->delete()) {
-            return back()->withSuccess('HamletDetail Berhasil Di Hapus!');
-        } else {
-            return back()->withErrors('HamletDetail Gagal Di Hapus!');
+            return back()->withSuccess('Hamlet Detail Berhasil Dihapus!');
         }
+
+        // Jika terjadi kesalahan, kembali dengan pesan error
+        return back()->withErrors('Hamlet Detail Gagal Dihapus!');
     }
 }

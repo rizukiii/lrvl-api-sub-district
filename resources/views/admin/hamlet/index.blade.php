@@ -28,18 +28,18 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead class="text-center bg-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>No</th>
                                 <th>Gambar</th>
                                 <th>Nama</th>
                                 <th>Judul</th>
                                 <th>RT</th>
-                                <th class="text-center">Aksi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($hamlet as $item)
-                                <tr>
+                                <tr  class="text-center">
                                     <td>{{ $loop->iteration }}</td>
                                     <td class="w-25">
                                         <img src="{{ Storage::url($item->image) }}" alt="gambar desa" style="width: 100px">

@@ -47,9 +47,9 @@ Route::resource('hamlet', HamletController::class)->except('show');
 // Hamlet Numbers
 Route::resource('hamlet_number', HamletNumberController::class)->except('show');
 
-
 // Hamlet Detail
 Route::resource('hamlet_detail', HamletDetailController::class)->except('show');
+
 
 // route index.html
 Route::get('index', function () {
