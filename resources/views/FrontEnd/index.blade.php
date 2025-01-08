@@ -291,7 +291,7 @@
         </ul>
     </ul>
 
-    <h3>Mutasi Penduduk pada Tahun 2020:</h3>
+    <h3>Mutasi Penduduk pada Tahun 2023:</h3>
     <ul>
         <li><strong>Pindah</strong></li>
         <ul class="indent">
@@ -315,7 +315,7 @@
         </ul>
     </ul>
 
-    <h3>Pertumbuhan Penduduk pada Tahun 2020:</h3>
+    <h3>Pertumbuhan Penduduk pada Tahun 2023:</h3>
     <ul>
         <ul class="indent">
             <li>Laki-laki: 180 Jiwa</li>
