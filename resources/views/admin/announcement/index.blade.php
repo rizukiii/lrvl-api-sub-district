@@ -92,6 +92,7 @@
                                         <div class="modal-body">
                                             <form action="{{ route('announcement.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
+                                                @method('PUT') <!-- This is important, it tells Laravel to use PUT -->
                                                 <div class="mb-3 d-flex align-items-center justify-content-center">
                                                     <div class="me-2">
                                                         <img src="{{ Storage::url($item->image) }}" alt="announcement image" class="img-thumbnail rounded" style="width: 100px;">

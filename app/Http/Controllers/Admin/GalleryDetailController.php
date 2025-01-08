@@ -79,15 +79,14 @@ class GalleryDetailController extends Controller
      */
     public function destroy(GalleryDetail $id)
     {
-        {
-            if ($id->image && Storage::exists($id->image)) {
-                Storage::delete($id->image);
-            }
+        if ($id->image && Storage::exists($id->image)) {
+            Storage::delete($id->image);
+        }
 
-            if ($id->delete()) {
+     $id->delete();
+            if ($id) {
                 return back()->withSuccess('Album Berhasil Di Hapus');
             }
             return back()->withErrors('Album Gagal Di Hapus!');
-        }
     }
 }

@@ -36,7 +36,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validasi gambar
+            'image' => 'nullable|image', // Validasi gambar
         ]);
 
         $data = $request->only('title');
@@ -61,7 +61,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'title' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validasi gambar
+            'image' => 'nullable|image', // Validasi gambar
         ]);
 
         $data = $request->only('title');

@@ -38,7 +38,7 @@ class AnnouncementController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validasi gambar
+            'image' => 'nullable|image', // Validasi gambar
         ]);
 
         $data = $request->only('title', 'description', 'date');
@@ -63,7 +63,7 @@ class AnnouncementController extends Controller
         $request->validate([
             'title' => 'nullable|string',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validasi gambar
+            'image' => 'nullable|image', // Validasi gambar
         ]);
 
         $data = $request->only('title', 'description', 'date');

@@ -91,6 +91,7 @@
                                     <div class="modal-body">
                                         <form action="{{ route('gallery.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
+                                            @method('PUT') <!-- Specify the HTTP method -->
                                             <div class="mb-3 d-flex align-items-center justify-content-center">
                                                 <div class="me-2">
                                                     <img src="{{ Storage::url($item->image) }}" alt="gambar gallery" class="img-thumbnail rounded" style="width: 100px;">

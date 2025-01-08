@@ -56,7 +56,7 @@
                                     <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
                                         <i class="ti ti-trash"></i>
                                     </button>
-                                    <<form id="delete-form-{{ $item->id }}" action="{{ route('news.destroy', $item->id) }}" method="POST" style="display: none;">
+                                    <form id="delete-form-{{ $item->id }}" action="{{ route('news.destroy', $item->id) }}" method="POST" style="display: none;">
                                         @csrf
                                         @method('DELETE')
                                     </form>

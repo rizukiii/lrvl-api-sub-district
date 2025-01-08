@@ -26,10 +26,22 @@ Route::patch('profile', [ProfileController::class, 'update'])->name('profile.upd
 Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 // News routes
-Route::resource('news', NewsController::class)->except(['show']);
+Route::get('news', [NewsController::class, 'index'])->name('news.index');
+Route::post('news', [NewsController::class, 'store'])->name('news.store');
+Route::put('news/{id}', [NewsController::class, 'update'])->name('news.update');
+Route::delete('news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+
+// Announcements routes
+Route::get('announcements', [AnnouncementController::class, 'index'])->name('announcement.index');
+Route::post('announcements', [AnnouncementController::class, 'store'])->name('announcement.store');
+Route::put('announcements/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
+Route::delete('announcements/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
 
 // Gallery routes
-Route::resource('gallery', GalleryController::class)->except(['show']);
+Route::get('gallery', [GalleryController::class, 'index'])->name('gallery.index');
+Route::post('gallery', [GalleryController::class, 'store'])->name('gallery.store');
+Route::put('gallery/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+Route::delete('gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 
 // Gallery Details (Album)
 Route::prefix('album/{id}')->group(function () {
@@ -39,8 +51,7 @@ Route::prefix('album/{id}')->group(function () {
     Route::delete('/', [GalleryDetailController::class, 'destroy'])->name('album.destroy');
 });
 
-// Announcements
-Route::resource('announcement', AnnouncementController::class)->except('show');
+
 
 // Hamlet
 Route::resource('hamlet', HamletController::class)->except('show');
