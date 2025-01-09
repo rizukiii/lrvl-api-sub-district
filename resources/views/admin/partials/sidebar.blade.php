@@ -94,6 +94,14 @@
                         <span class="hide-menu">Index</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('FrontEnd.daftar_pejabat') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-news"></i>
+                        </span>
+                        <span class="hide-menu">Daftar Pejabat</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
