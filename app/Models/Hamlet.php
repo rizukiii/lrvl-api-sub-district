@@ -23,4 +23,12 @@ class Hamlet extends Model
     public function hamlet_galleries(){
         return $this->hasOne(Gallery::class);
     }
+
+    public function details(){
+        return $this->hasMany(HamletDetail::class,'hamlet_id','id');
+    }
+
+    public function galleries(){
+        return $this->hasMany(Gallery::class,'hamlet_detail_id','id');
+    }
 }
