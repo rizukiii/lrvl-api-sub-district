@@ -27,7 +27,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="rt" class="form-label">RT</label>
-                        <input type="number" class="form-control" name="rt">
+                        <input type="tel" class="form-control" name="rt">
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul</label>

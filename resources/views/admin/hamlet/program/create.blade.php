@@ -36,7 +36,7 @@
                         >
                             <option value="">Pilih Desa</option>
                             @foreach ($hamlet as $item)
-                            <option value="{{ $item->id }}" @selected($item->id == old('hamlets_number_id'))>{{ $item->name }}</option>
+                                <option value="{{ $item->id }}" @selected($item->id == old('hamlets_number_id'))>{{ $item->name }}</option>
                             @endforeach
                         </select>
                     </div>

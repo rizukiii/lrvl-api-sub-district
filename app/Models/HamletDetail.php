@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Hamlet\Gallery;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +20,14 @@ class HamletDetail extends Model
         'updated_at' => 'datetime'
     ];
 
-    public function hamlet(){
-        return $this->belongsTo(Hamlet::class,'hamlets_id','id');
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class, 'hamlet_detail_id');  // Ensure correct foreign key name
+    }
+
+    public function hamlet()
+    {
+        return $this->belongsTo(Hamlet::class, 'hamlets_id');  // Ensure correct foreign key name
     }
 }

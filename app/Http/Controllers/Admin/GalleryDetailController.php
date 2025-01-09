@@ -15,8 +15,8 @@ class GalleryDetailController extends Controller
      */
     public function index(Request $request, $id)
     {
-        $album = GalleryDetail::where('gallery_id', $id)->paginate(5);
         $gallery = Gallery::findOrFail($id);
+        $album = GalleryDetail::where('gallery_id', $id)->paginate(5);
         $galleries = Gallery::all(); // Add this line to fetch all galleries
 
         return view('admin.gallery_details.index', compact('album', 'gallery', 'galleries'));
@@ -29,7 +29,7 @@ class GalleryDetailController extends Controller
     public function store(Request $request, $id)
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validasi gambar
+            'image' => 'required|image', // Validasi gambar
         ]);
 
         // Proses penyimpanan gambar
@@ -50,7 +50,7 @@ class GalleryDetailController extends Controller
     public function update(Request $request, GalleryDetail $id)
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validasi gambar
+            'image' => 'nullable|image', // Validasi gambar
         ]);
 
         $data = $request->only('gallery_id'); // Pastikan data gallery_id dikirim

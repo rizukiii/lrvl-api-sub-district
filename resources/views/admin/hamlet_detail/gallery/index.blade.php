@@ -1,28 +1,22 @@
 @extends('layouts.admin')
-@section('title', 'Hamlet Gallery')
+@section('title', 'Galeri Dusun')
 @section('content')
 
     <div class="container-fluid">
         <div class="card">
             <div class="card-header d-flex">
-                <h5 class="card-title fw-semibold mb-2">Hamlet Page</h5>
-                <a class="btn btn-dark ms-auto" href="{{ route('hamlet.create') }}">
-                    <span><i class="ti ti-plus"></i> Tambah Hamlet</span>
-                </a>
+                <h5 class="card-title fw-semibold mb-2">Halaman Galeri Dusun</h5>
+                <div class="ms-auto">
+                    <a href="{{ route('hamlet_detail.index') }}" class="btn btn-primary ms-auto">
+                        <i class="ti ti-arrow-left"></i> Kembali
+                    </a>
+                    <a class="btn btn-dark ms-auto" href="{{ route('hamlet_gallery.create', $hamlet_detail->id) }}">
+                        <span><i class="ti ti-plus"></i> Tambah Hamlet</span>
+                    </a>
+                </div>
             </div>
             <div class="card-body">
                 @include('admin.partials.alert')
-
-                <!-- Search Form -->
-                <div class="d-flex mb-3">
-                    <form action="{{ route('hamlet.index') }}" method="GET" class="d-flex w-100">
-                        <input type="text" name="search" class="form-control me-2"
-                            placeholder="Search hamlets..." value="{{ request('search') }}">
-                        <button type="submit" class="btn btn-success">
-                            <i class="ti ti-search"></i> Cari
-                        </button>
-                    </form>
-                </div>
 
                 <!-- Hamlets Street Table -->
                 <div class="table-responsive">
@@ -31,39 +25,34 @@
                             <tr class="text-center">
                                 <th>No</th>
                                 <th>Gambar</th>
-                                <th>Nama</th>
-                                <th>Judul</th>
-                                <th>RT</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($hamlet as $item)
+                            @forelse ($album as $item)
                                 <tr  class="text-center">
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td class="w-25">{{ $loop->iteration }}</td>
                                     <td class="w-25">
                                         <img src="{{ Storage::url($item->image) }}" alt="gambar desa" style="width: 100px">
                                     </td>
-                                    <td class="w-25">{{ $item->name }}</td>
-                                    <td class="w-25">{{ $item->title }}</td>
-                                    <td class="w-25">{{ $item->rt }}</td>
                                     <td class=" justify-content-center">
                                         <button class="btn btn-secondary mb-1 me-1" data-bs-toggle="modal"
                                             data-bs-target="#infoModal{{ $item->id }}">
                                             <i class="ti ti-info-circle"></i>
                                         </button>
-                                        <a class="btn btn-warning mb-1" href="{{ route('hamlet.edit', $item->id) }}">
+                                        <a href="{{ route('hamlet_gallery.edit', $item->id) }}" class="btn btn-warning mb-1">
                                             <i class="ti ti-edit"></i>
                                         </a>
-                                        <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
-                                            <i class="ti ti-trash"></i>
-                                        </button>
-                                        <form id="delete-form-{{ $item->id }}"
-                                            action="{{ route('hamlet.destroy', $item->id) }}" method="POST"
-                                            style="display: none;">
+
+                                        <form id="delete-form-{{ $item->id }}" action="{{ route('hamlet_gallery.destroy', $item->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>
+
+                                        <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
+                                            <i class="ti ti-trash"></i>
+                                        </button>
+
                                     </td>
                                 </tr>
 
@@ -99,7 +88,7 @@
 
                 <!-- Pagination -->
                 <div class="mt-3 d-flex justify-content-center">
-                    {{ $hamlet->withQueryString()->links('pagination::bootstrap-5') }}
+                    {{ $album->withQueryString()->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>

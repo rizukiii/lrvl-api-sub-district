@@ -29,7 +29,7 @@ class GalleryController extends Controller
     /**
      * Fetch single Gallery details by ID (API).
      */
-    
+
     public function getDetailGallery(Gallery $id)
     {
         // Eager load the `images` relationship

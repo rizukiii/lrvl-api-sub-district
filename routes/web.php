@@ -67,12 +67,18 @@ Route::resource('hamlet_detail', HamletDetailController::class)->except('show');
 Route::resource('hamlet_program', HamletProgramController::class)->except('show');
 
 // Hamlet Gallery
-Route::prefix('hamlet_gallery/{id}')->group(function () {
-    Route::get('/', [GalleryHamlet::class, 'index'])->name('hamlet.gallery.index');
-    Route::post('/', [GalleryHamlet::class, 'store'])->name('hamlet.gallery.store');
-    Route::put('/', [GalleryHamlet::class, 'update'])->name('hamlet.gallery.update');
-    Route::delete('/', [GalleryHamlet::class, 'destroy'])->name('hamlet.gallery.destroy');
-});
+
+Route::get('hamlet_gallery/{id}', [GalleryHamlet::class, 'index'])->name('hamlet_gallery.index');
+Route::get('hamlet_gallery/create/{id}', [GalleryHamlet::class, 'create'])->name('hamlet_gallery.create');
+Route::post('hamlet_gallery/store/{id}', [GalleryHamlet::class, 'store'])->name('hamlet_gallery.store');
+
+Route::get('hamlet_gallery/edit/{id}', [GalleryController::class, 'edit'])->name('hamlet_gallery.edit');
+
+Route::put('hamlet_gallery/update/{id}', [GalleryHamlet::class, 'update'])->name('hamlet_gallery.update');
+
+Route::delete('hamlet_gallery/destroy/{id}', [GalleryHamlet::class, 'destroy'])->name('hamlet_gallery.destroy');
+
+
 
 
 // route dari folder FrontEnd

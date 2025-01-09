@@ -44,9 +44,10 @@
                                     </td>
                                     <td class="w-25 text-center">{{ $item->hamlet->name }}</td>
                                     <td class=" justify-content-center text-center">
-                                        <a href="{{ route('album.index', $item->id) }}" class="btn btn-primary">
+                                        <a href="{{ route('hamlet_gallery.index', $item->id) }}" class="btn btn-primary">
                                             <i class="ti ti-camera text-light"></i>
                                         </a>
+
                                         <button class="btn btn-secondary mb-1 me-1" data-bs-toggle="modal"
                                             data-bs-target="#infoModal{{ $item->id }}">
                                             <i class="ti ti-info-circle"></i>

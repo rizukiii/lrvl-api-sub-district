@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('hamlet_galleries', function (Blueprint $table) {
             $table->id();
             $table->text('image');
-            $table->unsignedBigInteger('hamlet_id');
+            $table->unsignedBigInteger('hamlet_detail_id');
             $table->timestamps();
 
-            $table->foreign('hamlet_id')->references('id')->on('hamlets')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('hamlet_detail_id')->references('id')->on('hamlet_details')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
