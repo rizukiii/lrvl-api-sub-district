@@ -48,11 +48,12 @@ class HamletDetailController extends Controller
     {
         // Eager load the `galleries` relationship
         $gallery = $id->load('galleries');
+        $hamlet = $id->load('hamlets');
 
         // Transform the gallery object
         $response = [
             'id' => $gallery->id,
-            'name' => $gallery->name, // Pastikan kolom 'name' ada di tabel HamletDetail
+            'name' => $hamlet->name, // Pastikan kolom 'name' ada di tabel HamletDetail
             'image' => url('/') . Storage::url($gallery->image),
             'galleries' => $gallery->galleries->map(function ($image) {
                 return [
