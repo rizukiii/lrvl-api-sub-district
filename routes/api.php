@@ -24,7 +24,7 @@ Route::get('announcement', action: [AnnouncementController::class, 'getAllAnnoun
 Route::get('announcement/{id}', action: [AnnouncementController::class, 'getDetailAnnouncement']);
 
 Route::get('hamlet', action: [HamletController::class, 'getAllHamlet']);
-Route::get('hamlet/{id}', action: [HamletController::class, 'getDetailHamlet']);
+Route::get('hamlet/{hamlet}', action: [HamletController::class, 'getDetailHamlet']);
 
 
 Route::get('hamlet_gallery', action: [HamletDetailController::class, 'getAllGallery']);

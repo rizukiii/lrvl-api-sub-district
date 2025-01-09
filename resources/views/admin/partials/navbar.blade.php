@@ -35,7 +35,16 @@
                   <i class="ti ti-list-check fs-6"></i>
                   <p class="mb-0 fs-3">My Task</p>
                 </a>
-                <a href="{{ asset('template_admin') }}/src/html/authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
               </div>
             </div>
           </li>

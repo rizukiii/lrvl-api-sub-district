@@ -27,46 +27,22 @@ class HamletDetailController extends Controller
         return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $galeri);
     }
 
-    // public function getDetailGallery(HamletDetail $id)
-    // {
-    //     // Eager load the `galleries` relationship
-    //     $gallery = $id->load('galleries');
-
-    //     // Transform the gallery and related galleries
-    //     $gallery->image = url('/') . Storage::url($gallery->image);
-
-    //     // Map over the related galleries to update their URLs
-    //     $gallery->galleries = $gallery->galleries->map(function ($image) {
-    //         $image->image = url('/') . Storage::url($image->image);
-    //         return $image;
-    //     });
-
-    //     return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $gallery);
-    // }
-
     public function getDetailGallery(HamletDetail $id)
     {
         // Eager load the `galleries` relationship
         $gallery = $id->load('galleries');
-        $hamlet = $id->load('hamlets');
 
-        // Transform the gallery object
-        $response = [
-            'id' => $gallery->id,
-            'name' => $hamlet->nama, // Pastikan kolom 'name' ada di tabel HamletDetail
-            'image' => url('/') . Storage::url($gallery->image),
-            'galleries' => $gallery->galleries->map(function ($image) {
-                return [
-                    'id' => $image->id,
-                    'name' => $image->name, // Jika ingin menampilkan nama terkait gambar
-                    'image' => url('/') . Storage::url($image->image),
-                ];
-            }),
-        ];
 
-        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $response);
+        // Transform the gallery and related galleries
+        $gallery->maps = url('/') . Storage::url($gallery->maps);
+
+        // Map over the related galleries to update their URLs
+        $gallery->galleries = $gallery->galleries->map(function ($image) {
+            $image->image = url('/') . Storage::url($image->image);
+            return $image;
+        });
+
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $gallery);
     }
-
-
 
 }
