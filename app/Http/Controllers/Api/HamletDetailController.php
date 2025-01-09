@@ -48,9 +48,15 @@ class HamletDetailController extends Controller
     {
         // Eager load the `galleries` relationship
         $gallery = $id->load('galleries');
+        $detail = $id->load('hamlets');
 
         // Transform the gallery and related galleries
         $gallery->image = url('/') . Storage::url($gallery->image);
+
+
+        $detail->nama = url('/') . Storage::url($detail->nama);
+
+
 
         // Map over the related galleries to update their URLs
         $gallery->galleries = $gallery->galleries->map(function ($image) {
