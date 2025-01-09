@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header d-flex align-items-center">
-            <h5 class="card-title fw-semibold mb-0">Album Page</h5>
+            <h5 class="card-title fw-semibold mb-0">Halaman Album</h5>
             <div class="ms-auto">
                 <a href="{{ route('gallery.index') }}" class="btn btn-primary">
                     <i class="ti ti-arrow-left"></i> Kembali
@@ -65,7 +65,6 @@
                                         </div>
                                         <div class="modal-body">
                                             <img src="{{ Storage::url($item->image) }}" alt="album image" class="img-fluid rounded mb-3">
-                                            <h5>ID Gallery: {{ $item->gallery_id }}</h5>
                                         </div>
                                     </div>
                                 </div>
