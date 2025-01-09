@@ -26,7 +26,7 @@ class HamletDetail extends Model
         return $this->hasMany(Gallery::class, 'hamlet_detail_id');  // Ensure correct foreign key name
     }
 
-    public function hamlet()
+    public function hamlets()
     {
         return $this->belongsTo(Hamlet::class, 'hamlets_id');  // Ensure correct foreign key name
     }

@@ -53,7 +53,7 @@ class HamletDetailController extends Controller
         // Transform the gallery object
         $response = [
             'id' => $gallery->id,
-            'name' => $hamlet->name, // Pastikan kolom 'name' ada di tabel HamletDetail
+            'name' => $hamlet->nama, // Pastikan kolom 'name' ada di tabel HamletDetail
             'image' => url('/') . Storage::url($gallery->image),
             'galleries' => $gallery->galleries->map(function ($image) {
                 return [

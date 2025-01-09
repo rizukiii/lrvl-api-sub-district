@@ -5,9 +5,9 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header d-flex">
-            <h5 class="card-title fw-semibold mb-2">Announcement Page</h5>
+            <h5 class="card-title fw-semibold mb-2">Halaman Pengumuman</h5>
             <button class="btn btn-dark ms-auto" data-bs-toggle="modal" data-bs-target="#createModal">
-                <span><i class="ti ti-plus"></i> Tambah Announcement</span>
+                <span><i class="ti ti-plus"></i> Tambah Pengumuman</span>
             </button>
         </div>
         <div class="card-body">
@@ -16,14 +16,14 @@
             <!-- Search Form -->
             <div class="d-flex mb-3">
                 <form action="{{ route('announcement.index') }}" method="GET" class="d-flex w-100">
-                    <input type="text" name="search" class="form-control me-2" placeholder="Search announcement..." value="{{ request('search') }}">
+                    <input type="text" name="search" class="form-control me-2" placeholder="Cari pengumuman..." value="{{ request('search') }}">
                     <button type="submit" class="btn btn-success">
                         <i class="ti ti-search"></i> Cari
                     </button>
                 </form>
             </div>
 
-            <!-- Announcement Table -->
+            <!-- Pengumuman Table -->
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead class="text-center bg-light">
@@ -68,14 +68,14 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="infoModalLabel{{ $item->id }}">Announcement Detail</h5>
+                                            <h5 class="modal-title" id="infoModalLabel{{ $item->id }}">Pengumuman Detail</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <img src="{{ Storage::url($item->image) }}" alt="announcement image" class="img-fluid rounded mb-3">
                                             <h5>{{ $item->title }}</h5>
                                             <p>{{ $item->description }}</p>
-                                            <p><strong>Date:</strong> {{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</p>
+                                            <p><strong>TAnggal :</strong> {{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editModalLabel{{ $item->id }}">Edit Announcement</h5>
+                                            <h5 class="modal-title" id="editModalLabel{{ $item->id }}">Edit Pengumuman</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -102,22 +102,22 @@
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="image{{ $item->id }}" class="form-label">Image</label>
+                                                    <label for="image{{ $item->id }}" class="form-label">Gambar</label>
                                                     <input type="file" class="form-control" name="image" id="image{{ $item->id }}" onchange="previewImage(event, 'preview{{ $item->id }}')">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="title" class="form-label">Title</label>
-                                                    <input type="text" class="form-control" name="title" value="{{ $item->title }}">
+                                                    <label for="title" class="form-label">Judul</label>
+                                                    <input type="text" class="form-control" name="title" value="{{ $item->title }}" placeholder="Masukan Judul Pengumuman">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="description" class="form-label">Description</label>
-                                                    <textarea class="form-control" name="description" rows="4">{{ $item->description }}</textarea>
+                                                    <label for="description" class="form-label">Deskripsi</label>
+                                                    <textarea class="form-control" name="description" rows="4" placeholder="Masukan Deskripsi Pengumuman">{{ $item->description }}</textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="date" class="form-label">Date</label>
+                                                    <label for="date" class="form-label">Tanggal</label>
                                                     <input type="date" class="form-control" name="date" value="{{ $item->date }}">
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                             </form>
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@
                             </div>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center text-danger fw-bold">No data available.</td>
+                                <td colspan="6" class="text-center text-danger fw-bold">Tidak Ada Data.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -145,7 +145,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createModalLabel">Add New Announcement</h5>
+                <h5 class="modal-title" id="createModalLabel">Tambah Pengumuman Baru</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -156,22 +156,22 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="imageCreate" class="form-label">Image</label>
+                        <label for="imageCreate" class="form-label">Gambar</label>
                         <input type="file" class="form-control" name="image" id="imageCreate" onchange="previewImage(event, 'previewCreate')">
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Enter announcement title">
+                        <label for="title" class="form-label">Judul</label>
+                        <input type="text" class="form-control" name="title" placeholder="Masukan Judul Pengumuman">
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" rows="4" placeholder="Enter announcement description"></textarea>
+                        <label for="description" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" name="description" rows="4" placeholder="Masukan Deskripsi Pengumuman"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="date" class="form-label">Date</label>
+                        <label for="date" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" name="date">
                     </div>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>
             </div>
         </div>
