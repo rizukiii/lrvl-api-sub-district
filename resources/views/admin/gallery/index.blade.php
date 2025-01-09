@@ -5,10 +5,10 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header d-flex align-items-center">
-            <h5 class="card-title fw-semibold mb-0">Gallery Page</h5>
+            <h5 class="card-title fw-semibold mb-0">Halaman Galeri</h5>
             <button class="btn btn-dark ms-auto" data-bs-toggle="modal" data-bs-target="#createModal">
                 <span>
-                    <i class="ti ti-plus"></i> Tambah Gallery
+                    <i class="ti ti-plus"></i> Tambah Galeri
                 </span>
             </button>
         </div>
@@ -19,14 +19,14 @@
             <!-- Search Form -->
             <div class="mb-4">
                 <form action="{{ route('gallery.index') }}" method="GET" class="d-flex w-100">
-                    <input type="text" name="search" class="form-control me-2" placeholder="Cari gallery..." value="{{ request('search') }}">
+                    <input type="text" name="search" class="form-control me-2" placeholder="Cari galeri..." value="{{ request('search') }}">
                     <button type="submit" class="btn btn-success">
                         <i class="ti ti-search"></i> Cari
                     </button>
                 </form>
             </div>
 
-            <!-- Gallery Table -->
+            <!-- Galeri Table -->
             <table class="table table-bordered table-striped">
                 <thead class="text-center bg-light">
                     <tr  class="text-center">
@@ -130,7 +130,7 @@
     </div>
 </div>
 
-<!-- Create Gallery Modal -->
+<!-- Create Galeri Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -152,7 +152,7 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul</label>
-                        <input type="text" class="form-control" name="title" placeholder="Masukkan judul gallery">
+                        <input type="text" class="form-control" name="title" placeholder="Masukkan Judul Galeri">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Tambah</button>
