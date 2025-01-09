@@ -48,24 +48,24 @@ class HamletDetailController extends Controller
     {
         // Eager load the `galleries` relationship
         $gallery = $id->load('galleries');
-        $detail = $id->load('hamlets');
 
-        // Transform the gallery and related galleries
-        $gallery->image = url('/') . Storage::url($gallery->image);
+        // Transform the gallery object
+        $response = [
+            'id' => $gallery->id,
+            'name' => $gallery->name, // Pastikan kolom 'name' ada di tabel HamletDetail
+            'image' => url('/') . Storage::url($gallery->image),
+            'galleries' => $gallery->galleries->map(function ($image) {
+                return [
+                    'id' => $image->id,
+                    'name' => $image->name, // Jika ingin menampilkan nama terkait gambar
+                    'image' => url('/') . Storage::url($image->image),
+                ];
+            }),
+        ];
 
-
-        $detail->nama = url('/') . Storage::url($detail->nama);
-
-
-
-        // Map over the related galleries to update their URLs
-        $gallery->galleries = $gallery->galleries->map(function ($image) {
-            $image->image = url('/') . Storage::url($image->image);
-            return $image;
-        });
-
-        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $gallery);
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $response);
     }
+
 
 
 }
