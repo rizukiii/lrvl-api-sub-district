@@ -75,10 +75,17 @@ Route::prefix('hamlet_gallery/{id}')->group(function () {
 });
 
 
-// route index.html
+// route dari folder FrontEnd
 Route::get('index', function () {
     return view('FrontEnd.index');
 })->name('FrontEnd.index');
+
+Route::get('daftar_pejabat', function () {
+    return view('FrontEnd.daftar_pejabat');
+})->name('FrontEnd.daftar_pejabat');
+
+
+
 
 // });
 
