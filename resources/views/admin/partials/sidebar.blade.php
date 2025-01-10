@@ -58,14 +58,6 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('hamlet_number.index') }}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-photo"></i>
-                        </span>
-                        <span class="hide-menu">Hamlet Number</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('hamlet_detail.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-photo"></i>
@@ -73,15 +65,6 @@
                         <span class="hide-menu">Hamlet Detail</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('hamlet_program.index') }}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-photo"></i>
-                        </span>
-                        <span class="hide-menu">Hamlet Program</span>
-                    </a>
-                </li>
-                {{--  --}}
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">HTML</span>

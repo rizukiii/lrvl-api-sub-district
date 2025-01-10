@@ -21,13 +21,13 @@ class Hamlet extends Model
         'upload_at' => 'datetime',
     ];
 
-    public function hamlet_details()
+    public function galleries()
     {
-        return $this->hasMany(HamletDetail::class, 'hamlet_id');  // Make sure the foreign key is `hamlet_id`
+        return $this->hasMany(Gallery::class, 'hamlet_detail_id');  // Ensure correct foreign key name
     }
 
-    public function hamlet_galleries()
+    public function details()
     {
-        return $this->hasMany(Gallery::class, 'hamlet_detail_id', 'id');
+        return $this->hasMany(HamletDetail::class, 'hamlets_id');
     }
 }

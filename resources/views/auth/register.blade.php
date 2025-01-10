@@ -27,7 +27,7 @@
                   <img src="{{ asset('template_admin') }}/src/assets/images/logos/dark-logo.svg" width="180" alt="">
                 </a>
                 <p class="text-center">Your Social Campaigns</p>
-                <form>
+                <form action="register" method="post">
                   <div class="mb-3">
                     <label for="exampleInputtext1" class="form-label">Name</label>
                     <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
@@ -43,7 +43,7 @@
                   <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign Up</a>
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
-                    <a class="text-primary fw-bold ms-2" href="./authentication-login.html">Sign In</a>
+                    <button type="submit" class="text-primary fw-bold ms-2" >Sign In</button>
                   </div>
                 </form>
               </div>

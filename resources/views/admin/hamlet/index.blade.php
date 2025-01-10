@@ -45,7 +45,7 @@
                                         <img src="{{ Storage::url($item->image) }}" alt="gambar desa" style="width: 100px">
                                     </td>
                                     <td class="w-25">{{ $item->name }}</td>
-                                    <td class="w-25">{{ $item->title }}</td>
+                                    <td class="w-25">{{ Str::limit($item->title, 30, '...') }}</td>
                                     <td class="w-25">{{ $item->rt }}</td>
                                     <td class=" justify-content-center">
                                         <button class="btn btn-secondary mb-1 me-1" data-bs-toggle="modal"

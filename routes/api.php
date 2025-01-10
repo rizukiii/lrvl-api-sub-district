@@ -23,12 +23,9 @@ Route::get('gallery/{id}', action: [GalleryController::class, 'getDetailGallery'
 Route::get('announcement', action: [AnnouncementController::class, 'getAllAnnouncement']);
 Route::get('announcement/{id}', action: [AnnouncementController::class, 'getDetailAnnouncement']);
 
-Route::get('hamlet', action: [HamletController::class, 'getAllHamlet']);
-Route::get('hamlet/{hamlet}', action: [HamletController::class, 'getDetailHamlet']);
 
-
-Route::get('hamlet_gallery', action: [HamletDetailController::class, 'getAllGallery']);
-Route::get('hamlet_gallery/{id}', action: [HamletDetailController::class, 'getDetailGallery']);
+Route::get('hamlet', [HamletController::class, 'getAllHamlet']); // API untuk mendapatkan semua hamlets
+Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']); // API untuk mendapatkan detail hamlet berdasarkan ID
 
 
 

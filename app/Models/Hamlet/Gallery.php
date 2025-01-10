@@ -18,6 +18,6 @@ class Gallery extends Model
 
     public function hamletDetail()
     {
-        return $this->belongsTo(HamletDetail::class, 'hamlet_detail_id');  // Correct foreign key
+        return $this->belongsTo(Hamlet::class, 'hamlet_detail_id');  // Correct foreign key
     }
 }

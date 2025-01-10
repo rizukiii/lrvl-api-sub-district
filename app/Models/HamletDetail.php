@@ -12,7 +12,7 @@ class HamletDetail extends Model
     protected $table = 'hamlet_details';
     protected $primaryKey = 'id'; // Corrected: should be `hamlet_id` as the primary key
     protected $fillable = [
-        'hamlet_id',  // Corrected to match the foreign key column name
+        'hamlets_id',  // Corrected to match the foreign key column name
         'maps'
     ];
     protected $casts = [
@@ -27,6 +27,6 @@ class HamletDetail extends Model
 
     public function hamlet()
     {
-        return $this->belongsTo(Hamlet::class, 'hamlet_id');  // Ensure correct foreign key name
+        return $this->belongsTo(Hamlet::class, 'hamlets_id'); // Foreign key harus benar
     }
 }
