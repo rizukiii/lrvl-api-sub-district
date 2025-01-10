@@ -23,15 +23,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter Hamlet">
+                        <input type="text" class="form-control" name="name" placeholder="Masukan Hamlet">
                     </div>
                     <div class="mb-3">
                         <label for="rt" class="form-label">RT</label>
-                        <input type="tel" class="form-control" name="rt">
+                        <input type="tel" class="form-control" name="rt" placeholder="Masukan RT">
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Judul</label>
-                        <input type="text" class="form-control" name="title">
+                        <label for="title" class="form-label">Deskripsi</label>
+                        <input type="text" class="form-control" name="title" placeholder="Masukan Deskripsi">
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>

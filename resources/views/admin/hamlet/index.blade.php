@@ -7,7 +7,7 @@
             <div class="card-header d-flex">
                 <h5 class="card-title fw-semibold mb-2">Hamlet Page</h5>
                 <a class="btn btn-dark ms-auto" href="{{ route('hamlet.create') }}">
-                    <span><i class="ti ti-plus"></i> Tambah Hamlet</span>
+                    <span><i class="ti ti-plus"></i> Add Hamlet</span>
                 </a>
             </div>
             <div class="card-body">
@@ -19,7 +19,7 @@
                         <input type="text" name="search" class="form-control me-2"
                             placeholder="Search hamlets..." value="{{ request('search') }}">
                         <button type="submit" class="btn btn-success">
-                            <i class="ti ti-search"></i> Cari
+                            <i class="ti ti-search"></i> Search
                         </button>
                     </form>
                 </div>
@@ -47,25 +47,27 @@
                                     <td class="w-25">{{ $item->name }}</td>
                                     <td class="w-25">{{ Str::limit($item->title, 30, '...') }}</td>
                                     <td class="w-25">{{ $item->rt }}</td>
-                                    <td class=" justify-content-center">
-                                        <button class="btn btn-secondary mb-1 me-1" data-bs-toggle="modal"
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <button class="btn btn-secondary" data-bs-toggle="modal"
                                             data-bs-target="#infoModal{{ $item->id }}">
                                             <i class="ti ti-info-circle"></i>
-                                        </button>
-                                        <a class="btn btn-warning mb-1" href="{{ route('hamlet.edit', $item->id) }}">
-                                            <i class="ti ti-edit"></i>
-                                        </a>
-                                        <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
-                                            <i class="ti ti-trash"></i>
-                                        </button>
-                                        <form id="delete-form-{{ $item->id }}"
-                                            action="{{ route('hamlet.destroy', $item->id) }}" method="POST"
-                                            style="display: none;">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
+                                            </button>
+                                            <a class="btn btn-warning" href="{{ route('hamlet.edit', $item->id) }}">
+                                                <i class="ti ti-edit"></i>
+                                            </a>
+                                            <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
+                                                <i class="ti ti-trash"></i>
+                                            </button>
+                                        </div>
                                     </td>
-                                </tr>
+                            </tr>
+                            <form id="delete-form-{{ $item->id }}"
+                                action="{{ route('hamlet.destroy', $item->id) }}" method="POST"
+                                style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
 
                                 <!-- Info Modal -->
                                 <div class="modal fade" id="infoModal{{ $item->id }}" tabindex="-1"

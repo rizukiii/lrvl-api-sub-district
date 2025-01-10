@@ -43,29 +43,39 @@
                                         <img src="{{ Storage::url($item->maps) }}" alt="gambar desa" style="width: 100px">
                                     </td>
                                     <td class="w-25 text-center">{{ $item->hamlet->name }}</td>
-                                    <td class=" justify-content-center text-center">
-                                        <a href="{{ route('hamlet_gallery.index', $item->id) }}" class="btn btn-primary">
-                                            <i class="ti ti-camera text-light"></i>
-                                        </a>
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <!-- Gallery Button -->
+                                            <a href="{{ route('hamlet_gallery.index', $item->id) }}" class="btn btn-primary">
+                                                <i class="ti ti-camera text-light"></i>
+                                            </a>
 
-                                        <button class="btn btn-secondary mb-1 me-1" data-bs-toggle="modal"
-                                            data-bs-target="#infoModal{{ $item->id }}">
-                                            <i class="ti ti-info-circle"></i>
-                                        </button>
-                                        <a class="btn btn-warning mb-1" href="{{ route('hamlet_detail.edit', $item->id) }}">
-                                            <i class="ti ti-edit"></i>
-                                        </a>
-                                        <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
-                                            <i class="ti ti-trash"></i>
-                                        </button>
-                                        <form id="delete-form-{{ $item->id }}"
-                                            action="{{ route('hamlet_detail.destroy', $item->id) }}" method="POST"
-                                            style="display: none;">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
+                                            <!-- Info Button -->
+                                            <button class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#infoModal{{ $item->id }}">
+                                                <i class="ti ti-info-circle"></i>
+                                            </button>
+
+                                            <!-- Edit Button -->
+                                            <a class="btn btn-warning" href="{{ route('hamlet_detail.edit', $item->id) }}">
+                                                <i class="ti ti-edit"></i>
+                                            </a>
+
+                                            <!-- Delete Button -->
+                                            <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
+                                                <i class="ti ti-trash"></i>
+                                            </button>
+
+                                        </div>
                                     </td>
                                 </tr>
+                                <!-- Delete Form -->
+                                <form id="delete-form-{{ $item->id }}"
+                                    action="{{ route('hamlet_detail.destroy', $item->id) }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
 
                                 <!-- Info Modal -->
                                 <div class="modal fade" id="infoModal{{ $item->id }}" tabindex="-1"
@@ -102,7 +112,5 @@
             </div>
         </div>
     </div>
-
-
 
 @endsection

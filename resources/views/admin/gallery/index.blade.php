@@ -44,25 +44,27 @@
                                 <img src="{{ Storage::url($item->image) }}" alt="gambar gallery" style="width: 100px; height: 100px; object-fit: cover" class="rounded img-thumbnail">
                             </td>
                             <td>{{ Str::limit($item->title, 50, '...') }}</td>
-                            <td>
-                                <a href="{{ route('album.index', $item->id) }}" class="btn btn-primary">
-                                    <i class="ti ti-camera text-light"></i>
-                                </a>
-                                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
-                                    <i class="ti ti-info-circle"></i>
-                                </button>
-                                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
-                                    <i class="ti ti-edit"></i>
-                                </button>
-                                <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
-                                    <i class="ti ti-trash"></i>
-                                </button>
-                                <form id="delete-form-{{ $item->id }}" action="{{ route('gallery.destroy', $item->id) }}" method="POST" style="display: none;">
-                                    @csrf
-                                    @method('DELETE')
-                                </form>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="{{ route('album.index', $item->id) }}" class="btn btn-primary">
+                                        <i class="ti ti-camera text-light"></i>
+                                    </a>
+                                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
+                                        <i class="ti ti-info-circle"></i>
+                                    </button>
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                        <i class="ti ti-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
+                                        <i class="ti ti-trash"></i>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
+                        <form id="delete-form-{{ $item->id }}" action="{{ route('gallery.destroy', $item->id) }}" method="POST" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
 
                         <!-- Info Modal -->
                         <div class="modal fade" id="infoModal{{ $item->id }}" tabindex="-1" aria-labelledby="infoModalLabel{{ $item->id }}" aria-hidden="true">

@@ -7,12 +7,14 @@
             <div class="card-header d-flex">
                 <h5 class="card-title fw-semibold mb-2">Halaman Galeri Dusun</h5>
                 <div class="ms-auto">
-                    <a href="{{ route('hamlet_detail.index') }}" class="btn btn-primary ms-auto">
-                        <i class="ti ti-arrow-left"></i> Kembali
-                    </a>
-                    <a class="btn btn-dark ms-auto" href="{{ route('hamlet_gallery.create', $hamlet_detail->id) }}">
-                        <span><i class="ti ti-plus"></i> Tambah Hamlet</span>
-                    </a>
+                    <div class="btn-group">
+                        <a href="{{ route('hamlet_detail.index') }}" class="btn btn-primary ms-auto">
+                            <i class="ti ti-arrow-left"></i> Kembali
+                        </a>
+                        <a class="btn btn-dark ms-auto" href="{{ route('hamlet_gallery.create', $hamlet_detail->id) }}">
+                            <span><i class="ti ti-plus"></i> Tambah Hamlet</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -35,27 +37,26 @@
                                     <td class="w-25">
                                         <img src="{{ Storage::url($item->image) }}" alt="gambar desa" style="width: 100px">
                                     </td>
-                                    <td class=" justify-content-center">
-                                        <button class="btn btn-secondary mb-1 me-1" data-bs-toggle="modal"
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <button class="btn btn-secondary" data-bs-toggle="modal"
                                             data-bs-target="#infoModal{{ $item->id }}">
                                             <i class="ti ti-info-circle"></i>
-                                        </button>
-                                        <a href="{{ route('hamlet_gallery.edit', $item->id) }}" class="btn btn-warning mb-1">
-                                            <i class="ti ti-edit"></i>
-                                        </a>
-
-                                        <form id="delete-form-{{ $item->id }}" action="{{ route('hamlet_gallery.destroy', $item->id) }}" method="POST" style="display: none;">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-
-                                        <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
+                                            </button>
+                                            <a href="{{ route('hamlet_gallery.edit', $item->id) }}" class="btn btn-warning">
+                                                <i class="ti ti-edit"></i>
+                                            </a>
+                                            <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
                                             <i class="ti ti-trash"></i>
                                         </button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                                    </td>
-                                </tr>
-
+                            <form id="delete-form-{{ $item->id }}" action="{{ route('hamlet_gallery.destroy', $item->id) }}" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
                                 <!-- Info Modal -->
                                 <div class="modal fade" id="infoModal{{ $item->id }}" tabindex="-1"
                                     aria-labelledby="infoModalLabel{{ $item->id }}" aria-hidden="true">

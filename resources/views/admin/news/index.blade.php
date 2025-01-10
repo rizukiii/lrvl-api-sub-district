@@ -46,23 +46,24 @@
                                 <td class="w-25">{{ Str::limit($item->title, 30, '...') }}</td>
                                 <td class="w-25">{{ Str::limit($item->description, 30, '...') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</td>
-                                <td class=" justify-content-center">
-                                    <button class="btn btn-secondary mb-1 me-1" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
-                                        <i class="ti ti-info-circle"></i>
-                                    </button>
-                                    <button class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
-                                        <i class="ti ti-edit"></i>
-                                    </button>
-                                    <button class="btn btn-danger mb-1" onclick="confirmDelete({{ $item->id }})">
-                                        <i class="ti ti-trash"></i>
-                                    </button>
-                                    <form id="delete-form-{{ $item->id }}" action="{{ route('news.destroy', $item->id) }}" method="POST" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
+                                            <i class="ti ti-info-circle"></i>
+                                        </button>
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
+                                            <i class="ti ti-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
+                                            <i class="ti ti-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
+                            <form id="delete-form-{{ $item->id }}" action="{{ route('news.destroy', $item->id) }}" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
 
                             <!-- Info Modal -->
                             <div class="modal fade" id="infoModal{{ $item->id }}" tabindex="-1" aria-labelledby="infoModalLabel{{ $item->id }}" aria-hidden="true">

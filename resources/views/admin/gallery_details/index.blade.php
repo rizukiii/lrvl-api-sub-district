@@ -7,12 +7,14 @@
         <div class="card-header d-flex align-items-center">
             <h5 class="card-title fw-semibold mb-0">Halaman Album</h5>
             <div class="ms-auto">
-                <a href="{{ route('gallery.index') }}" class="btn btn-primary">
-                    <i class="ti ti-arrow-left"></i> Kembali
-                </a>
-                <button class="btn btn-dark ms-2" data-bs-toggle="modal" data-bs-target="#addModal">
-                    <i class="ti ti-plus"></i> Tambah Gambar
-                </button>
+                <div class="btn-group">
+                    <a href="{{ route('gallery.index') }}" class="btn btn-primary">
+                        <i class="ti ti-arrow-left"></i> Kembali
+                    </a>
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addModal">
+                        <i class="ti ti-plus"></i> Tambah Gambar
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -37,7 +39,7 @@
                                     <img src="{{ Storage::url($item->image) }}" alt="album image" class="img-thumbnail rounded" style="width: 100px; height: 100px; object-fit: cover;">
                                 </td>
                                 <td class="text-center">
-                                    <div class="d-flex justify-content-center gap-2">
+                                    <div class="btn-group">
                                         <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
                                             <i class="ti ti-info-circle"></i>
                                         </button>
