@@ -20,7 +20,7 @@ class HamletDetailController extends Controller
         $galeri = HamletDetail::all();
 
         $galeri->transform(function($item){
-            $item->image = url('/') . Storage::url($item->image);
+            $item->maps = url('/') . Storage::url($item->maps);
             return $item;
         });
 

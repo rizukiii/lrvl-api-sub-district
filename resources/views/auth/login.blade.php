@@ -55,8 +55,8 @@
       </div>
     </div>
   </div>
-  <script src="{{ asset('template_admin') }}/src/assets/src/libs/jquery/dist/jquery.min.js"></script>
-  <script src="{{ asset('template_admin') }}/src/assets/src/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('template_admin') }}/src/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="{{ asset('template_admin') }}/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
