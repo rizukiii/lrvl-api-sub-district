@@ -18,7 +18,7 @@ class HamletController extends Controller
         $hamlet = Hamlet::all();
 
         $hamlet->transform(function ($item) {
-            $item->maps = url('/') . Storage::url($item->maps);
+            $item->image = url('/') . Storage::url($item->image);
             return $item;
         });
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HamletNumberController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\HamletController;
 use App\Http\Controllers\Admin\HamletProgramController;
+use App\Http\Controllers\Frontend\DisplayController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -82,16 +83,12 @@ Route::delete('hamlet_gallery/destroy/{id}', [GalleryHamlet::class, 'destroy'])-
 
 
 // route dari folder FrontEnd
-Route::get('index', function () {
-    return view('FrontEnd.index');
-})->name('FrontEnd.index');
-
-Route::get('daftar_pejabat', function () {
-    return view('FrontEnd.daftar_pejabat');
-})->name('FrontEnd.daftar_pejabat');
-
-
-
+Route::get('profil',[DisplayController::class,'profil']);
+Route::get('pejabat',[DisplayController::class,'pejabat']);
+Route::get('pkk',[DisplayController::class,'pkk']);
+Route::get('rt',[DisplayController::class,'rtrw']);
+Route::get('linmas',[DisplayController::class,'linmas']);
+Route::get('lpmkal',[DisplayController::class,'lpmkal']);
 
 // });
 

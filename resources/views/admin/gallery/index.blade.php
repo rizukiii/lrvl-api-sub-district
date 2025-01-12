@@ -17,7 +17,7 @@
             @include('admin.partials.alert')
 
             <!-- Search Form -->
-            <div class="mb-4">
+            <div class="mb-3">
                 <form action="{{ route('gallery.index') }}" method="GET" class="d-flex w-100">
                     <input type="text" name="search" class="form-control me-2" placeholder="Cari galeri..." value="{{ request('search') }}">
                     <button type="submit" class="btn btn-success">
@@ -46,9 +46,11 @@
                             <td>{{ Str::limit($item->title, 50, '...') }}</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="{{ route('album.index', $item->id) }}" class="btn btn-primary">
-                                        <i class="ti ti-camera text-light"></i>
-                                    </a>
+                                    <button class="btn btn-primary">
+                                        <a href="{{ route('album.index', $item->id) }}">
+                                            <i class="ti ti-camera text-light"></i>
+                                        </a>
+                                    </button>
                                     <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
                                         <i class="ti ti-info-circle"></i>
                                     </button>
