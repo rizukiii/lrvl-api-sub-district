@@ -12,14 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('permohonans', function (Blueprint $table) {
-            $table->id();
+            $table->id('permohonan_id');
             $table->string('judul'); // otomatis yg di klik
             $table->date('tanggal'); // otomatis dari sistem
             $table->text('keperluan');
-            $table->integer('NIK_id'); //otomatis dari user nik
+            $table->unsignedBigInteger('nik_id'); //otomatis dari user nik
             $table->text('alamat'); // otomatis dari user
-            $table->enum('status',['diproses','ditolak','diterima'])->default('diproses'); 
+            $table->enum('status',['diproses','ditolak','diterima'])->default('diproses');
             $table->timestamps();
+
+            $table->foreign('nik_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

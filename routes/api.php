@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\HamletController;
 use App\Http\Controllers\Api\HamletDetailController;
 use App\Http\Controllers\Api\NewsController;
+use App\Http\Controllers\Api\Permohonan;
 use App\Http\Controllers\Api\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,7 @@ Route::get('announcement/{id}', action: [AnnouncementController::class, 'getDeta
 Route::get('hamlet', [HamletController::class, 'getAllHamlet']); // API untuk mendapatkan semua hamlets
 Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']); // API untuk mendapatkan detail hamlet berdasarkan ID
 
-Route::post('receive-data', [DataController::class, 'receiveData']);
+Route::post('receive-data/{nik_id}', [Permohonan::class, 'receiveData']);
 
 
 
