@@ -27,5 +27,8 @@ Route::get('announcement/{id}', action: [AnnouncementController::class, 'getDeta
 Route::get('hamlet', [HamletController::class, 'getAllHamlet']); // API untuk mendapatkan semua hamlets
 Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']); // API untuk mendapatkan detail hamlet berdasarkan ID
 
+Route::post('receive-data', [DataController::class, 'receiveData']);
+
+
 
 

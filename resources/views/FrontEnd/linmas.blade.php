@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+@section('content')
+
+
 @extends('layouts.frontend')
 @section('title', 'LINMAS Kalurahan Condongcatur')
 @section('content')
@@ -50,4 +54,5 @@
         </ul>
     </section>
 </main>
+@endsection
 @endsection

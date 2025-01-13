@@ -70,7 +70,7 @@
                     <span class="hide-menu">HTML</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('FrontEnd.index') }}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('FrontEnd.profil') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-news"></i>
                         </span>
@@ -78,11 +78,19 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('FrontEnd.daftar_pejabat') }}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('FrontEnd.pejabat') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-news"></i>
                         </span>
-                        <span class="hide-menu">Daftar Pejabat</span>
+                        <span class="hide-menu">Pejabat</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('FrontEnd.linmas') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-news"></i>
+                        </span>
+                        <span class="hide-menu">Linmas</span>
                     </a>
                 </li>
             </ul>
