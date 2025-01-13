@@ -18,10 +18,10 @@ return new class extends Migration
             $table->text('keperluan');
             $table->unsignedBigInteger('nik_id'); //otomatis dari user nik
             $table->text('alamat'); // otomatis dari user
-            $table->enum('status',['diproses','ditolak','diterima'])->default('diproses');
+            $table->enum('status', ['diproses', 'ditolak', 'diterima'])->default('diproses');
             $table->timestamps();
 
-            $table->foreign('nik_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('nik_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

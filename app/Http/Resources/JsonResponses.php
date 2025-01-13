@@ -13,7 +13,8 @@ class JsonResponses extends JsonResource
     private $message;
     private $data;
 
-    public function __construct($status, $message, $data){
+    public function __construct($status, $message, $data)
+    {
         $this->status = $status;
         $this->message = $message;
         $this->data = $data;
@@ -29,7 +30,7 @@ class JsonResponses extends JsonResource
             'message' => $this->message,
             'data' => $this->data,
             'response_at' => Carbon::now()
-            ->format('d/m/Y H:i:s')
+                ->format('d/m/Y H:i:s')
         ];
     }
 }
