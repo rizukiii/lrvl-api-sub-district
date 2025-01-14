@@ -31,6 +31,6 @@ Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']); // API 
 Route::post('receive-data/{nik_id}', [PermohonanController::class, 'receiveData']);
 
 
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('logout', [AuthController::class, 'logout']);
+Route::post('register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
+Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
