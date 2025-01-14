@@ -3,9 +3,7 @@
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\HamletController;
-use App\Http\Controllers\Api\HamletDetailController;
 use App\Http\Controllers\Api\NewsController;
-use App\Http\Controllers\Api\Permohonan;
 use App\Http\Controllers\Api\PermohonanController;
 use App\Http\Controllers\Api\ProfileController;
 use Illuminate\Http\Request;
