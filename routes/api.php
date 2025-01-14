@@ -10,27 +10,35 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::middleware([
+    'auth:sanctum', // Middleware Sanctum
+])->group(function () {
+    // Route untuk mendapatkan informasi user
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 
-Route::get('profile', action: [ProfileController::class, 'index']);
-Route::get('news', action: [NewsController::class, 'getAllNews']);
-Route::get('news/{id}', action: [NewsController::class, 'getDetailNews']);
+    // Route untuk Profile
+    Route::get('profile', [ProfileController::class, 'index']);
 
-Route::get('gallery', action: [GalleryController::class, 'getAllGallery']);
-Route::get('gallery/{id}', action: [GalleryController::class, 'getDetailGallery']);
+    // Route untuk News
+    Route::get('news', [NewsController::class, 'getAllNews']);
+    Route::get('news/{id}', [NewsController::class, 'getDetailNews']);
 
-Route::get('announcement', action: [AnnouncementController::class, 'getAllAnnouncement']);
-Route::get('announcement/{id}', action: [AnnouncementController::class, 'getDetailAnnouncement']);
+    // Route untuk Gallery
+    Route::get('gallery', [GalleryController::class, 'getAllGallery']);
+    Route::get('gallery/{id}', [GalleryController::class, 'getDetailGallery']);
 
+    // Route untuk Announcement
+    Route::get('announcement', [AnnouncementController::class, 'getAllAnnouncement']);
+    Route::get('announcement/{id}', [AnnouncementController::class, 'getDetailAnnouncement']);
 
-Route::get('hamlet', [HamletController::class, 'getAllHamlet']); // API untuk mendapatkan semua hamlets
-Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']); // API untuk mendapatkan detail hamlet berdasarkan ID
+    // Route untuk Hamlet
+    Route::get('hamlet', [HamletController::class, 'getAllHamlet']);
+    Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
 
 Route::post('receive-data/{nik_id}', [PermohonanController::class, 'receiveData']);
 
 
-Route::post('register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
-Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
+
+
