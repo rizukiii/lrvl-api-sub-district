@@ -4,18 +4,11 @@
 @section('content')
 
 <main class="container my-5">
-    <section class="text-center">
-        <h1 class="display-4">PKK Kalurahan Condongcatur</h1>
-        <h5>By <strong>Condongcatur</strong></h5>
-        <hr>
-        <h6 class="text-muted">Jan 31, 2017</h6>
-    </section>
-
-    <div class="container my-5">
+    <div>
         <!-- Daftar Perangkat Kalurahan -->
         <div class="mb-5">
             <div class="text-center mb-4">
-                <img src="petugas.jpg" class="img-fluid rounded-circle mb-3" alt="Foto Perangkat Kalurahan" style="max-width: 150px;">
+                <img src="petugas.jpg" class="img-fluid mb-3" alt="Foto Perangkat Kalurahan">
                 <h1>Daftar Perangkat Kalurahan Condongcatur</h1>
             </div>
 

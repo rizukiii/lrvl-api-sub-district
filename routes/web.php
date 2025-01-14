@@ -27,7 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::middleware('admin')->group(function () {
         // News routes
         Route::get('news', [NewsController::class, 'index'])->name('news.index');
         Route::post('news', [NewsController::class, 'store'])->name('news.store');
@@ -75,13 +74,13 @@ Route::middleware('auth')->group(function () {
         Route::delete('hamlet_gallery/destroy/{id}', [GalleryHamlet::class, 'destroy'])->name('hamlet_gallery.destroy');
 
         // route dari folder FrontEnd
-        Route::get('profil', [DisplayController::class, 'profil'])->name('FrontEnd.jjj');
-        Route::get('pejabat', [DisplayController::class, 'pejabat'])->name('FrontEnd.');
-        Route::get('pkk', [DisplayController::class, 'pkk'])->name('FrontEnd.');
-        Route::get('rt', [DisplayController::class, 'rtrw'])->name('FrontEnd.');
-        Route::get('linmas', [DisplayController::class, 'linmas'])->name('FrontEnd.');
-        Route::get('lpmkal', [DisplayController::class, 'lpmkal'])->name('FrontEnd.');
-    });
+        Route::get('profil', [DisplayController::class, 'profil'])->name('FrontEnd.profil');
+        Route::get('pejabat', [DisplayController::class, 'pejabat'])->name('FrontEnd.pejabat');
+        Route::get('pkk', [DisplayController::class, 'pkk'])->name('FrontEnd.pkk');
+        Route::get('rt', [DisplayController::class, 'rukun'])->name('FrontEnd.rukun');
+        Route::get('linmas', [DisplayController::class, 'linmas'])->name('FrontEnd.linmas');
+        Route::get('lpmkal', [DisplayController::class, 'lpmkal'])->name('FrontEnd.lpmkal');
+
 });
 
 // Authentication routes

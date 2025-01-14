@@ -2,18 +2,11 @@
 @section('title', 'RT & RW')
 @section('content')
 <main class="container my-5">
-    <section class="text-center">
-        <h1 class="display-4">RT & RW</h1>
-        <h5>By <strong>Condongcatur</strong></h5>
-        <hr>
-        <h6 class="text-muted">Jan 31, 2017</h6>
-    </section>
-
     <section class="mt-4">
         <p>
             Kalurahan Condongcatur terdiri dari <strong>211 RT</strong> dan <strong>64 RW</strong> yang tersebar di <strong>18 Padukuhan</strong>.
         </p>
-        <p>
+        {{-- <p>
             Berikut adalah data nama-nama Ketua RT dan Ketua RW di Kalurahan Condongcatur:
         </p>
 
@@ -50,7 +43,7 @@
                     <!-- Tambahkan data lainnya sesuai kebutuhan -->
                 </tbody>
             </table>
-        </div>
+        </div> --}}
     </section>
 </main>
 @endsection

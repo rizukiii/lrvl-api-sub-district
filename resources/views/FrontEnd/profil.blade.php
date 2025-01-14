@@ -3,13 +3,6 @@
 @section('content')
 
 <main class="container my-5">
-    <section class="text-center">
-        <h1 class="display-4">Profil Kalurahan Condongcatur</h1>
-        <h5>By <strong>Condongcatur</strong></h5>
-        <hr>
-        <h6 class="text-muted">Jan 31, 2017</h6>
-    </section>
-
     <img src="condongcatur.jpg" class="img-fluid mb-4" alt="Gambar Desa">
 
     <h6 class="mb-4">GAMBARAN UMUM KONDISI DESA</h6>

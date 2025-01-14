@@ -93,6 +93,30 @@
                         <span class="hide-menu">Linmas</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('FrontEnd.rukun') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-news"></i>
+                        </span>
+                        <span class="hide-menu">Rukun</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('FrontEnd.pkk') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-news"></i>
+                        </span>
+                        <span class="hide-menu">PKK</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('FrontEnd.lpmkal') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-news"></i>
+                        </span>
+                        <span class="hide-menu">Lpmkal</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

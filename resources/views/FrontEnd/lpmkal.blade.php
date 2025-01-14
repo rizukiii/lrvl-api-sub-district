@@ -4,14 +4,6 @@
 @section('content')
 
 <main class="container my-5">
-    <!-- Header Section -->
-    <section class="text-center mb-5">
-        <h1 class="display-4">LPMKal</h1>
-        <h5>By <strong>Condongcatur</strong></h5>
-        <hr class="my-4">
-        <h6 class="text-muted">Jan 31, 2017</h6>
-    </section>
-
     <!-- Article Content Section -->
     <section class="mb-5">
         <p>Pemerintah Kalurahan Condongcatur mengukuhkan Pengurus Sub Unit Padukuhan Lembaga Pemberdayaan Masyarakat Kalurahan (LPMKal) Condongcatur periode 2024 – 2029 bertempat di Pendopo Kromoredjan Kalurahan Condongcatur, Rabu 06/3/2024.</p>
@@ -55,7 +47,7 @@
         <h3 class="mb-4">Sambutan Lurah Condongcatur</h3>
         <blockquote class="blockquote">
             <p class="mb-0">"Atas nama Pemerintah Kalurahan Condongcatur, kami menghaturkan terima kasih kepada bapak ibu sekalian yang berkenan dikukuhkan sebagai pengurus Sub Unit LPMKal Masa Bakti 2024 – 2029 yang selama ini telah mengawal program pembangunan dan pemberdayaan masyarakat."</p>
-            <footer class="blockquote-footer">Reno Sangaji, S.IP, M.IP</footer>
+            <footer class="blockquote-footer mt-2">Reno Sangaji, S.IP, M.IP</footer>
         </blockquote>
 
         <p>Beliau menegaskan pentingnya koordinasi dan perencanaan yang matang dalam melaksanakan program pembangunan di padukuhan. Pengurus Sub Unit LPMKal bertugas mengawal perencanaan, pelaksanaan, dan pertanggungjawaban di padukuhan, bekerja sama dengan Dukuh serta pengurus RT/RW.</p>
