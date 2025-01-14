@@ -38,7 +38,4 @@ Route::middleware([
     Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
 
 Route::post('receive-data/{nik_id}', [PermohonanController::class, 'receiveData']);
-
-
-
-
+});
