@@ -266,7 +266,7 @@
         <div>
             <div class="text-center mb-4">
                 <h1>Badan Permusyawaratan Kalurahan</h1>
-                <img src="permusyawaratan_kelurahan.jpeg" class="img-fluid rounded mb-3" alt="Badan Permusyawaratan Kalurahan" style="max-width: 200px;">
+                <img src="permusyawaratan_kelurahan.jpeg" class="img-fluid mb-3" alt="Badan Permusyawaratan Kalurahan">
             </div>
 
             <p>Susunan lembaga BPKal Condongcatur dengan susunan:</p>
