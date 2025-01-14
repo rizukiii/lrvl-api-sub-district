@@ -17,39 +17,39 @@ class UserSeeder extends Seeder
         $user = [
             [
                 'user_id' => 1,
-                'fullname' => 'Budi Santoso',
+                'name' => 'Budi Santoso',
+                'nik' => '081271802321',
                 'email' => 'budi.santoso@example.com',
-                'password' => Hash::make('budi123'), // Example password
-                'is_admin' => 1,
-            ],
-            [
-                'user_id' => 2,
-                'fullname' => 'Siti Aisyah',
-                'email' => 'siti.aisyah@example.com',
-                'password' => Hash::make('siti123'),
-                'is_admin' => 0,
-            ],
-            [
-                'user_id' => 3,
-                'fullname' => 'Andi Pratama',
-                'email' => 'andi.pratama@example.com',
-                'password' => Hash::make('andi123'),
-                'is_admin' => 0,
-            ],
-            [
-                'user_id' => 4,
-                'fullname' => 'Dewi Lestari',
-                'email' => 'dewi.lestari@example.com',
-                'password' => Hash::make('dewi123'),
-                'is_admin' => 1,
-            ],
-            [
-                'user_id' => 5,
-                'fullname' => 'Joko Widodo',
-                'email' => 'joko.widodo@example.com',
-                'password' => Hash::make('joko123'),
-                'is_admin' => 0,
-            ],
+                'password' => Hash::make('budi123'), // Example password       ],
+                [
+                    'user_id' => 2,
+                    'name' => 'Siti Aisyah',
+                    'nik' => '081271802325',
+                    'email' => 'siti.aisyah@example.com',
+                    'password' => Hash::make('siti123'),
+                ],
+                [
+                    'user_id' => 3,
+                    'name' => 'Andi Pratama',
+                    'nik' => '081271802322',
+                    'email' => 'andi.pratama@example.com',
+                    'password' => Hash::make('andi123'),
+                ],
+                [
+                    'user_id' => 4,
+                    'name' => 'Dewi Lestari',
+                    'nik' => '081271802323',
+                    'email' => 'dewi.lestari@example.com',
+                    'password' => Hash::make('dewi123'),
+                ],
+                [
+                    'user_id' => 5,
+                    'name' => 'Joko Widodo',
+                    'nik' => '081271802324',
+                    'email' => 'joko.widodo@example.com',
+                    'password' => Hash::make('joko123'),
+                ]
+            ]
         ];
 
         foreach ($user as $user) {
