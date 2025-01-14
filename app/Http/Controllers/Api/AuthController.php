@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\JsonResponses;
-use App\Models\User;
+use App\Models\flutterUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +18,7 @@ class AuthController extends Controller
             'nik' => 'required|numeric',
         ]);
 
-        if (Auth::attempt(['nik' => $validated['email']])) {
+        if (Auth::attempt(['nik' => $validated['nik']])) {
             $user = Auth::user();
             return new JsonResponses(Response::HTTP_OK, "Login Sukses", $user);
         } else {
@@ -29,13 +29,13 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'fullname' => 'required|string|max:255',
             'nik',
             'password' => 'required|min:3',
         ]);
 
-        $user = User::create([
-            'name' => $validated['name'],
+        $user = flutterUser::create([
+            'fullname' => $validated['fullname'],
             'nik',
             'password' => Hash::make($validated['password']),
         ]);
