@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HamletNumberController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\HamletController;
 use App\Http\Controllers\Admin\HamletProgramController;
+use App\Http\Controllers\Admin\SubmissionController;
 use App\Http\Controllers\Frontend\DisplayController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,15 @@ Route::get('/', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
+
+        // route dari folder FrontEnd
+        Route::get('profil', [DisplayController::class, 'profil'])->name('FrontEnd.profil');
+        Route::get('pejabat', [DisplayController::class, 'pejabat'])->name('FrontEnd.pejabat');
+        Route::get('pkk', [DisplayController::class, 'pkk'])->name('FrontEnd.pkk');
+        Route::get('rt', [DisplayController::class, 'rukun'])->name('FrontEnd.rukun');
+        Route::get('linmas', [DisplayController::class, 'linmas'])->name('FrontEnd.linmas');
+        Route::get('lpmkal', [DisplayController::class, 'lpmkal'])->name('FrontEnd.lpmkal');
 
         // News routes
         Route::get('news', [NewsController::class, 'index'])->name('news.index');
@@ -65,13 +74,14 @@ Route::middleware('auth')->group(function () {
         Route::put('hamlet_gallery/update/{id}', [GalleryHamlet::class, 'update'])->name('hamlet_gallery.update');
         Route::delete('hamlet_gallery/destroy/{id}', [GalleryHamlet::class, 'destroy'])->name('hamlet_gallery.destroy');
 
-        // route dari folder FrontEnd
-        Route::get('profil', [DisplayController::class, 'profil'])->name('FrontEnd.profil');
-        Route::get('pejabat', [DisplayController::class, 'pejabat'])->name('FrontEnd.pejabat');
-        Route::get('pkk', [DisplayController::class, 'pkk'])->name('FrontEnd.pkk');
-        Route::get('rt', [DisplayController::class, 'rukun'])->name('FrontEnd.rukun');
-        Route::get('linmas', [DisplayController::class, 'linmas'])->name('FrontEnd.linmas');
-        Route::get('lpmkal', [DisplayController::class, 'lpmkal'])->name('FrontEnd.lpmkal');
-});
+        // submision route
+        Route::get('submission',[SubmissionController::class, 'index'])->name('submission.index');
+        Route::get('submission/history',[SubmissionController::class, 'history'])->name('submission.history');
+
+        Route::put('submission/{id}', [SubmissionController::class, 'update'])->name('submission.update');
+        Route::delete('submission/{id}',[SubmissionController::class, 'destroy'])->name('submission.destroy');
+
+
+// });
 
 

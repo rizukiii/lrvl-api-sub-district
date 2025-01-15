@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\JsonResponses;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -32,10 +34,7 @@ class AuthController extends Controller
         ]);
 
         // Tidak menggunakan token, hanya mengirim data user
-        return response()->json([
-            'user' => $user,
-            'message' => 'User created successfully, please login.',
-        ]);
+        return new JsonResponses(Response::HTTP_OK, "Berhasil Registrasi, Silahkan Login", $user);
     }
 
     // Login
@@ -59,23 +58,19 @@ class AuthController extends Controller
         // Login dan set session
         Auth::login($user);
 
-        return response()->json([
-            'user' => $user,
-            'message' => 'Login successful',
-        ]);
+        return new JsonResponses(Response::HTTP_OK, "Berhasil Login", $user);
     }
 
     // Logout
     public function logout(Request $request)
     {
-        Auth::logout();  // Logout dari session
-
-        return response()->json(['message' => 'Successfully logged out']);
+        // Logout dari session
+        return new JsonResponses(Response::HTTP_OK, "Berhasil Logout", Auth::logout());
     }
 
     // Get user info (hanya jika sudah login)
     public function user(Request $request)
     {
-        return response()->json(['user' => Auth::user()]);
+        return new JsonResponses(Response::HTTP_OK, "Berhasil Logout", ['user' => Auth::user()]);
     }
 }

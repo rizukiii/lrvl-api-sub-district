@@ -30,4 +30,7 @@ class Hamlet extends Model
     {
         return $this->hasMany(HamletDetail::class, 'hamlets_id');
     }
+
+    
+
 }

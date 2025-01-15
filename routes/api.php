@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\HamletController;
 use App\Http\Controllers\Api\NewsController;
-use App\Http\Controllers\Api\PermohonanController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
@@ -37,8 +36,6 @@ Route::get('announcement/{id}', [AnnouncementController::class, 'getDetailAnnoun
 // Route untuk Hamlet
 Route::get('hamlet', [HamletController::class, 'getAllHamlet']);
 Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
-
-Route::post('receive-data/{nik_id}', [PermohonanController::class, 'receiveData']);
 
 // Register
 Route::post('register', [AuthController::class, 'register']);
