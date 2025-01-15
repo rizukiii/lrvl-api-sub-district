@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\HamletController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\SubmissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,9 @@ Route::get('announcement/{id}', [AnnouncementController::class, 'getDetailAnnoun
 // Route untuk Hamlet
 Route::get('hamlet', [HamletController::class, 'getAllHamlet']);
 Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
+
+// Submission
+Route::post('submission',[SubmissionController::class, 'create']);
 
 // Register
 Route::post('register', [AuthController::class, 'register']);
