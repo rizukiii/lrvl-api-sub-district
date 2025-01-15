@@ -13,6 +13,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SubmissionController extends Controller
 {
+
+    // isinya cuma gitu nanti
+    
+    // {
+    //"nik_id": "11111111",
+    //"title": "Pengajuan KK Baru",
+    //"hamlet_id": "Karangasem",
+    //"requisite": "Persyaratan dokumen terlampir"
+    //}
+
     public function create(Request $request){
         $validator = Validator::make($request->all(),[
             'nik_id' => 'required|exists:users,nik',

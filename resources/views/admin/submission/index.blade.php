@@ -70,7 +70,7 @@
                                             <div class="modal-body">
                                                 <p><strong>NIK:</strong> {{ $item->user->nik }}</p>
                                                 <p><strong>Layanan:</strong> {{ $item->title }}</p>
-                                                <p><strong>Tanggal:</strong> {{ $item->date }}</p>
+                                                <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($item->date)->format('d-m-Y') }}</p>
                                                 <p><strong>Desa:</strong> {{ $item->hamlet->name }}</p>
                                                 <p><strong>Keperluan:</strong> {{ $item->requisite }}</p>
                                                 <p><strong>Status Saat Ini:</strong> {{ ucfirst($item->status) }}</p>
