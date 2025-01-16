@@ -68,5 +68,11 @@ class SubmissionController extends Controller
         }
     }
 
+    public function printData($id){
+
+        $submission = Submission::findOrFail($id);
+
+        return view('admin.submission.print',compact('submission'));
+    }
 
 }

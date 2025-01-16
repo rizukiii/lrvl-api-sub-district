@@ -61,6 +61,9 @@
                                             <button type="submit" class="btn btn-danger" onclick="confirmDelete({{ $item->id }})">
                                                 <i class="ti ti-trash"></i> Delete
                                             </button>
+                                            <a href="{{ route('print',$item->id) }}" class="btn btn-success" target="_blank">
+                                                <i class="ti ti-printer"></i> Print
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

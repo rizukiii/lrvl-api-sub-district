@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\Hamlet\GalleryController as GalleryHamlet;
 use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryDetailController;
 use App\Http\Controllers\Admin\HamletDetailController;
 use App\Http\Controllers\Admin\HamletNumberController;
@@ -13,7 +14,6 @@ use App\Http\Controllers\Admin\SubmissionController;
 use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\Frontend\DisplayController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('register',[AuthenticationController::class, 'register'])->name('register');
 Route::post('regis',[AuthenticationController::class, 'regis'])->name('regis');
@@ -26,7 +26,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
-    Route::get('dashboard',[DashboardController::class, 'dashboard']);
+    Route::get('dashboard',[DashboardController::class, 'analisis'])->name('dashboard');
 
     // route dari folder FrontEnd
     Route::get('profil', [DisplayController::class, 'profil'])->name('FrontEnd.profil');
@@ -88,4 +88,5 @@ Route::middleware('auth')->group(function () {
 
     Route::put('submission/{id}', [SubmissionController::class, 'update'])->name('submission.update');
     Route::delete('submission/{id}', [SubmissionController::class, 'destroy'])->name('submission.destroy');
+    Route::get('print/{id}',[SubmissionController::class, 'printData'])->name('print');
 });

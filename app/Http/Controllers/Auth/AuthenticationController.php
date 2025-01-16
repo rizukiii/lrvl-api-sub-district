@@ -29,7 +29,7 @@ class AuthenticationController extends Controller
             }
 
             Auth::login($user, $request->remember);
-            return redirect()->intended(route('news.index'));
+            return redirect()->intended(route('dashboard'));
         }
 
         return back()->withErrors(['name' => 'Nama Yang Anda Masukan Salah!'])->onlyInput('name');
