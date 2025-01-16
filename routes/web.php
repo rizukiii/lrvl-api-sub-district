@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
 
     // submision route
     Route::get('submission', [SubmissionController::class, 'index'])->name('submission.index');
-    Route::get('submission/history', [SubmissionController::class, 'history'])->name('submission.history');
+    Route::get('history', [SubmissionController::class, 'history'])->name('submission.history');
 
     Route::put('submission/{id}', [SubmissionController::class, 'update'])->name('submission.update');
     Route::delete('submission/{id}', [SubmissionController::class, 'destroy'])->name('submission.destroy');

@@ -29,7 +29,6 @@ class Submission extends Model
         return $this->belongsTo(User::class, 'nik_id', 'id'); // Kolom `nik_id` di Submission menghubungkan dengan `nik` di User
     }
 
-
     public function hamlet(){
         return $this->belongsTo(Hamlet::class,'hamlet_id','id');
     }

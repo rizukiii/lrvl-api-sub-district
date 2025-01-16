@@ -99,7 +99,7 @@
 
                 <!-- Pagination -->
                 <div class="mt-3 d-flex justify-content-center">
-                    {{-- {{ $submission->withQueryString()->links('pagination::bootstrap-5') }} --}}
+                    {{ $submission->withQueryString()->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>
