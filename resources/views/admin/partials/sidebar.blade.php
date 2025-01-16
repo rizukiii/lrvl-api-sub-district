@@ -15,6 +15,18 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">DAshboard</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-news"></i>
+                        </span>
+                        <span class="hide-menu">News</span>
+                    </a>
+                </li>
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">IMPORTANT</span>
                 </li>
                 <li class="sidebar-item">
