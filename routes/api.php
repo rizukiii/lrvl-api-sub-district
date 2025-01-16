@@ -17,6 +17,7 @@ Route::middleware([
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    
 
     // Route untuk Profile
     Route::get('profile', [ProfileController::class, 'index']);
