@@ -12,9 +12,17 @@ class HamletController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $query = Hamlet::query();
+
+        // Handle searching
+        if ($request->has('search') && $request->search != '') {
+            $search = $request->search;
+            $query->where('name', 'like', "%$search%")
+                ->orWhere('title', 'like', "%$search%");
+        }
+
         $hamlet = $query->orderBy('name', 'desc')->paginate(5);
 
         return view('admin.hamlet.index', compact('hamlet'));

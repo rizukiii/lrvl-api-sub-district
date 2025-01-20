@@ -39,7 +39,8 @@ Route::get('hamlet', [HamletController::class, 'getAllHamlet']);
 Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
 
 // Submission
-Route::post('submission',[SubmissionController::class, 'create']);
+Route::post('submission/create',[SubmissionController::class, 'create']);
+Route::get('submission',[SubmissionController::class, 'fetchAll']);
 
 // Register
 Route::post('register', [AuthController::class, 'register']);

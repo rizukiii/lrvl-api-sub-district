@@ -15,13 +15,13 @@ class SubmissionController extends Controller
 {
 
     // isinya cuma gitu nanti
-    
+
     // {
-    //"nik_id": "11111111",
-    //"title": "Pengajuan KK Baru",
-    //"hamlet_id": "Karangasem",
-    //"requisite": "Persyaratan dokumen terlampir"
-    //}
+    // "nik_id": "11111111",
+    // "title": "Pengajuan KK Baru",
+    // "hamlet_id": "Karangasem",
+    // "requisite": "Persyaratan dokumen terlampir"
+    // }
 
     public function create(Request $request){
         $validator = Validator::make($request->all(),[
@@ -49,6 +49,12 @@ class SubmissionController extends Controller
         ]);
 
         return new JsonResponses(Response::HTTP_OK, "Berhasil menambahkan data", $submission);
+    }
+
+    public function fetchAll(){
+        $submission = Submission::all();
+
+        return new JsonResponses(Response::HTTP_OK,"Data Berhasil di Dapatkan!",$submission);
     }
 }
 //
