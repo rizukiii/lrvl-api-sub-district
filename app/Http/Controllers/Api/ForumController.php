@@ -18,56 +18,134 @@ class ForumController extends Controller
     public function all()
     {
         try {
+            // Ambil semua data forum dengan pengecekan jumlah data
             $forums = Forum::all();
 
-            return new JsonResponses(Response::HTTP_OK, "Semua Data Berhasil Didapatkan!", $forums);
-        } catch (\Exception $e) {
-            // Tangani error yang tidak terduga
+            if ($forums->isEmpty()) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Tidak ada data forum yang tersedia.',
+                    'data' => []
+                ], 404);
+            }
+
             return response()->json([
-                'error' => 'Something went wrong',
-                'message' => $e->getMessage()
+                'status' => 200,
+                'message' => 'Semua data forum berhasil didapatkan!',
+                'data' => $forums
+            ], 200);
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Tangani kesalahan terkait database
+            return response()->json([
+                'status' => 500,
+                'message' => 'Kesalahan database terjadi.',
+                'error' => $e->getMessage()
+            ], 500);
+        } catch (\Exception $e) {
+            // Tangani kesalahan umum lainnya
+            return response()->json([
+                'status' => 500,
+                'message' => 'Terjadi kesalahan pada server.',
+                'error' => $e->getMessage()
             ], 500);
         }
     }
+
 
     public function show($id)
     {
         try {
-            $forum = Forum::findOrFail($id);
+            // Validasi bahwa ID harus berupa angka
+            if (!is_numeric($id)) {
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'ID tidak valid. Harus berupa angka.',
+                    'data' => null
+                ], 400);
+            }
 
-            return new JsonResponses(Response::HTTP_OK, "Data Single Berhasil Didapatkan!", $forum);
-        } catch (\Exception $e) {
+            // Cari forum berdasarkan ID
+            $forum = Forum::find($id);
+
+            // Jika forum tidak ditemukan, kembalikan respons 404
+            if (!$forum) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Forum tidak ditemukan.',
+                    'data' => null
+                ], 404);
+            }
+
+            // Jika forum ditemukan, kembalikan data
             return response()->json([
-                'error' => 'Something went wrong',
-                'message' => $e->getMessage()
+                'status' => 200,
+                'message' => 'Data forum berhasil didapatkan!',
+                'data' => $forum
+            ], 200);
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Tangani kesalahan query database
+            return response()->json([
+                'status' => 500,
+                'message' => 'Kesalahan database terjadi.',
+                'error' => $e->getMessage()
+            ], 500);
+        } catch (\Exception $e) {
+            // Tangani error umum lainnya
+            return response()->json([
+                'status' => 500,
+                'message' => 'Terjadi kesalahan pada server.',
+                'error' => $e->getMessage()
             ], 500);
         }
     }
 
+
     public function store(Request $request)
     {
         try {
-            // Validasi input
+            // Validasi input dengan aturan tambahan
             $validator = Validator::make($request->all(), [
-                'user_id' => 'required',
+                'user_id' => 'required|exists:users,id',
                 'image' => 'required|image',
                 'description' => 'required|string'
             ]);
 
             if ($validator->fails()) {
-                return response()->json(['error' => $validator->errors()], 400);
+                return response()->json([
+                    'status' => 422,
+                    'message' => 'Validasi gagal.',
+                    'errors' => $validator->errors()
+                ], 422);
             }
 
-            // Cek apakah user ditemukan
-            $user = User::where('name', $request->user_id)->first();
+            // Cek apakah user ditemukan dengan ID, bukan nama
+            $user = User::find($request->user_id);
             if (!$user) {
-                return response()->json(['error' => 'User not found'], 404);
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'User tidak ditemukan.',
+                    'data' => null
+                ], 404);
             }
 
-            // Proses upload gambar
+            // Proses upload gambar dengan pengecekan tambahan
             $imagePath = null;
             if ($request->hasFile('image')) {
+                if (!$request->file('image')->isValid()) {
+                    return response()->json([
+                        'status' => 400,
+                        'message' => 'File gambar tidak valid.',
+                        'data' => null
+                    ], 400);
+                }
+
                 $imagePath = $request->file('image')->store('images/forum', 'public');
+            } else {
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'File gambar tidak ditemukan.',
+                    'data' => null
+                ], 400);
             }
 
             // Simpan data forum ke database
@@ -77,6 +155,7 @@ class ForumController extends Controller
                 'description' => $request->description
             ]);
 
+            // Cek apakah data berhasil disimpan
             if ($forum) {
                 return response()->json([
                     'status' => 201,
@@ -85,19 +164,26 @@ class ForumController extends Controller
                 ], 201);
             } else {
                 return response()->json([
-                    'status' => 204,
+                    'status' => 500,
                     'message' => 'Data Forum Gagal Ditambahkan!',
                     'data' => null
-                ], 204);
+                ], 500);
             }
-        } catch (\Exception $e) {
-            // Tangani error yang tidak terduga
+        } catch (\Illuminate\Database\QueryException $e) {
             return response()->json([
-                'status' => '500',
-                'message' => "Kesalahan umum di sisi server : " . $e->getMessage()
+                'status' => 500,
+                'message' => 'Kesalahan database saat menyimpan data.',
+                'error' => $e->getMessage()
+            ], 500);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => 'Terjadi kesalahan pada server.',
+                'error' => $e->getMessage()
             ], 500);
         }
     }
+
 
     public function update(Request $request, $id)
     {
@@ -114,8 +200,8 @@ class ForumController extends Controller
             // Validasi input yang diterima
             $validator = Validator::make($request->all(), [
                 'user_id' => 'nullable|exists:users,id',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'description' => 'nullable|string|min:10'
+                'image' => 'nullable|image',
+                'description' => 'nullable|string'
             ]);
 
             if ($validator->fails()) {
@@ -194,7 +280,6 @@ class ForumController extends Controller
             ], 500);
         }
     }
-
 
     public function destroy(Request $request, $id)
     {
