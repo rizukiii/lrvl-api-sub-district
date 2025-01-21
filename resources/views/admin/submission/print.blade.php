@@ -7,35 +7,45 @@
     <title>Surat Resmi</title>
     <link rel="stylesheet" href="{{ asset('template_admin') }}/src/assets/css/styles.min.css" />
     <style>
+        /* General styles */
         body {
             font-family: "Times New Roman", Times, serif;
-            margin: 2cm;
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         header {
             text-align: center;
-            margin-bottom: 2cm;
+            margin-bottom: 1.5cm;
         }
 
         .kop-surat {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             border-bottom: 2px solid black;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
         .kop-surat img {
             width: 80px;
             height: auto;
+            margin-bottom: 10px;
         }
 
         .kop-surat div {
             text-align: center;
             flex: 1;
-            margin: 0 10px;
+            margin: 0 15px;
         }
 
         .kop-surat h1,
@@ -48,6 +58,7 @@
         .content {
             text-align: justify;
             line-height: 1.8;
+            margin-top: 20px;
         }
 
         .content p {
@@ -55,8 +66,9 @@
         }
 
         .signature {
-            margin-top: 3cm;
+            margin-top: 2cm;
             text-align: right;
+            margin-right: 20px;
         }
 
         .signature p {
@@ -68,10 +80,99 @@
             margin-top: 20px;
         }
 
-        /* Responsive Design */
+        /* Mobile-first Design */
+        @media (max-width: 1024px) {
+            .kop-surat {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .kop-surat img {
+                width: 70px;
+                margin-bottom: 10px;
+            }
+
+            .kop-surat div {
+                text-align: center;
+                flex: 1;
+                margin: 0;
+            }
+
+            .content {
+                font-size: 14px;
+            }
+
+            .signature {
+                text-align: center;
+                margin-top: 2cm;
+                margin-right: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 margin: 1.5cm;
+            }
+
+            .kop-surat img {
+                width: 60px;
+            }
+
+            .content {
+                font-size: 13px;
+            }
+
+            .signature {
+                text-align: center;
+                margin-top: 1.5cm;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                margin: 1cm;
+            }
+
+            .kop-surat {
+                text-align: center;
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+
+            .kop-surat img {
+                width: 50px;
+            }
+
+            .content {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .signature {
+                margin-top: 1.5cm;
+                text-align: center;
+            }
+
+            .signature strong {
+                margin-top: 10px;
+            }
+        }
+
+        /* Print-specific styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
             }
 
             .kop-surat {
@@ -85,29 +186,21 @@
             }
 
             .content {
-                font-size: 14px;
+                font-size: 12pt;
+                line-height: 1.6;
             }
 
             .signature {
                 text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                margin: 1cm;
-            }
-
-            .kop-surat div {
-                margin: 0;
-            }
-
-            .content {
-                font-size: 12px;
-            }
-
-            .signature {
                 margin-top: 2cm;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .no-print {
+                display: none;
             }
         }
     </style>
@@ -133,7 +226,6 @@
             </div>
         </header>
 
-
         <!-- Isi Surat -->
         <div class="content">
             <div style="display: flex; justify-content: space-between; margin-bottom: 1cm;">
@@ -150,7 +242,6 @@
                     </p>
                 </div>
             </div>
-
 
             <p>Dengan hormat,</p>
             <p>

@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hamlet_numbers', function (Blueprint $table) {
-            $table->id();
-            $table->text('street');
-            $table->integer('number');
-            $table->integer('rt');
-            $table->integer('rw');
-            $table->string('village');
-            $table->timestamps();
+        Schema::table('hamlet_numbers', function (Blueprint $table) {
+            $table->unsignedBigInteger('hamlet_id')->after('village');
+            $table->foreign('hamlet_id')->references('id')->on('hamlets')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -27,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hamlet_numbers');
+        Schema::table('hamlet_numbers', function (Blueprint $table) {
+            //
+        });
     }
 };

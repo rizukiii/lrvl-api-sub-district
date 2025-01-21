@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ForumController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\Hamlet\GalleryController as GalleryHamlet;
 use App\Http\Controllers\Admin\AnnouncementController;
@@ -71,9 +72,6 @@ Route::middleware('auth')->group(function () {
     // Hamlet Detail
     Route::resource('hamlet_detail', HamletDetailController::class)->except('show');
 
-    // Hamlet Program
-    Route::resource('hamlet_program', HamletProgramController::class)->except('show');
-
     // Hamlet Gallery
     Route::get('hamlet_gallery/{id}', [GalleryHamlet::class, 'index'])->name('hamlet_gallery.index');
     Route::get('hamlet_gallery/create/{id}', [GalleryHamlet::class, 'create'])->name('hamlet_gallery.create');
@@ -85,8 +83,12 @@ Route::middleware('auth')->group(function () {
     // submision route
     Route::get('submission', [SubmissionController::class, 'index'])->name('submission.index');
     Route::get('history', [SubmissionController::class, 'history'])->name('submission.history');
-
     Route::put('submission/{id}', [SubmissionController::class, 'update'])->name('submission.update');
     Route::delete('submission/{id}', [SubmissionController::class, 'destroy'])->name('submission.destroy');
-    Route::get('print/{id}',[SubmissionController::class, 'printData'])->name('print');
+    Route::get('print/{id}',[SubmissionController::class, 'generatePdf'])->name('print');
+
+    // Forum
+    Route::get('forum',[Forumcontroller::class, 'index'])->name('forum.index');
+    Route::delete('forum/{id}', [ForumController::class, 'destroy'])->name('forum.destroy');
+
 });

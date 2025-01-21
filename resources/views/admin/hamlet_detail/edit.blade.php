@@ -15,19 +15,6 @@
                 <form action="{{ route('hamlet_detail.update', $hamlet_detail->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT') <!-- Specify the HTTP method -->
-
-                    <div class="mb-3 d-flex align-items-center justify-content-center">
-                        <div class="me-2">
-                            <img src="{{ Storage::url($hamlet_detail->maps) }}" alt="album image" class="img-thumbnail rounded" style="width: 100px;">
-                        </div>
-                        <div>
-                            <img id="preview{{ $hamlet_detail->id }}" src="#" alt="Preview Gambar" class="img-thumbnail rounded" style="display: none; width: 102px;">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="maps" class="form-label">Gambar</label>
-                        <input type="file" class="form-control" name="maps" id="image{{ $hamlet_detail->id }}" onchange="previewImage(event, 'preview{{ $hamlet_detail->id }}')">
-                    </div>
                     <div class="mb-3">
                         <label for="hamlets_id" class="form-label">Name</label>
                         <select
@@ -40,6 +27,28 @@
                             <option value="{{ $item->id }}" @selected($item->id == $hamlet_detail->hamlets_id)>{{ $item->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="latitude" class="form-label">Latitude</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="latitude"
+                            id="latitude"
+                            placeholder="Masukan Latitude"
+                            value="{{ $hamlet_detail->latitude }}"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="longitude" class="form-label">Longitude</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="longitude"
+                            id="longitude"
+                            placeholder="Masukan Longitude"
+                            value="{{ $hamlet_detail->longitude }}"
+                        />
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

@@ -48,11 +48,18 @@ class SubmissionController extends Controller
             'requisite' => $request->requisite
         ]);
 
-        return new JsonResponses(Response::HTTP_OK, "Berhasil menambahkan data", $submission);
+        return new JsonResponses(Response::HTTP_OK, "Berhasilm menambahkan data", $submission);
     }
 
     public function fetchAll(){
         $submissions = Submission::with(['user','hamlet'])->get();
+
+        $submissions = $submissions->map(function($submission){
+            $submission->nik_id = $submission->user->nik;
+            $submission->hamlet_id = $submission->hamlet->name;
+
+            return $submission;
+        });
 
         return new JsonResponses(Response::HTTP_OK,"Data Berhasil di Dapatkan!",$submissions);
     }

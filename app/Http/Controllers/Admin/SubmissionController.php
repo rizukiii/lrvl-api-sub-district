@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Submission;
 use Illuminate\Http\Request;
+use Mpdf\Mpdf;
 
 class SubmissionController extends Controller
 {
@@ -68,11 +69,17 @@ class SubmissionController extends Controller
         }
     }
 
-    public function printData($id){
+    public function generatePdf($id){
 
         $submission = Submission::findOrFail($id);
 
-        return view('admin.submission.print',compact('submission'));
+        $html = view('admin.submission.print',compact('submission'))->render();
+
+        $mpdf = new Mpdf();
+
+        $mpdf->WriteHTML($html);
+
+        return $mpdf->Output($submission->title . ' - ' . $submission->date . '.pdf','I');
     }
 
 }

@@ -15,7 +15,7 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">DAshboard</span>
+                    <span class="hide-menu">Dashboard</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
@@ -71,12 +71,32 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('hamlet_number.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-building"></i>
+                        </span>
+                        <span class="hide-menu">Number</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('hamlet_detail.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-building"></i>
                         </span>
-                        <span class="hide-menu">Hamlet Detail</span>
+                        <span class="hide-menu">Detail</span>
                     </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('hamlet_detail.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-building"></i>
+                        </span>
+                        <span class="hide-menu">Programs</span>
+                    </a>
+                </li>
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">HAMLET</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('submission.index') }}" aria-expanded="false">
@@ -84,6 +104,14 @@
                             <i class="ti ti-license"></i>
                         </span>
                         <span class="hide-menu">Submission</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('forum.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-license"></i>
+                        </span>
+                        <span class="hide-menu">Forum</span>
                     </a>
                 </li>
                 <li class="nav-small-cap">

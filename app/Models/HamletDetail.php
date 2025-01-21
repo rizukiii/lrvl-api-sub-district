@@ -13,7 +13,9 @@ class HamletDetail extends Model
     protected $primaryKey = 'id'; // Corrected: should be `hamlet_id` as the primary key
     protected $fillable = [
         'hamlets_id',  // Corrected to match the foreign key column name
-        'maps'
+        'latitude',
+        'longitude'
+
     ];
     protected $casts = [
         'created_at' => 'datetime',

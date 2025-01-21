@@ -14,13 +14,6 @@
                 @include('admin.partials.alert')
                 <form action="{{ route('hamlet_detail.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div>
-                        <img id="previewCreate" src="#" alt="Preview Gambar" class="img-fluid rounded mt-2 mb-3" style="display: none; width: 100px">
-                    </div>
-                    <div class="mb-3">
-                        <label for="maps" class="form-label">Gambar</label>
-                        <input type="file" class="form-control" name="maps" id="imageCreate" onchange="previewImage(event, 'previewCreate')">
-                    </div>
                     <div class="mb-3">
                         <label for="hamlets_id" class="form-label">Name</label>
                         <select
@@ -33,6 +26,26 @@
                             <option value="{{ $item->id }}" @selected($item->id == old('hamlets_id'))>{{ $item->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="latitude" class="form-label">Latitude</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="latitude"
+                            id="latitude"
+                            placeholder="Masukan Latitude"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="longitude" class="form-label">Longitude</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="longitude"
+                            id="longitude"
+                            placeholder="Masukan Longitude"
+                        />
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hamlet_numbers', function (Blueprint $table) {
+        Schema::create('forums', function (Blueprint $table) {
             $table->id();
-            $table->text('street');
-            $table->integer('number');
-            $table->integer('rt');
-            $table->integer('rw');
-            $table->string('village');
+            $table->unsignedBigInteger('user_id');
+            $table->text('image');
+            $table->text('description');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hamlet_numbers');
+        Schema::dropIfExists('forums');
     }
 };

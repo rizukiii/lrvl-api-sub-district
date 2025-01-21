@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\HamletController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ForumController;
 use App\Http\Controllers\Api\SubmissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,8 +40,16 @@ Route::get('hamlet', [HamletController::class, 'getAllHamlet']);
 Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
 
 // Submission
-Route::post('submission/create',[SubmissionController::class, 'create']);
+// Correct if you intend to use POST for creating
 Route::get('submission',[SubmissionController::class, 'fetchAll']);
+Route::post('/submission/create', [SubmissionController::class, 'create']);
+
+// Forum
+Route::get('forum/all', [ForumController::class, 'all']);
+Route::post('forum/store',[ForumController::class, 'store']);
+Route::get('forum/show/{id}', [ForumController::class, 'show']);
+Route::put('forum/update/{id}',[ForumController::class, 'update']);
+Route::delete('forum/destroy/{id}',[ForumController::class, 'destroy']);
 
 // Register
 Route::post('register', [AuthController::class, 'register']);

@@ -38,17 +38,12 @@ class HamletDetailController extends Controller
         // Validasi data yang dikirim dari form
         $request->validate([
             'hamlets_id' => 'required|exists:hamlets,id|numeric', // Validasi bahwa hamlets_id ada di tabel hamlets
-            'maps' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:9048', // Validasi file gambar
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
 
         // Ambil data yang dikirim dari form
-        $data = $request->only('hamlets_id');
-
-        // Proses upload gambar
-        if ($request->hasFile('maps')) {
-            // Simpan gambar ke direktori public/images/hamlet_detail
-            $data['maps'] = $request->file('maps')->store('images/hamlet_detail', 'public');
-        }
+        $data = $request->all();
 
         // Simpan data ke tabel hamlet_details
         if (HamletDetail::create($data)) {
@@ -75,27 +70,18 @@ class HamletDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Validasi data yang dikirim dari form
-        $request->validate([
-            'hamlets_id' => 'required|exists:hamlets,id|numeric', // Validasi hamlets_id
-            'maps' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:9048', // Validasi file gambar, boleh kosong
-        ]);
-
         // Ambil data hamlet_detail yang akan diupdate
         $hamlet_detail = HamletDetail::findOrFail($id);
 
-        // Ambil data yang dikirim dari form
-        $data = $request->only('hamlets_id');
+        // Validasi data yang dikirim dari form
+        $request->validate([
+            'hamlets_id' => 'required|exists:hamlets,id|numeric', // Validasi hamlets_id
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+        ]);
 
-        // Proses upload gambar jika ada
-        if ($request->hasFile('maps')) {
-            // Hapus gambar lama jika ada
-            if ($hamlet_detail->maps && Storage::exists($hamlet_detail->maps)) {
-                Storage::delete($hamlet_detail->maps);
-            }
-            // Simpan gambar baru
-            $data['maps'] = $request->file('maps')->store('images/hamlet_detail', 'public');
-        }
+        // Ambil data yang dikirim dari form
+        $data = $request->all();
 
         // Update data ke tabel hamlet_details
         if ($hamlet_detail->update($data)) {
@@ -113,11 +99,6 @@ class HamletDetailController extends Controller
     {
         // Ambil data hamlet_detail yang akan dihapus berdasarkan ID
         $hamlet_detail = HamletDetail::findOrFail($id);
-
-        // Hapus gambar jika ada
-        if ($hamlet_detail->maps && Storage::exists($hamlet_detail->maps)) {
-            Storage::delete($hamlet_detail->maps);
-        }
 
         // Hapus data hamlet_detail
         if ($hamlet_detail->delete()) {
