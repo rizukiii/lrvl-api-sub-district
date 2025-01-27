@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hamlet\Program;
 use Illuminate\Http\Request;
 
 class DisplayController extends Controller
@@ -29,5 +30,18 @@ class DisplayController extends Controller
 
     public function lpmkal(){
         return view('FrontEnd.lpmkal');
+    }
+
+    public function program(){
+        $program = Program::all();
+        return view('FrontEnd.program',compact('program'));
+    }
+
+    public function privacypolicy(){
+        return view('FrontEnd.privacyPolice');
+    }
+
+    public function lupapassword(){
+        return view('FrontEnd.lupapassword');
     }
 }

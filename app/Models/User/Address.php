@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
+use App\Models\Hamlet;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HamletNumber extends Model
+class Address extends Model
 {
-    protected $table = 'hamlet_numbers';
+    use HasFactory;
+    protected $table = 'address';
     protected $primarykey = 'id';
     protected $fillable = [
         'street',

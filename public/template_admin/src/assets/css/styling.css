@@ -11,3 +11,12 @@ td.d-flex.flex-wrap .btn {
     grid-template-columns: 1fr 1fr; /* Membuat dua kolom dengan lebar sama */
     gap: 8px; /* Jarak antar tombol */
 }
+
+.notification {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.notification[style="display: none;"] {
+    opacity: 0;
+}

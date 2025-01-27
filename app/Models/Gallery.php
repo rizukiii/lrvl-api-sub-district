@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Gallery\Detail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +22,6 @@ class Gallery extends Model
     ];
 
     public function images(){
-        return $this->hasMany(GalleryDetail::class,'gallery_id','id');
+        return $this->hasMany(Detail::class,'gallery_id','id');
     }
 }

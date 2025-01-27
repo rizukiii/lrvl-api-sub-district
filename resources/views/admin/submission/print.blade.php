@@ -1,228 +1,89 @@
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surat Resmi</title>
-    <link rel="stylesheet" href="{{ asset('template_admin') }}/src/assets/css/styles.min.css" />
+@extends('layouts.frontend')
+@section('title', 'Print Ajuan')
+@section('content')
     <style>
-        /* General styles */
-        body {
-            font-family: "Times New Roman", Times, serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 1.5cm;
-        }
-
-        .kop-surat {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid black;
-            padding-bottom: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .kop-surat img {
-            width: 80px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .kop-surat div {
-            text-align: center;
-            flex: 1;
-            margin: 0 15px;
-        }
-
-        .kop-surat h1,
-        .kop-surat h2,
-        .kop-surat p {
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        .content {
-            text-align: justify;
-            line-height: 1.8;
-            margin-top: 20px;
-        }
-
-        .content p {
-            margin: 10px 0;
-        }
-
-        .signature {
-            margin-top: 2cm;
-            text-align: right;
-            margin-right: 20px;
-        }
-
-        .signature p {
-            margin: 0;
-        }
-
-        .signature strong {
-            display: block;
-            margin-top: 20px;
-        }
-
-        /* Mobile-first Design */
-        @media (max-width: 1024px) {
-            .kop-surat {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .kop-surat img {
-                width: 70px;
-                margin-bottom: 10px;
-            }
-
-            .kop-surat div {
-                text-align: center;
-                flex: 1;
-                margin: 0;
-            }
-
-            .content {
-                font-size: 14px;
-            }
-
-            .signature {
-                text-align: center;
-                margin-top: 2cm;
-                margin-right: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                margin: 1.5cm;
-            }
-
-            .kop-surat img {
-                width: 60px;
-            }
-
-            .content {
-                font-size: 13px;
-            }
-
-            .signature {
-                text-align: center;
-                margin-top: 1.5cm;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                margin: 1cm;
-            }
-
-            .kop-surat {
-                text-align: center;
-                flex-direction: column;
-                padding-bottom: 10px;
-            }
-
-            .kop-surat img {
-                width: 50px;
-            }
-
-            .content {
-                font-size: 12px;
-                line-height: 1.4;
-            }
-
-            .signature {
-                margin-top: 1.5cm;
-                text-align: center;
-            }
-
-            .signature strong {
-                margin-top: 10px;
-            }
-        }
-
-        /* Print-specific styles */
         @media print {
+
+            /* Mengatur ukuran halaman menjadi A4 */
             @page {
                 size: A4;
-                margin: 2cm;
+                margin: 20mm;
+                /* Atur margin sesuai kebutuhan */
             }
 
+            /* Menyesuaikan tata letak untuk kertas A4 */
             body {
-                margin: 0;
-                padding: 0;
+                font-size: 12pt;
+                line-height: 1.5;
             }
 
             .container {
                 width: 100%;
+                padding: 0;
+            }
+
+            /* Pastikan gambar responsif dan menyesuaikan ukuran A4 */
+            img {
                 max-width: 100%;
+                height: auto;
             }
 
+            /* Sesuaikan kolom dan elemen lain dalam kop surat agar sesuai dengan ukuran A4 */
             .kop-surat {
-                flex-direction: column;
-                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1cm;
+                /* Sesuaikan jarak antar elemen */
             }
 
-            .kop-surat img {
-                width: 60px;
-                margin: 5px 0;
+            .kop-surat .col-4 {
+                width: 33.33%;
             }
 
-            .content {
+            /* Sesuaikan ukuran font dan margin */
+            h1,
+            h2 {
+                font-size: 18pt;
+                margin: 0;
+            }
+
+            p {
                 font-size: 12pt;
-                line-height: 1.6;
+                margin: 0.5cm 0;
             }
 
-            .signature {
-                text-align: center;
-                margin-top: 2cm;
-            }
-
-            .page-break {
+            /* Agar tidak ada elemen yang terpotong atau keluar dari halaman */
+            .content {
                 page-break-before: always;
             }
 
-            .no-print {
-                display: none;
+            .signature {
+                page-break-before: always;
             }
         }
     </style>
-</head>
-
-<body>
     <div class="container">
         <!-- Header atau Kop Surat -->
         <header>
-            <div class="kop-surat">
+            <div class="kop-surat row align-items-center">
                 <!-- Gambar di kiri -->
-                <img src="{{ asset('lambang.png') }}" alt="Logo Kelurahan">
+                <div class="col-4">
+                    <img src="{{ asset('lambang.png') }}" alt="Logo Kelurahan" class="img-fluid">
+                </div>
 
                 <!-- Teks di tengah -->
-                <div>
+                <div class="col-4 text-center">
                     <h1>PEMERINTAH KABUPATEN SLEMAN</h1>
                     <h2>KELURAHAN CONDONGCATUR</h2>
-                    <p>Jl. Affandi No.1, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta</p>
+                    <p>Jl. Affandi No.1, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta
+                    </p>
                 </div>
 
                 <!-- Gambar di kanan -->
-                <img src="{{ asset('logo_diy.png') }}" alt="Logo DIY">
+                <div class="col-4 text-end">
+                    <img src="{{ asset('logo_diy.png') }}" alt="Logo DIY" class="img-fluid">
+                </div>
             </div>
         </header>
 
@@ -263,7 +124,7 @@
         </div>
 
         <!-- Tanda Tangan -->
-        <div class="signature">
+        <div class="signature d-flex justify-content-end align-items-end" style="flex-direction: column;">
             <p>Kelurahan Condongcatur, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
             <br>
             <br>
@@ -273,6 +134,4 @@
             <p>Sekretaris</p>
         </div>
     </div>
-</body>
-
-</html>
+@endsection

@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Gallery;
 
+use App\Models\Gallery;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GalleryDetail extends Model
+class Detail extends Model
 {
     use HasFactory;
-    protected $table = 'gallery_details';
+    protected $table = 'albums';
     protected $PrimaryKey = 'id';
     protected $fillable = [
         'image',

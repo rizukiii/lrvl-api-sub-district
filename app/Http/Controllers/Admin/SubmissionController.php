@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Submission;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-use Mpdf\Mpdf;
 
 class SubmissionController extends Controller
 {
@@ -73,13 +73,15 @@ class SubmissionController extends Controller
 
         $submission = Submission::findOrFail($id);
 
-        $html = view('admin.submission.print',compact('submission'))->render();
+        $data = [ 'submission' => $submission ];
 
-        $mpdf = new Mpdf();
+        $pdf = Pdf::loadView('admin.submission.print', $data);
 
-        $mpdf->WriteHTML($html);
+        if(request()->has('download')){
+            return $pdf->download('ajuan_' . $id . '.pdf');
+        }
 
-        return $mpdf->Output($submission->title . ' - ' . $submission->date . '.pdf','I');
+    return $pdf->stream('ajuan_' . $id . '.pdf');
     }
 
 }

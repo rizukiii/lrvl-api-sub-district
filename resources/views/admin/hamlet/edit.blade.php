@@ -33,11 +33,11 @@
                         <input type="text" class="form-control" name="name" value="{{ old('name', $hamlet->name) }}">
                     </div>
                     <div class="mb-3">
-                        <label for="rt" class="form-label">RT</label>
-                        <input type="tel" class="form-control" name="rt" value="{{ old('rt', $hamlet->rt) }}">
+                        <label for="leader" class="form-label">Kepala Desa</label>
+                        <input type="text" class="form-control" name="leader" value="{{ old('leader', $hamlet->leader) }}">
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
+                        <label for="title" class="form-label">Deskripsi</label>
                         <input type="text" class="form-control" name="title" value="{{ old('title', $hamlet->title) }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>

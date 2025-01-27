@@ -22,12 +22,12 @@
                         <input type="file" class="form-control" name="image" id="imageCreate" onchange="previewImage(event, 'previewCreate')">
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Nama</label>
                         <input type="text" class="form-control" name="name" placeholder="Masukan Hamlet">
                     </div>
                     <div class="mb-3">
-                        <label for="rt" class="form-label">RT</label>
-                        <input type="tel" class="form-control" name="rt" placeholder="Masukan RT">
+                        <label for="leader" class="form-label">Kepala Desa</label>
+                        <input type="text" class="form-control" name="leader" id="leader" placeholder="Masukan Kepala Desa">
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Deskripsi</label>

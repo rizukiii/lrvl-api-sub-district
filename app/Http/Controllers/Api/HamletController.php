@@ -36,7 +36,7 @@ class HamletController extends Controller
 
         // Iterate over each hamlet_detail and map galleries
         $detail->details->transform(function ($hamletDetail) {
-            
+
             // Map over the related galleries for each hamlet detail
             $hamletDetail->galleries = $hamletDetail->galleries->map(function ($image) {
                 $image->image = url('/') . Storage::url($image->image);

@@ -20,7 +20,7 @@ class HamletController extends Controller
         if ($request->has('search') && $request->search != '') {
             $search = $request->search;
             $query->where('name', 'like', "%$search%")
-                ->orWhere('title', 'like', "%$search%");
+                ->orWhere('title', 'like', "%$search%")->orWhere('leader', 'like', "%$search%");
         }
 
         $hamlet = $query->orderBy('name', 'desc')->paginate(5);
@@ -45,10 +45,10 @@ class HamletController extends Controller
             'name' => 'required|string',
             'title' => 'required|string',
             'image' => 'required|image',
-            'rt' => 'required|numeric',
+            'leader' => 'required|string',
         ]);
 
-        $data = $request->only('name', 'title', 'rt');
+        $data = $request->only('name', 'title', 'leader');
 
         // Proses file gambar
         if ($request->hasFile('image')) {
@@ -84,10 +84,10 @@ class HamletController extends Controller
             'name' => 'required|string',
             'title' => 'required|string',
             'image' => 'nullable|image',
-            'rt' => 'required|numeric',
+            'leader' => 'required|string',
         ]);
 
-        $data = $request->only('name', 'title', 'rt');
+        $data = $request->only('name', 'title', 'leader');
 
         // Proses file gambar
         if ($request->hasFile('image')) {

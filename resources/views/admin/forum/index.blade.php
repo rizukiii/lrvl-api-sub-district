@@ -72,7 +72,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="{{ Storage::url($item->image) }}" alt="gambar forum" class="mb-3">
+                                                <img src="{{ Storage::url($item->image) }}" alt="gambar forum" class="mb-3 img-fluid">
                                                 <h5>{{ $item->user->name }}</h5>
                                                 <p>{{ $item->description }}</p>
                                             </div>

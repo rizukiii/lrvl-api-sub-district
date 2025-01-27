@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Hamlet;
 
-use App\Models\Hamlet\Gallery;
+use App\Models\Hamlet;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HamletDetail extends Model
+class Detail extends Model
 {
     use HasFactory;
-    protected $table = 'hamlet_details';
+    protected $table = 'hdetails';
     protected $primaryKey = 'id'; // Corrected: should be `hamlet_id` as the primary key
     protected $fillable = [
         'hamlets_id',  // Corrected to match the foreign key column name

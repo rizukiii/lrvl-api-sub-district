@@ -62,7 +62,7 @@
                                                 <i class="ti ti-trash"></i> Delete
                                             </button>
                                             <a href="{{ route('print',$item->id) }}" class="btn btn-success" target="_blank">
-                                                <i class="ti ti-printer"></i> Print
+                                                <i class="ti ti-eyes"></i> View PDf
                                             </a>
                                         </div>
                                     </td>

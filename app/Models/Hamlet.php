@@ -1,21 +1,24 @@
 <?php
 
-
 namespace App\Models;
 
+use App\Models\Hamlet\Detail;
 use App\Models\Hamlet\Gallery;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Hamlet extends Model
 {
+    use HasFactory;
     protected $table = 'hamlets';
     protected $primaryKey = 'id'; // Corrected: should be `primaryKey` instead of `primarykey`
     protected $fillable = [
         'name',
         'image',
         'title',
-        'rt',
+        'leader',
     ];
+    
     protected $casts = [
         'created_at' => 'datetime',
         'upload_at' => 'datetime',
@@ -28,9 +31,9 @@ class Hamlet extends Model
 
     public function details()
     {
-        return $this->hasMany(HamletDetail::class, 'hamlets_id');
+        return $this->hasMany(Detail::class, 'hamlets_id');
     }
 
-    
+
 
 }

@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\HamletNumber;
+use App\Models\User\Address;
 use Illuminate\Http\Request;
 
-class HamletNumberController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $query = HamletNumber::query();
+        $query = Address::query();
         $hamlet_number = $query->orderBy('street', 'desc')->paginate(5);
 
-        return view('admin.hamlet_number.index',compact('hamlet_number'));
+        return view('admin.user.number.index',compact('hamlet_number'));
     }
 
     /**
@@ -24,7 +24,7 @@ class HamletNumberController extends Controller
      */
     public function create()
     {
-        return view('admin.hamlet_number.create');
+        return view('admin.user.number.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class HamletNumberController extends Controller
 
         $data = $request->only('street', 'number', 'rt', 'rw', 'village');
 
-        if (HamletNumber::create($data)) {
+        if (Address::create($data)) {
             return redirect()->route('hamlet_number.index')->withSuccess('Hamlet Number Berhasil Ditambahkan');
         }
 
@@ -54,9 +54,9 @@ class HamletNumberController extends Controller
      */
     public function edit($id)
     {
-        $hamlet_number = HamletNumber::findOrFail($id);
+        $hamlet_number = Address::findOrFail($id);
 
-        return view('admin.hamlet_number.edit',compact('hamlet_number'));
+        return view('admin.user.number.edit',compact('hamlet_number'));
     }
 
     /**
@@ -64,7 +64,7 @@ class HamletNumberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $hamletNumber = HamletNumber::findOrFail($id);
+        $hamletNumber = Address::findOrFail($id);
 
         $request->validate([
             'street' => 'required|string',
@@ -89,7 +89,7 @@ class HamletNumberController extends Controller
     public function destroy($id)
     {
 
-        $hamlets_number = HamletNumber::findOrFail($id);
+        $hamlets_number = Address::findOrFail($id);
 
         if ($hamlets_number->delete()) {
             return back()->withSuccess('Hamlet Number Berhasil Di Hapus!');

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Gallery;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery\Detail;
 use App\Models\Gallery;
-use App\Models\GalleryDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class GalleryDetailController extends Controller
+class DetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class GalleryDetailController extends Controller
     public function index(Request $request, $id)
     {
         $gallery = Gallery::findOrFail($id);
-        $album = GalleryDetail::where('gallery_id', $id)->paginate(5);
+        $album = Detail::where('gallery_id', $id)->paginate(5);
         $galleries = Gallery::all(); // Add this line to fetch all galleries
 
-        return view('admin.gallery_details.index', compact('album', 'gallery', 'galleries'));
+        return view('admin.gallery.details.index', compact('album', 'gallery', 'galleries'));
     }
 
 
@@ -34,20 +34,25 @@ class GalleryDetailController extends Controller
 
         // Proses penyimpanan gambar
         $data = ['gallery_id' => $id]; // Menggunakan id galeri yang dikirim dari modal
+
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('images/album', 'public');
         }
 
-        $album = GalleryDetail::create($data);
+        $album = Detail::create($data);
 
-        return redirect()->route('album.index', $id)->with('success', 'Album berhasil ditambahkan.');
+        if ($album) {
+            return redirect()->route('album.index', $id)->with('success', 'Album berhasil ditambahkan.');
+        } else {
+            return back()->withInput()->withErrors('Album gagal ditambah!');
+        }
     }
 
-
+    
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, GalleryDetail $id)
+    public function update(Request $request, Detail $id)
     {
         $request->validate([
             'image' => 'nullable|image', // Validasi gambar
@@ -68,25 +73,25 @@ class GalleryDetailController extends Controller
         // Update data album
         if ($id->update($data)) {
             return redirect()->route('album.index', $id->gallery_id)->withSuccess('Album berhasil diubah!');
+        } else {
+            return back()->withInput()->withErrors('Album gagal diubah!');
         }
-
-        return back()->withInput()->withErrors('Album gagal diubah!');
     }
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(GalleryDetail $id)
+    public function destroy(Detail $id)
     {
         if ($id->image && Storage::exists($id->image)) {
             Storage::delete($id->image);
         }
 
-     $id->delete();
-            if ($id) {
-                return back()->withSuccess('Album Berhasil Di Hapus');
-            }
+        if ($id->delete()) {
+            return back()->withSuccess('Album Berhasil Di Hapus');
+        } else {
             return back()->withErrors('Album Gagal Di Hapus!');
+        }
     }
 }

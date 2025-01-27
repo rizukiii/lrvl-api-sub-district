@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\JsonResponses;
 use App\Models\Forum;
 use App\Models\User;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use PhpParser\Node\Stmt\TryCatch;
-use Symfony\Component\HttpFoundation\Response;
 
 class ForumController extends Controller
 {
@@ -19,7 +15,7 @@ class ForumController extends Controller
     {
         try {
             // Ambil semua data forum dengan pengecekan jumlah data
-            $forums = Forum::all();
+            $forums = Forum::all()->load('user');
 
             if ($forums->isEmpty()) {
                 return response()->json([
@@ -28,6 +24,11 @@ class ForumController extends Controller
                     'data' => []
                 ], 404);
             }
+
+            $forums->transform(function ($item) {
+                $item->image = url('/') . Storage::url($item->image);
+                return $item;
+            });
 
             return response()->json([
                 'status' => 200,
@@ -51,7 +52,6 @@ class ForumController extends Controller
         }
     }
 
-
     public function show($id)
     {
         try {
@@ -65,7 +65,7 @@ class ForumController extends Controller
             }
 
             // Cari forum berdasarkan ID
-            $forum = Forum::find($id);
+            $forum = Forum::find($id)->load('user');
 
             // Jika forum tidak ditemukan, kembalikan respons 404
             if (!$forum) {
@@ -75,6 +75,8 @@ class ForumController extends Controller
                     'data' => null
                 ], 404);
             }
+
+            $forum->image = url('/') . Storage::url($forum->image);
 
             // Jika forum ditemukan, kembalikan data
             return response()->json([
@@ -99,14 +101,13 @@ class ForumController extends Controller
         }
     }
 
-
     public function store(Request $request)
     {
         try {
             // Validasi input dengan aturan tambahan
             $validator = Validator::make($request->all(), [
-                'user_id' => 'required|exists:users,id',
-                'image' => 'required|image',
+                'user_id' => 'required|exists:users,name',
+                'image' => 'nullable|image',
                 'description' => 'required|string'
             ]);
 
@@ -118,8 +119,8 @@ class ForumController extends Controller
                 ], 422);
             }
 
-            // Cek apakah user ditemukan dengan ID, bukan nama
-            $user = User::find($request->user_id);
+            // Cek apakah user di tabel users ada
+            $user = User::where('name', $request->user_id)->first();
             if (!$user) {
                 return response()->json([
                     'status' => 404,
@@ -128,24 +129,10 @@ class ForumController extends Controller
                 ], 404);
             }
 
-            // Proses upload gambar dengan pengecekan tambahan
+            // Proses upload gambar
             $imagePath = null;
             if ($request->hasFile('image')) {
-                if (!$request->file('image')->isValid()) {
-                    return response()->json([
-                        'status' => 400,
-                        'message' => 'File gambar tidak valid.',
-                        'data' => null
-                    ], 400);
-                }
-
                 $imagePath = $request->file('image')->store('images/forum', 'public');
-            } else {
-                return response()->json([
-                    'status' => 400,
-                    'message' => 'File gambar tidak ditemukan.',
-                    'data' => null
-                ], 400);
             }
 
             // Simpan data forum ke database
@@ -184,7 +171,6 @@ class ForumController extends Controller
         }
     }
 
-
     public function update(Request $request, $id)
     {
         try {
@@ -199,7 +185,6 @@ class ForumController extends Controller
 
             // Validasi input yang diterima
             $validator = Validator::make($request->all(), [
-                'user_id' => 'nullable|exists:users,id',
                 'image' => 'nullable|image',
                 'description' => 'nullable|string'
             ]);
@@ -223,18 +208,13 @@ class ForumController extends Controller
             }
 
             // Pengecekan hak akses: hanya pemilik forum yang bisa memperbarui (opsional)
-            if ($request->user()->id !== $forum->user_id) {
-                return response()->json([
-                    'status' => 403,
-                    'message' => 'Anda tidak memiliki izin untuk memperbarui forum ini.',
-                    'data' => null
-                ], 403);
-            }
-
-            // Proses pembaruan user_id jika diisi
-            if ($request->filled('user_id')) {
-                $forum->user_id = $request->user_id;
-            }
+            // if ($request->user()->id !== $forum->user_id) {
+            //     return response()->json([
+            //         'status' => 403,
+            //         'message' => 'Anda tidak memiliki izin untuk memperbarui forum ini.',
+            //         'data' => null
+            //     ], 403);
+            // }
 
             // Proses upload gambar jika ada
             if ($request->hasFile('image')) {
@@ -306,13 +286,13 @@ class ForumController extends Controller
             }
 
             // Cek apakah pengguna memiliki izin untuk menghapus forum ini (opsional)
-            if ($request->user()->id !== $forum->user_id) {
-                return response()->json([
-                    'status' => 403,
-                    'message' => 'Anda tidak memiliki izin untuk menghapus forum ini.',
-                    'data' => null
-                ], 403);
-            }
+            // if ($request->user()->id !== $forum->user_id) {
+            //     return response()->json([
+            //         'status' => 403,
+            //         'message' => 'Anda tidak memiliki izin untuk menghapus forum ini.',
+            //         'data' => null
+            //     ], 403);
+            // }
 
             // Hapus gambar terkait jika ada
             if (!empty($forum->image) && Storage::disk('public')->exists($forum->image)) {

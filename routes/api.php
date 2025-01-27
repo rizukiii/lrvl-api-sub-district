@@ -48,7 +48,7 @@ Route::post('/submission/create', [SubmissionController::class, 'create']);
 Route::get('forum/all', [ForumController::class, 'all']);
 Route::post('forum/store',[ForumController::class, 'store']);
 Route::get('forum/show/{id}', [ForumController::class, 'show']);
-Route::put('forum/update/{id}',[ForumController::class, 'update']);
+Route::post('forum/update/{id}',[ForumController::class, 'update']);
 Route::delete('forum/destroy/{id}',[ForumController::class, 'destroy']);
 
 // Register

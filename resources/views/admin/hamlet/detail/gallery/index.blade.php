@@ -8,9 +8,10 @@
                 <h5 class="card-title fw-semibold mb-2">Halaman Galeri Dusun</h5>
                 <div class="ms-auto">
                     <div class="btn-group">
-                        <a href="{{ route('hamlet_detail.index') }}" class="btn btn-primary ms-auto">
+                        <a href="{{ url()->previous() }}" class="btn btn-primary ms-auto">
                             <i class="ti ti-arrow-left"></i> Kembali
                         </a>
+
                         <a class="btn btn-dark ms-auto" href="{{ route('hamlet_gallery.create', $hamlet_detail->id) }}">
                             <span><i class="ti ti-plus"></i> Tambah Hamlet</span>
                         </a>
