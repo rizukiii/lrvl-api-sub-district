@@ -43,13 +43,21 @@ Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
 // Correct if you intend to use POST for creating
 Route::get('submission',[SubmissionController::class, 'fetchAll']);
 Route::post('/submission/create', [SubmissionController::class, 'create']);
-
+// Route::get("test", function(){
+//     echo "Hello saya sedang belajar annon function";
+// });
 // Forum
-Route::get('forum/all', [ForumController::class, 'all']);
-Route::post('forum/store',[ForumController::class, 'store']);
-Route::get('forum/show/{id}', [ForumController::class, 'show']);
-Route::post('forum/update/{id}',[ForumController::class, 'update']);
-Route::delete('forum/destroy/{id}',[ForumController::class, 'destroy']);
+
+Route::prefix('forum')->group(function(){
+    Route::get('all', [ForumController::class, 'all']);
+    Route::post('store',[ForumController::class, 'store']);
+    Route::get('show/{id}', [ForumController::class, 'show']);
+    Route::post('update/{id}',[ForumController::class, 'update']);
+    Route::delete('destroy/{id}',[ForumController::class, 'destroy']);
+});
+
+
+
 
 // Register
 Route::post('register', [AuthController::class, 'register']);

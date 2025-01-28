@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -56,7 +58,22 @@ class AuthController extends Controller
         }
 
         // Login dan set session
-        Auth::login($user);
+        // Auth::login($user);
+        $credentials = $request->only('nik', 'password');
+        try {
+            if (!$token = JWTAuth::attempt($credentials)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid username or password'
+                ], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Could not create token'
+            ], 500);
+        }
+        $user->token = $token;
 
         return new JsonResponses(Response::HTTP_OK, "Berhasil Login", $user);
     }
