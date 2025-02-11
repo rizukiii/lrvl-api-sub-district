@@ -31,6 +31,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>NIK</th>
+                                <th>Nama</th>
                                 <th>Tanggal</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
@@ -41,6 +42,7 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->user->nik ?? 'tidak di temukan'}}</td>
+                                    <td>{{ $item->user->name ?? 'tidak di temukan'}}</td>
                                     <td>{{ $item->date }}</td>
                                     <td>
                                         <span class="badge

@@ -49,9 +49,9 @@ class GalleryController extends Controller
 
         $album = Gallery::create($data);
         if ($album) {
-            return redirect()->route('hamlet_gallery.index', ['hamlet_detail_id' => $hamlet_detail_id])->with('success', 'Hamlet Galeri berhasil ditambahkan.');
+            return redirect()->route('hamlet_gallery.index', ['id' => $hamlet_detail_id])->with('success', 'Hamlet Galeri berhasil ditambahkan.');
         }
-        return back()->route('hamlet_gallery.index', ['hamlet_detail_id' => $hamlet_detail_id])->withErrors('Hamlet Galeri Gagal ditambahkan.');
+        return back()->route('hamlet_gallery.index', ['id' => $hamlet_detail_id])->withErrors('Hamlet Galeri Gagal ditambahkan.');
     }
 
     public function edit($gallery_id)
@@ -89,7 +89,7 @@ class GalleryController extends Controller
 
         // Update data album
         if ($album->update($data)) {
-            return redirect()->route('hamlet_gallery.index', ['hamlet_detail_id' => $album->hamlet_detail_id])->withSuccess('Gambar berhasil diubah!');
+            return redirect()->route('hamlet_gallery.index', ['id' => $album->hamlet_detail_id])->withSuccess('Gambar berhasil diubah!');
         }
         return back()->withInput()->withErrors('Gambar gagal diubah!');
     }
@@ -109,7 +109,7 @@ class GalleryController extends Controller
 
         // Delete the gallery record
         if ($album->delete()) {
-            return redirect()->route('hamlet_gallery.index', ['hamlet_detail_id' => $album->hamlet_detail_id])
+            return redirect()->route('hamlet_gallery.index', ['id' => $album->hamlet_detail_id])
                 ->with('success', 'Hamlet Gallery successfully deleted.');
         }
 

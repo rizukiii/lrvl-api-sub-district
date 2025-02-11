@@ -28,7 +28,7 @@
                                 <i class="ti ti-user fs-6"></i>
                                 <p class="mb-0 fs-3">{{ Auth::user()->name }}</p>
                             </a>
-                            <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                            {{-- <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                 <i class="ti ti-photo fs-6"></i>
                                 <p class="mb-0 fs-3">My Profile</p>
                             </a>
@@ -39,7 +39,7 @@
                             <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                                 <i class="ti ti-mail fs-6"></i>
                                 <p class="mb-0 fs-3">My Account</p>
-                            </a>
+                            </a> --}}
                             <a href="{{ route('logout') }}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                         </div>
 

@@ -7,13 +7,11 @@ use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ForumController;
+use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\SubmissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware([
-    'auth:sanctum', // Middleware Sanctum
-])->group(function () {});
 
 // Route untuk mendapatkan informasi user
 Route::get('/user', function (Request $request) {
@@ -56,8 +54,9 @@ Route::prefix('forum')->group(function(){
     Route::delete('destroy/{id}',[ForumController::class, 'destroy']);
 });
 
-
-
+Route::get('review',[ReviewController::class, 'index']);
+Route::post('review/store',[ReviewController::class, 'store']);
+Route::delete('review/destroy',[ReviewController::class, 'destroy']);
 
 // Register
 Route::post('register', [AuthController::class, 'register']);

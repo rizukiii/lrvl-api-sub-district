@@ -44,4 +44,8 @@ class DisplayController extends Controller
     public function lupapassword(){
         return view('FrontEnd.lupapassword');
     }
+
+    public function ulasan(){
+        return view('FrontEnd.ulasan');
+    }
 }

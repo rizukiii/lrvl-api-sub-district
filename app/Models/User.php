@@ -54,6 +54,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Submission::class, 'nik_id', 'nik');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'user_id');
+    }
+
 
     public function getJWTCustomClaims() {
         return [];

@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class JsonResponses extends JsonResource
 {
-    private $status;
-    private $message;
-    private $data;
+    public $status;
+    public $message;
+    public $data;
 
     public function __construct($status, $message, $data)
     {

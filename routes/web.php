@@ -27,8 +27,9 @@ Route::get('rukun', [DisplayController::class, 'rukun'])->name('FrontEnd.rukun')
 Route::get('linmas', [DisplayController::class, 'linmas'])->name('FrontEnd.linmas');
 Route::get('lpmkal', [DisplayController::class, 'lpmkal'])->name('FrontEnd.lpmkal');
 Route::get('program', [DisplayController::class, 'program'])->name('FrontEnd.program');
-Route::get('privacypolicy',[DisplayController::class, 'privacypolicy'])->name('privacypolicy');
-Route::get('lupapassword',[DisplayController::class, 'lupapassword'])->name('lupapassword');
+Route::get('privacypolicy',[DisplayController::class, 'privacypolicy'])->name('FrontEnd.privacypolicy');
+Route::get('lupapassword',[DisplayController::class, 'lupapassword'])->name('FrontEnd.lupapassword');
+Route::get('ulasan',[DisplayController::class, 'ulasan'])->name('FrontEnd.ulasan');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('login');
@@ -38,7 +39,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
-    Route::get('dashboard', [DashboardController::class, 'analisis'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'analisis'])->name('dashboard');
 
     // News routes
     Route::get('news', [NewsController::class, 'index'])->name('news.index');
@@ -83,7 +84,7 @@ Route::middleware('auth')->group(function () {
     Route::get('hamlet_gallery/{id}', [HamletGalleryController::class, 'index'])->name('hamlet_gallery.index');
     Route::get('hamlet_gallery/create/{id}', [HamletGalleryController::class, 'create'])->name('hamlet_gallery.create');
     Route::post('hamlet_gallery/store/{id}', [HamletGalleryController::class, 'store'])->name('hamlet_gallery.store');
-    Route::get('hamlet_gallery/edit/{id}', [GalleryController::class, 'edit'])->name('hamlet_gallery.edit');
+    Route::get('hamlet_gallery/edit/{id}', [HamletGalleryController::class, 'edit'])->name('hamlet_gallery.edit');
     Route::put('hamlet_gallery/update/{id}', [HamletGalleryController::class, 'update'])->name('hamlet_gallery.update');
     Route::delete('hamlet_gallery/destroy/{id}', [HamletGalleryController::class, 'destroy'])->name('hamlet_gallery.destroy');
 

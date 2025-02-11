@@ -58,10 +58,9 @@
             If you have any questions or concerns about this privacy policy, please contact us at:
         </p>
         <address>
-            <strong>Condongcatur Village Office</strong><br>
-            Depok, Sleman, Yogyakarta<br>
-            Phone: +62-XXX-XXXX-XXXX<br>
-            Email: info@condongcatur.id
+            <strong>JL. Anggajaya No. 1 Gejayan, Condongcatur, Depok, Sleman Yogyakarta<br>
+            Phone: 0851-9854-5210 / (0274) 885689<br>
+            Email: condongcatur@slemankab.go.id
         </address>
     </div>
 @endsection

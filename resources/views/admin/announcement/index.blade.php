@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="w-25">{{ Str::limit($item->title, 30, '...') }}</td>
                                 <td class="w-25">{{ Str::limit($item->description, 30, '...') }}</td>
-                                <td>{{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal{{ $item->id }}">
@@ -77,7 +77,7 @@
                                             <img src="{{ Storage::url($item->image) }}" alt="announcement image" class="img-fluid rounded mb-3">
                                             <h5>{{ $item->title }}</h5>
                                             <p>{{ $item->description }}</p>
-                                            <p><strong>TAnggal :</strong> {{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</p>
+                                            <p><strong>TAnggal :</strong> {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -115,10 +115,10 @@
                                                     <label for="description" class="form-label">Deskripsi</label>
                                                     <textarea class="form-control" name="description" rows="4" placeholder="Masukan Deskripsi Pengumuman">{{ $item->description }}</textarea>
                                                 </div>
-                                                <div class="mb-3">
+                                                {{-- <div class="mb-3">
                                                     <label for="date" class="form-label">Tanggal</label>
                                                     <input type="date" class="form-control" name="date" value="{{ $item->date }}">
-                                                </div>
+                                                </div> --}}
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                             </form>
                                         </div>
@@ -169,10 +169,10 @@
                         <label for="description" class="form-label">Deskripsi</label>
                         <textarea class="form-control" name="description" rows="4" placeholder="Masukan Deskripsi Pengumuman"></textarea>
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="date" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" name="date">
-                    </div>
+                    </div> --}}
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>
             </div>

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\JsonResponses;
 use App\Models\Forum;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class ForumController extends Controller
 {
@@ -17,24 +20,20 @@ class ForumController extends Controller
             // Ambil semua data forum dengan pengecekan jumlah data
             $forums = Forum::all()->load('user');
 
-            if ($forums->isEmpty()) {
-                return response()->json([
-                    'status' => 404,
-                    'message' => 'Tidak ada data forum yang tersedia.',
-                    'data' => []
-                ], 404);
-            }
+            // if ($forums->isEmpty()) {
+            //     return response()->json([
+            //         'status' => 200,
+            //         'message' => 'Tidak ada data forum yang tersedia.',
+            //         'data' => []
+            //     ], 200);
+            // }
 
             $forums->transform(function ($item) {
                 $item->image = url('/') . Storage::url($item->image);
                 return $item;
             });
 
-            return response()->json([
-                'status' => 200,
-                'message' => 'Semua data forum berhasil didapatkan!',
-                'data' => $forums
-            ], 200);
+            return new JsonResponses(Response::HTTP_OK,"Data Berhasil di Dapatkan!",$forums);
         } catch (\Illuminate\Database\QueryException $e) {
             // Tangani kesalahan terkait database
             return response()->json([
