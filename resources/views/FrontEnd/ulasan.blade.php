@@ -1,57 +1,50 @@
-@extends('layouts.frontend')
-@section('title', 'Ulasan')
-@section('content')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Review</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Daftar Review</h2>
 
-    <div class="container">
-        <h2>Rating Produk: {{ $averageRating }}/5 ⭐</h2>
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
 
-        <!-- Form Review -->
-        @auth
-            <form action="{{ url('/reviews') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                    <label for="rating">Rating:</label>
-                    <select name="rating" class="form-control" required>
-                        <option value="1">1 - Sangat Buruk</option>
-                        <option value="2">2 - Buruk</option>
-                        <option value="3">3 - Cukup</option>
-                        <option value="4">4 - Baik</option>
-                        <option value="5" selected>5 - Sangat Baik</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="comment">Ulasan:</label>
-                    <textarea name="comment" class="form-control" required></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="image">Upload Gambar:</label>
-                    <input type="file" name="image" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Kirim Ulasan</button>
-            </form>
-        @endauth
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Rating</th>
+                    <th>Komentar</th>
+                    <th>Gambar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($reviews as $review)
+                    <tr>
+                        <td>{{ $review->id }}</td>
+                        <td>{{ $review->user_id }}</td>
+                        <td>{{ $review->rating }}</td>
+                        <td>{{ $review->comment }}</td>
+                        <td>
+                            @if ($review->image)
+                                <img src="{{ asset('storage/' . $review->image) }}" alt="Review Image" width="100">
+                            @else
+                                Tidak ada gambar
+                            @endif
+                        </td>
+                    </tr>
 
-        <hr>
-
-        <!-- Daftar Ulasan -->
-        @foreach ($reviews as $review)
-            <div class="border p-3 mb-3">
-                <strong>{{ $review->user->name }}</strong> ⭐ {{ $review->rating }}/5
-                <p>{{ $review->comment }}</p>
-                @if ($review->image)
-                    <img src="{{ asset('storage/' . $review->image) }}" alt="Review Image" width="100">
-                @endif
-
-                @auth
-                    @if (auth()->user()->id == $review->user_id)
-                        <form action="{{ url('/reviews/' . $review->id) }}" method="POST" class="mt-2">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                        </form>
-                    @endif
-                @endauth
-            </div>
-        @endforeach
+                @endforeach
+            </tbody>
+        </table>
     </div>
-@endsection
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

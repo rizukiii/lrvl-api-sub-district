@@ -6,78 +6,95 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\JsonResponses;
 use App\Models\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class ReviewController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get all reviews.
      */
-    // Ambil semua ulasan + rata-rata rating
-    public function index()
+    public function all()
     {
-        $reviews = Review::with('user')->get();
-        $averageRating = round(Review::avg('rating'), 1);
+        $reviews = Review::with('user')->latest()->get()->map(function ($review) {
+            $review->image = $review->image ? url('/') . Storage::url($review->image) : null;
+            return $review;
+        });
 
-        return new JsonResponses(Response::HTTP_OK,"Data berhasil didapatkan!",[
-            'reviews' => $reviews,
-            'average_rating' => $averageRating ?? 0,
-        ]);
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapatkan!", $reviews);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new review.
      */
-
-    // Simpan atau Update Review
     public function store(Request $request)
     {
-        $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'required|string',
-            'image' => 'nullable|image'
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'rating' => 'required|numeric|min:1|max:5',
+            'comment' => 'nullable|string',
+            'image' => 'nullable|image',
         ]);
-        // deklarasi
-        // $user = Auth::user();
 
-        // Cek apakah user sudah memiliki review
-        $review = Review::where('user_id', $user->id)->first();
-
-        // Upload gambar jika ada
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images/reviews', 'public');
-        } else {
-            $imagePath = $review->image ?? null;
+            $data['image'] = $request->file('image')->store('images/reviews', 'public');
         }
 
-        if ($review) {
-            // Update review
-            $review->update([
-                'rating' => $request->rating,
-                'comment' => $request->comment,
-                'image' => $imagePath
-            ]);
+        $review = Review::create($data);
 
-            return new JsonResponses(Response::HTTP_OK,'Ulasan diperbarui!',$review);
-        } else {
-            // Simpan review baru
-            $newReview = Review::create([
-                'user_id' => $user->id,
-                'rating' => $request->rating,
-                'comment' => $request->comment,
-                'image' => $imagePath
-            ]);
-            return new JsonResponses(Response::HTTP_CREATED,'Ulasan berhasil disimpan!',$newReview);
-        }
+        return new JsonResponses(Response::HTTP_CREATED, "Data berhasil ditambahkan!", $review);
     }
 
-    // Hapus review
+    /**
+     * Get a specific review.
+     */
+    public function detail($id)
+    {
+        $review = Review::with('user')->findOrFail($id);
+
+        $review->image = $review->image ? url('/') . Storage::url($review->image) : null;
+
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapatkan!", $review);
+    }
+
+    /**
+     * Update an existing review.
+     */
+    public function update(Request $request, $id)
+    {
+        $review = Review::findOrFail($id);
+
+        $data = $request->validate([
+            'rating' => 'required|numeric|min:1|max:5',
+            'comment' => 'nullable|string',
+            'image' => 'nullable|image',
+        ]);
+
+        if ($request->hasFile('image')) {
+            if (!empty($review->image) && Storage::disk('public')->exists($review->image)) {
+                Storage::disk('public')->delete($review->image);
+            }
+            $data['image'] = $request->file('image')->store('images/reviews', 'public');
+        }
+
+        $review->update($data);
+
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil diperbarui!", $review);
+    }
+
+    /**
+     * Delete a review.
+     */
     public function destroy($id)
     {
-        $review = Review::where('id', $id)->where('user_id', Auth::id())->first();
+        $review = Review::findOrFail($id);
+
+        if (!empty($review->image) && Storage::disk('public')->exists($review->image)) {
+            Storage::disk('public')->delete($review->image);
+        }
 
         $review->delete();
-        return new JsonResponses(Response::HTTP_OK,'Ulasan berhasil dihapus!',$review);
+
+        return new JsonResponses(Response::HTTP_OK, "Review berhasil dihapus!", null);
     }
 }

@@ -13,38 +13,34 @@ class HamletController extends Controller
     /**
      * Get all Hamlets with their details and galleries.
      */
-    public function getAllHamlet()
+    public function all()
     {
-        $hamlet = Hamlet::all();
-
-        $hamlet->transform(function ($item) {
-            $item->image = url('/') . Storage::url($item->image);
+        $hamlets = Hamlet::latest()->get()->map(function ($item) {
+            $item->image = $item->image ? url('/') . Storage::url($item->image) : null;
             return $item;
         });
 
-        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $hamlet);
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $hamlets);
     }
 
     /**
      * Get details of a specific Hamlet by ID.
      */
-    public function getDetailHamlet(Hamlet $id)
+    public function detail($id)
     {
-        $detail = $id->load(['details.galleries']);
+        $hamlet = Hamlet::with(['details.galleries'])->findOrFail($id);
 
-        $detail->image = url('/') . Storage::url($detail->image);
+        $hamlet->image = $hamlet->image ? url('/') . Storage::url($hamlet->image) : null;
 
-        // Iterate over each hamlet_detail and map galleries
-        $detail->details->transform(function ($hamletDetail) {
-
-            // Map over the related galleries for each hamlet detail
-            $hamletDetail->galleries = $hamletDetail->galleries->map(function ($image) {
-                $image->image = url('/') . Storage::url($image->image);
-                return $image;
+        // Map setiap `details` untuk memproses `galleries`
+        $hamlet->details->map(function ($detail) {
+            $detail->galleries = $detail->galleries->map(function ($gallery) {
+                $gallery->image = $gallery->image ? url('/') . Storage::url($gallery->image) : null;
+                return $gallery;
             });
-            return $hamletDetail;
+            return $detail;
         });
 
-        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $detail);
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $hamlet);
     }
 }

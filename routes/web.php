@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ForumController;
 use App\Http\Controllers\Admin\Hamlet\ProgramController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\Frontend\DisplayController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,7 @@ Route::get('lpmkal', [DisplayController::class, 'lpmkal'])->name('FrontEnd.lpmka
 Route::get('program', [DisplayController::class, 'program'])->name('FrontEnd.program');
 Route::get('privacypolicy',[DisplayController::class, 'privacypolicy'])->name('FrontEnd.privacypolicy');
 Route::get('lupapassword',[DisplayController::class, 'lupapassword'])->name('FrontEnd.lupapassword');
-Route::get('ulasan',[DisplayController::class, 'ulasan'])->name('FrontEnd.ulasan');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('login');
@@ -109,4 +110,8 @@ Route::middleware('auth')->group(function () {
     Route::get('program/edit/{id}',[ProgramController::class, 'edit'])->name('program.edit');
     Route::put('program/update/{id}',[ProgramController::class, 'update'])->name('program.update');
     Route::delete('program/delete{id}',[ProgramController::class, 'destroy'])->name('program.destroy');
+
+    Route::get('review/index',[ReviewController::class, 'index'])->name('review.index');
+    Route::get('reviews/show/{id}', [ReviewController::class, 'show'])->name('review.show');
+
 });

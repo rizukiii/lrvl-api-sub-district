@@ -18,58 +18,43 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route untuk Profile
-Route::get('profile', [ProfileController::class, 'index']);
-
-// Route untuk News
-Route::get('news', [NewsController::class, 'getAllNews']);
-Route::get('news/{id}', [NewsController::class, 'getDetailNews']);
-
-// Route untuk Gallery
-Route::get('gallery', [GalleryController::class, 'getAllGallery']);
-Route::get('gallery/{id}', [GalleryController::class, 'getDetailGallery']);
-
-// Route untuk Announcement
-Route::get('announcement', [AnnouncementController::class, 'getAllAnnouncement']);
-Route::get('announcement/{id}', [AnnouncementController::class, 'getDetailAnnouncement']);
-
-// Route untuk Hamlet
-Route::get('hamlet', [HamletController::class, 'getAllHamlet']);
-Route::get('hamlet/{id}', [HamletController::class, 'getDetailHamlet']);
-
-// Submission
-// Correct if you intend to use POST for creating
-Route::get('submission',[SubmissionController::class, 'fetchAll']);
-Route::post('/submission/create', [SubmissionController::class, 'create']);
-// Route::get("test", function(){
-//     echo "Hello saya sedang belajar annon function";
-// });
-// Forum
-
-Route::prefix('forum')->group(function(){
-    Route::get('all', [ForumController::class, 'all']);
-    Route::post('store',[ForumController::class, 'store']);
-    Route::get('show/{id}', [ForumController::class, 'show']);
-    Route::post('update/{id}',[ForumController::class, 'update']);
-    Route::delete('destroy/{id}',[ForumController::class, 'destroy']);
-});
-
-Route::get('review',[ReviewController::class, 'index']);
-Route::post('review/store',[ReviewController::class, 'store']);
-Route::delete('review/destroy',[ReviewController::class, 'destroy']);
-
-// Register
+// Auth
 Route::post('register', [AuthController::class, 'register']);
-
-// Login
 Route::post('login', [AuthController::class, 'login']);
-
-// Routes with authentication middleware
 Route::middleware('auth')->group(function () {
-    // Logout
     Route::post('logout', [AuthController::class, 'logout']);
 
-    // Get user info
     Route::get('user', [AuthController::class, 'user']);
 });
 
+// Route untuk News
+Route::get('news/all', [NewsController::class, 'all']);
+Route::get('news/detail/{id}', [NewsController::class, 'detail']);
+
+// Route untuk Gallery
+Route::get('gallery/all', [GalleryController::class, 'all']);
+Route::get('gallery/detail/{id}', [GalleryController::class, 'detail']);
+
+// Route untuk Announcement
+Route::get('announcement/all', [AnnouncementController::class, 'all']);
+Route::get('announcement/detail/{id}', [AnnouncementController::class, 'detail']);
+
+// Route untuk Hamlet
+Route::get('hamlet/all', [HamletController::class, 'all']);
+Route::get('hamlet/detail/{id}', [HamletController::class, 'detail']);
+
+// Submission
+Route::get('submission/all', [SubmissionController::class, 'all']);
+Route::post('submission/store', [SubmissionController::class, 'store']);
+
+// Forum
+Route::get('forum/all', [ForumController::class, 'all']);
+Route::post('forum/store', [ForumController::class, 'store']);
+Route::get('forum/detail/{id}', [ForumController::class, 'detail']);
+Route::put('forum/update/{id}', [ForumController::class, 'update']);
+Route::delete('forum/destroy/{id}', [ForumController::class, 'destroy']);
+
+// review
+Route::get('reviews/all', [ReviewController::class, 'all']);
+Route::post('reviews/store', [ReviewController::class, 'store']);
+Route::put('reviews/update/{id}', [ReviewController::class, 'update']);

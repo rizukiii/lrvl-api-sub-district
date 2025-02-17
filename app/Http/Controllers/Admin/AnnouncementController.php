@@ -24,7 +24,7 @@ class AnnouncementController extends Controller
         }
 
         // Pagination
-        $announcement = $query->orderBy('date', 'desc')
+        $announcement = $query->orderBy('created_at', 'desc')
         ->paginate(5); // 5 items per page
 
         return view('admin.announcement.index', compact('announcement'));

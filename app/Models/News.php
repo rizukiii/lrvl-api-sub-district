@@ -14,7 +14,6 @@ class News extends Model
         'image',
         'title',
         'description',
-        'date'
     ];
 
     protected function casts(){

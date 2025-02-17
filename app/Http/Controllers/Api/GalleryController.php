@@ -10,15 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class GalleryController extends Controller
 {
-     /**
+    /**
      * Fetch all Gallery (API).
      */
-    public function getAllGallery()
+    public function all()
     {
-        $galeri = Gallery::all();
-
-        $galeri->transform(function($item){
-            $item->image = url('/') . Storage::url($item->image);
+        $galeri = Gallery::latest()->get()->map(function ($item) {
+            $item->image = $item->image ? url('/') . Storage::url($item->image) : null;
             return $item;
         });
 
@@ -28,21 +26,17 @@ class GalleryController extends Controller
     /**
      * Fetch single Gallery details by ID (API).
      */
-
-    public function getDetailGallery(Gallery $id)
+    public function detail($id)
     {
-        // Eager load the `images` relationship
-        $gallery = $id->load('images');
+        $gallery = Gallery::with('images')->findOrFail($id);
 
-        // Transform the gallery and related images
-        $gallery->image = url('/') . Storage::url($gallery->image);
+        $gallery->image = $gallery->image ? url('/') . Storage::url($gallery->image) : null;
 
-        // Map over the related images to update their URLs
         $gallery->images = $gallery->images->map(function ($image) {
-            $image->image = url('/') . Storage::url($image->image);
+            $image->image = $image->image ? url('/') . Storage::url($image->image) : null;
             return $image;
         });
 
-        return $gallery;
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $gallery);
     }
 }

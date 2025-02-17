@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\JsonResponses;
 use App\Models\News;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,12 +13,10 @@ class NewsController extends Controller
     /**
      * Fetch all News (API).
      */
-    public function getAllNews()
+    public function all()
     {
-        $news = News::all();
-
-        $news->transform(function($item){
-            $item->image = url('/') . Storage::url($item->image);
+        $news = News::latest()->get()->map(function ($item) {
+            $item->image = $item->image ? url('/') . Storage::url($item->image) : null;
             return $item;
         });
 
@@ -29,10 +26,12 @@ class NewsController extends Controller
     /**
      * Fetch single News details by ID (API).
      */
-    public function getDetailNews(News $id)
+    public function detail($id)
     {
-        $id->image = url('/') . Storage::url($id->image);
+        $news = News::findOrFail($id);
 
-        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $id);
+        $news->image = $news->image ? url('/') . Storage::url($news->image) : null;
+
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $news);
     }
 }

@@ -24,7 +24,7 @@ class NewsController extends Controller
         }
 
         // Pagination
-        $news = $query->orderBy('date', 'desc')
+        $news = $query->orderBy('created_at', 'desc')
         ->paginate(5); // 5 items per page
 
         return view('admin.news.index', compact('news'));

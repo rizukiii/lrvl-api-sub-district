@@ -12,27 +12,31 @@ use Symfony\Component\HttpFoundation\Response;
 class AnnouncementController extends Controller
 {
     /**
-     * Fetch all Announcement (API).
+     * Fetch all Announcements (API).
      */
-    public function getAllAnnouncement()
+    public function all()
     {
-        $news = Announcement::all();
-
-        $news->transform(function($item){
-            $item->image = url('/') . Storage::url($item->image);
+        $announcement = Announcement::latest()->get()->map(function ($item) {
+            $item->image = $item->image ? url('/') . Storage::url($item->image) : null;
             return $item;
         });
 
-        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $news);
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $announcement);
     }
 
     /**
      * Fetch single Announcement details by ID (API).
      */
-    public function getDetailAnnouncement(Announcement $id)
+    public function detail($id)
     {
-        $id->image = url('/') . Storage::url($id->image);
+        $announcement = Announcement::findOrFail($id);
 
-        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $id);
+        if ($announcement->image) {
+            $announcement->image = url('/') . Storage::url($announcement->image);
+        } else {
+            unset($announcement->image);
+        }
+
+        return new JsonResponses(Response::HTTP_OK, "Data berhasil didapat", $announcement);
     }
 }
